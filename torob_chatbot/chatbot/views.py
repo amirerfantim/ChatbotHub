@@ -1,5 +1,6 @@
-from .forms import RegistrationForm
+from .forms import RegistrationForm, LoginForm
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import CustomUser
 
@@ -24,6 +25,28 @@ def register(request):
         form = RegistrationForm()
 
     return render(request, 'register.html', {'form': form})
+
+
+def login_view(request):
+    form = LoginForm()
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+
+            user = authenticate(request, username=email, password=password)
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Login successful.')
+                return redirect('home')  # Replace 'home' with the actual URL name for your home page
+            else:
+                messages.error(request, 'Invalid login credentials.')
+
+    return render(request, 'login.html', {'form': form})
+
 
 def home(request):
     return render(request, 'home.html')
