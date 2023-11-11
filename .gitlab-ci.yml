@@ -1,0 +1,30 @@
+stages:
+  - "build"
+  - "deploy"
+
+build-job:
+    services:
+      - docker:dind
+    tags:
+      - bootcamp
+      - fi
+    stage: build
+    image: docker:stable
+    script:
+        - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
+        - docker build -t registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA} ./torob_chatbot
+        - docker push registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}
+
+
+deploy-job:
+    tags:
+      - bootcamp
+      - ir
+    image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
+    interruptible: true
+    only:
+       refs:
+            - main
+    script:
+        - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
+    stage: deploy
