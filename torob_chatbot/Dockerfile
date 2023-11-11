@@ -12,5 +12,4 @@ CMD python /app/manage.py makemigration
 
 CMD python /app/manage.py migrate
 
-CMD python /app/manage.py runserver
 
