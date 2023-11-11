@@ -6,7 +6,7 @@ build-job:
     services:
       - docker:dind
     tags:
-      - chatbot
+      - bootcamp
       - fi
     stage: build
     image: docker:stable
@@ -18,7 +18,7 @@ build-job:
 
 deploy-job:
     tags:
-      - chatbot
+      - bootcamp
       - ir
     image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
     interruptible: true
