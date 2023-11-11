@@ -8,4 +8,8 @@ COPY ./ /app
 
 VOLUME /data=/data
 
+CMD python /app/manage.py makemigration
+
+CMD python /app/manage.py migrate
+
 
