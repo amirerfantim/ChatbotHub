@@ -24,7 +24,7 @@ def register(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'user/register.html', {'form': form})
 
 
 def login_view(request):
@@ -45,7 +45,7 @@ def login_view(request):
             else:
                 messages.error(request, 'Invalid login credentials.')
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'user/login.html', {'form': form})
 
 
 def home(request):
