@@ -4,7 +4,7 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     USER_TYPE_CHOICES = [
-        ('regular', 'Regular User'),
+        ('regular', 'Regular user'),
         ('chatbot_creator', 'Chatbot Creator'),
         ('admin', 'Admin'),
     ]
