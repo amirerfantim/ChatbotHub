@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-g@%!^m!u8)(&gtf10f#=jcc!!pox)761br_bs(ly&*%g8^t1qv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['amirerfan-torob-chatbot.darkube.app']
 
 # Application definition
 
@@ -46,6 +46,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://amirerfan-torob-chatbot.darkube.app'
 ]
 
 ROOT_URLCONF = 'torob_chatbot.urls'
