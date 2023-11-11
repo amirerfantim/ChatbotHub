@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+
 AUTH_USER_MODEL = 'chatbot.CustomUser'
 from pathlib import Path
 
@@ -73,13 +75,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'torob_chatbot.wsgi.application'
 
+DB_DIR = os.environ.get("DB_DIR")
+if DB_DIR:
+    DB_DIR = Path(DB_DIR)
+else:
+    DB_DIR = BASE_DIR
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': DB_DIR / 'db.sqlite3',
     }
 }
 
