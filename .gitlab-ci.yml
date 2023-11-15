@@ -21,7 +21,6 @@ deploy-job:
       - bootcamp
       - ir
     image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
-    interruptible: true
     only:
        refs:
             - main
