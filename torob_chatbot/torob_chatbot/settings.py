@@ -75,21 +75,33 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'torob_chatbot.wsgi.application'
 
-DB_DIR = os.environ.get("DB_DIR")
-if DB_DIR:
-    DB_DIR = Path(DB_DIR)
-else:
-    DB_DIR = BASE_DIR
+# DB_DIR = os.environ.get("DB_DIR")
+# if DB_DIR:
+#     DB_DIR = Path(DB_DIR)
+# else:
+#     DB_DIR = BASE_DIR
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': DB_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'torob-chatbot',
+        'USER': 'postgres',
+        'PASSWORD': 'BPovTjIzzuiGucEbwVQdIDdDxEXtNO83',
+        'HOST': '65a576c6-59db-457e-96fc-3a0d4da50425.hsvc.ir',
+        'PORT': '30269',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
