@@ -6,7 +6,7 @@ RUN pip install -r /app/requirements.txt
 
 COPY ./ /app
 
-VOLUME /data=/data
+VOLUME /data=/var/lib/postgresql/data
 
 
 
