@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'torob_chatbot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'torob-chatbot',
+        'NAME': 'torob-chatbot-0',
         'USER': 'postgres',
         'PASSWORD': 'BPovTjIzzuiGucEbwVQdIDdDxEXtNO83',
         'HOST': '65a576c6-59db-457e-96fc-3a0d4da50425.hsvc.ir',
