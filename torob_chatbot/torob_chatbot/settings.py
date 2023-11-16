@@ -28,6 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['amirerfan-torob-chatbot.darkube.app', '127.0.0.1', 'localhost']
 
+
+MEDIA_ROOT = '/media'
+MEDIA_URL = '/media/'
+
+# Use the Docker volume path for MEDIA_ROOT
+VOLUME_PATH = '/vol'
+MEDIA_ROOT = os.path.join(VOLUME_PATH, 'media')
+
 # Application definition
 
 INSTALLED_APPS = [
