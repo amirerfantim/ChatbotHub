@@ -27,13 +27,20 @@ def generate_chatbot_response(conversation):
     return content_value
 
 
-def regenerate_chatbot_response(message):
+def regenerate_chatbot_response(conversation, message):
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+    ]
+
+    previous_messages = conversation.message_set.filter(timestamp__lt=message.timestamp)
+
+    for previous_message in previous_messages:
+        role = "user" if not previous_message.is_bot else "assistant"
+        messages.append({"role": role, "content": previous_message.content})
+
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "regenerate a message"},
-            {"role": "user", "content": message.content},
-        ]
+        messages=messages
     )
 
     json_str = json.loads(response)

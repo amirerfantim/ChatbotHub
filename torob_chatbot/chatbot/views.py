@@ -150,7 +150,7 @@ def like_dislike_message(request, message_id, action):
         if action == 'like':
             message.likes += 1
         elif action == 'dislike':
-            regenerated_content = regenerate_chatbot_response(message)
+            regenerated_content = regenerate_chatbot_response(conversation, message)
             message.original_content = message.content
             message.content = regenerated_content
             message.dislikes += 1
