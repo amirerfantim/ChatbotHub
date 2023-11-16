@@ -30,9 +30,6 @@ ALLOWED_HOSTS = ['amirerfan-torob-chatbot.darkube.app', '127.0.0.1', 'localhost'
 
 # Application definition
 
-MEDIA_ROOT = '/chatbot_photos/'
-MEDIA_URL = '/media/'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
