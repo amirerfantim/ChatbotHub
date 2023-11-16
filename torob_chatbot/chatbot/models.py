@@ -76,7 +76,6 @@ class Message(models.Model):
         super().save(*args, **kwargs)
         self.conversation.update_last_message_date()
 
-
 # class UserRating(models.Model):
 #     message = models.ForeignKey(Message, on_delete=models.CASCADE)
 #     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
