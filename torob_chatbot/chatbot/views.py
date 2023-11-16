@@ -1,9 +1,13 @@
+from django.contrib.auth.decorators import login_required
+
 from .forms import RegistrationForm, LoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import CustomUser
+from .models import CustomUser, Conversation, Chatbot
 from django.views.decorators.csrf import csrf_exempt
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 @csrf_exempt
@@ -49,6 +53,13 @@ def login_view(request):
                 messages.error(request, 'Invalid login credentials.')
 
     return render(request, 'user/login.html', {'form': form})
+
+@csrf_exempt
+@login_required()
+def chatbot_list(request):
+    chatbots = Chatbot.objects.all()
+    return render(request, 'chatbot_list.html', {'chatbots': chatbots})
+
 
 
 @csrf_exempt

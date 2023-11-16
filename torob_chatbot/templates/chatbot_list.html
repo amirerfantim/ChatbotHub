@@ -1,0 +1,58 @@
+<!-- templates/chatbot_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <h1>All Chatbots</h1>
+    {% if chatbots %}
+        <ul>
+            {% for chatbot in chatbots %}
+                <li>
+                    <strong>{{ chatbot.name }}</strong><br>
+                    {{ chatbot.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No chatbots available.</p>
+    {% endif %}
+</body>
+</html>
