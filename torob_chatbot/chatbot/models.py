@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
         verbose_name='user permissions',
         blank=True,
         help_text='Specific permissions for this user.',
-        related_name='customuser_set',  
+        related_name='customuser_set',
         related_query_name='user',
     )
 
@@ -37,7 +37,6 @@ class Chatbot(models.Model):
     bot_photo = models.ImageField(upload_to='chatbot_photos/', null=True, blank=True)
 
 
-
 class ChatbotContent(models.Model):
     chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
     content = models.TextField(max_length=800)
@@ -48,12 +47,24 @@ class Conversation(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     start_date = models.DateTimeField(auto_now_add=True)
 
+    last_message_date = models.DateTimeField(auto_now_add=True)
+
+    def update_last_message_date(self):
+        last_message = self.message_set.last()
+        if last_message:
+            self.last_message_date = last_message.timestamp
+            self.save()
+
 
 class Message(models.Model):
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.conversation.update_last_message_date()
 
 
 class UserRating(models.Model):
