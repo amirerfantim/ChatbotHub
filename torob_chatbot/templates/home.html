@@ -37,7 +37,9 @@
 </head>
 <body>
     <h1>Welcome to Your Home Page</h1>
-    <p>Explore your chatbots <a href="{% url 'chatbot-list' %}">here</a>.</p>
+    <p>Explore all chatbots <a href="{% url 'chatbot-list' %}">here</a>.</p>
     <p>View your chat history <a href="{% url 'chat_history' %}">here</a>.</p>
+    <p>If you don't have an account, you can <a href="{% url 'register' %}">register</a>.</p>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a>.</p>
 </body>
 </html>
