@@ -155,13 +155,12 @@ def like_dislike_message(request, message_id, action):
             message.content = regenerated_content
             message.dislikes += 1
 
-        message.save(update_timestamp=False)
+        message.save()
 
         return redirect('chat_details', conversation_id=conversation.id)
 
     except Message.DoesNotExist:
         return HttpResponseBadRequest('Invalid message ID')
-
 
 
 @csrf_exempt
