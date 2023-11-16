@@ -6,6 +6,8 @@ RUN pip install -r /app/requirements.txt
 
 COPY ./ /app
 
+RUN mkdir vol
+
 VOLUME /data=/var/lib/postgresql/data
 
 VOLUME /media=/vol
