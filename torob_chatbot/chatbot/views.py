@@ -4,7 +4,7 @@ from .forms import RegistrationForm, LoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import CustomUser, Conversation, Chatbot
+from .models import CustomUser, Conversation, Chatbot, Message
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -60,6 +60,7 @@ def chatbot_list(request):
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
+
 @csrf_exempt
 @login_required()
 def start_conversation(request):
@@ -74,6 +75,7 @@ def start_conversation(request):
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
+
 @csrf_exempt
 @login_required()
 def chat_details(request, conversation_id):
@@ -81,6 +83,7 @@ def chat_details(request, conversation_id):
     messages = conversation.message_set.all()
 
     return render(request, 'chat-details.html', {'conversation': conversation, 'messages': messages})
+
 
 @csrf_exempt
 @login_required()
@@ -98,6 +101,26 @@ def chat_history(request):
         conversations = paginator.page(paginator.num_pages)
 
     return render(request, 'chat-list.html', {'conversations': conversations})
+
+
+@csrf_exempt
+@login_required
+def send_message(request, conversation_id):
+    if request.method == 'POST':
+        content = request.POST.get('content', '')
+
+        if content:
+            conversation = Conversation.objects.get(pk=conversation_id)
+            user = request.user
+            message = Message.objects.create(conversation=conversation, user=user, content=content)
+            return redirect('chat_details', conversation_id=conversation_id)
+
+        else:
+            messages.error(request, 'Message cannot be empty.')
+
+    return redirect('chat_history')
+
+
 
 @csrf_exempt
 def home(request):
