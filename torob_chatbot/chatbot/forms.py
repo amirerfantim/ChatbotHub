@@ -11,3 +11,7 @@ class RegistrationForm(forms.Form):
 class LoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class UserMessageForm(forms.Form):
+    content = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Type your message'}))
