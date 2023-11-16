@@ -20,21 +20,24 @@
     <div class="container mx-auto p-4 mt-4">
         <div class="chat-container bg-white rounded p-4 shadow-md">
             <div class="chat-messages">
-                <!-- Display chat messages here -->
-                {% for message in conversation.message_set.all %}
+                {% for message in conversation.message_set.all|dictsort:"timestamp" %}
                     <div class="message {% if message.is_bot %}received{% else %}sent{% endif %} flex items-center mb-2  border rounded p-2 mb-4 hover:bg-gray-100">
                         {% if not message.is_bot %}
                             <div class="message-content ml-2 text-gray-600">{{ message.content }}</div>
                         {% else %}
-                            <button class="btn-like">👍</button>
-                            <button class="btn-dislike">👎</button>
+                            <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-like">👍 {{ message.likes }}</button>
+                            </form>
+                            <form method="post" action="{% url 'like_dislike_message' message.id 'dislike' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-dislike">👎 {{ message.dislikes }}</button>
+                            </form>
                             <div class="message-content ml-2">{{ message.content }}</div>
                         {% endif %}
                     </div>
                 {% endfor %}
-                <!-- Add more chat messages as needed -->
             </div>
-            <!-- Message Input -->
             <form method="post" action="{% url 'send_message' conversation.id %}">
                 {% csrf_token %}
                 <div class="message-input flex items-center">

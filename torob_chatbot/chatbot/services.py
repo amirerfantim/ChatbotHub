@@ -1,12 +1,14 @@
 # chatbot/services.py
+from django.utils import timezone
 from openai import OpenAI
 import json
+
+from chatbot.models import Message
 
 client = OpenAI(api_key="ENlX4UYxAfdvcCjxfITO76eIZ5Ee8NUi", base_url="https://openai.torob.ir/v1")
 
 
 def generate_chatbot_response(conversation):
-    # Extracting conversation context
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
     ]
@@ -25,8 +27,21 @@ def generate_chatbot_response(conversation):
     return content_value
 
 
-def generate_conversation_title(user_message):
+def regenerate_chatbot_response(message):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "regenerate a message"},
+            {"role": "user", "content": message.content},
+        ]
+    )
 
+    json_str = json.loads(response)
+    content_value = json_str['choices'][0]['message']['content']
+    return content_value
+
+
+def generate_conversation_title(user_message):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[

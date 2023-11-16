@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseBadRequest
 from django.utils import timezone
+from django.views.decorators.http import require_POST
 
 from .forms import RegistrationForm, LoginForm
 from django.shortcuts import render, redirect, get_object_or_404
@@ -9,7 +11,7 @@ from .models import CustomUser, Conversation, Chatbot, Message
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .services import generate_conversation_title, generate_chatbot_response
+from .services import generate_conversation_title, generate_chatbot_response, regenerate_chatbot_response
 
 
 @csrf_exempt
@@ -135,6 +137,31 @@ def send_message(request, conversation_id):
             messages.error(request, 'Message cannot be empty.')
 
     return redirect('chat_history')
+
+
+@require_POST
+@login_required()
+@csrf_exempt
+def like_dislike_message(request, message_id, action):
+    try:
+        message = Message.objects.get(pk=message_id)
+        conversation = message.conversation
+
+        if action == 'like':
+            message.likes += 1
+        elif action == 'dislike':
+            regenerated_content = regenerate_chatbot_response(message)
+            message.original_content = message.content
+            message.content = regenerated_content
+            message.dislikes += 1
+
+        message.save(update_timestamp=False)
+
+        return redirect('chat_details', conversation_id=conversation.id)
+
+    except Message.DoesNotExist:
+        return HttpResponseBadRequest('Invalid message ID')
+
 
 
 @csrf_exempt
