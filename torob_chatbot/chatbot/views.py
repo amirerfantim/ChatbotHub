@@ -70,7 +70,6 @@ def start_conversation(request):
 
         return redirect('chat_details', conversation_id=conversation.id)
 
-    # Handle GET requests or other cases
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
