@@ -65,15 +65,18 @@ def start_conversation(request):
     if request.method == 'POST':
         chatbot_id = request.POST.get('chatbot_id')
         chatbot = Chatbot.objects.get(id=chatbot_id)
+        user = request.user
         conversation = Conversation.objects.create(chatbot=chatbot, user=user)
 
         return redirect('chat_details', conversation_id=conversation.id)
 
+    # Handle GET requests or other cases
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
 
 def chat_details(request, conversation_id):
+
     conversation = Conversation.objects.get(id=conversation_id)
     messages = conversation.message_set.all()
 
