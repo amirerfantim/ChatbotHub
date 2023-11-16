@@ -9,7 +9,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
@@ -54,12 +53,31 @@ def login_view(request):
 
     return render(request, 'user/login.html', {'form': form})
 
+
 @csrf_exempt
 @login_required()
 def chatbot_list(request):
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
+
+def start_conversation(request):
+    if request.method == 'POST':
+        chatbot_id = request.POST.get('chatbot_id')
+        chatbot = Chatbot.objects.get(id=chatbot_id)
+        conversation = Conversation.objects.create(chatbot=chatbot, user=user)
+
+        return redirect('chat_details', conversation_id=conversation.id)
+
+    chatbots = Chatbot.objects.all()
+    return render(request, 'chatbot-list.html', {'chatbots': chatbots})
+
+
+def chat_details(request, conversation_id):
+    conversation = Conversation.objects.get(id=conversation_id)
+    messages = conversation.message_set.all()
+
+    return render(request, 'chat-details.html', {'conversation': conversation, 'messages': messages})
 
 
 @csrf_exempt
