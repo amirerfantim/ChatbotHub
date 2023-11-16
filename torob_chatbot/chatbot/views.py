@@ -58,7 +58,7 @@ def login_view(request):
 @login_required()
 def chatbot_list(request):
     chatbots = Chatbot.objects.all()
-    return render(request, 'chatbot_list.html', {'chatbots': chatbots})
+    return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
 
 
