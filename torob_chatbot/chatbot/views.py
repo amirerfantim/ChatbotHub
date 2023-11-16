@@ -114,27 +114,25 @@ def send_message(request, conversation_id):
 
         if content:
             conversation = Conversation.objects.get(pk=conversation_id)
-            user = request.user
 
-            is_bot = False
+            # Create a message from the user
+            Message.objects.create(conversation=conversation, content=content, is_bot=False)
 
-            if user.is_authenticated:
-                bot_message_content = generate_chatbot_response(content)
+            # Generate a response from the chatbot
+            bot_response = generate_chatbot_response(conversation)
 
-                Message.objects.create(conversation=conversation, content=content, is_bot=False)
+            # Create a message from the chatbot
+            Message.objects.create(conversation=conversation, content=bot_response, is_bot=True)
 
-                Message.objects.create(conversation=conversation, content=bot_message_content, is_bot=True)
-
-            else:
-                Message.objects.create(conversation=conversation, content=content, is_bot=False)
+            # Update the conversation's last message date
+            conversation.last_message_date = timezone.now()
+            conversation.save()
 
             return redirect('chat_details', conversation_id=conversation_id)
-
         else:
             messages.error(request, 'Message cannot be empty.')
 
     return redirect('chat_history')
-
 
 
 @csrf_exempt
