@@ -9,7 +9,7 @@ from .models import CustomUser, Conversation, Chatbot, Message
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .services import generate_chatbot_response
+from .services import generate_conversation_title, generate_chatbot_response
 
 
 @csrf_exempt
@@ -113,18 +113,20 @@ def send_message(request, conversation_id):
         content = request.POST.get('content', '')
 
         if content:
+
             conversation = Conversation.objects.get(pk=conversation_id)
 
-            # Create a message from the user
-            Message.objects.create(conversation=conversation, content=content, is_bot=False)
+            is_first_message = not conversation.message_set.exists()
 
-            # Generate a response from the chatbot
+            user_message = Message.objects.create(conversation=conversation, content=content, is_bot=False)
+
             bot_response = generate_chatbot_response(conversation)
 
-            # Create a message from the chatbot
             Message.objects.create(conversation=conversation, content=bot_response, is_bot=True)
 
-            # Update the conversation's last message date
+            if is_first_message:
+                conversation.title = generate_conversation_title(user_message.content)
+
             conversation.last_message_date = timezone.now()
             conversation.save()
 
