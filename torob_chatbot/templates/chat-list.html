@@ -28,17 +28,18 @@
                 <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
                     <a href="{% url 'chat_details' conversation.id %}" class="chat-link flex items-center">
                         <div class="chat-avatar" style="width:60px;height:60px;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="{{ conversation.chatbot.name }}">
+                            <img src="{{ conversation.chatbot.bot_photo.url }}" alt="{{ conversation.chatbot.name }}">
                         </div>
                         <div class="chat-details">
                             <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
                             <p class="chat-preview">chat title</p>
-                            <p class="chat-date">date of last message: {{ conversation.start_date }}</p>
+                            <p class="chat-date">date of last message: {{ conversation.start_date|date:"F j, Y H:i" }}</p>
                         </div>
                     </a>
                 </li>
             {% endfor %}
         </ul>
+
         <!-- Pagination -->
         <div class="pagination flex space-x-2">
             <ul>
