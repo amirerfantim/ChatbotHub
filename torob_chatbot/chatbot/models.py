@@ -68,14 +68,20 @@ class Message(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     is_bot = models.BooleanField(default=False)
+    likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
+    original_content = models.TextField(blank=True, null=True)
 
-    def save(self, *args, **kwargs):
+    def save(self, update_timestamp=True, *args, **kwargs):
+        if not update_timestamp:
+            kwargs['update_fields'] = kwargs.get('update_fields', []) + ['content', 'is_bot', 'likes', 'dislikes', 'original_content']
         super().save(*args, **kwargs)
-        self.conversation.update_last_message_date()
+        if update_timestamp:
+            self.conversation.update_last_message_date()
 
 
-class UserRating(models.Model):
-    message = models.ForeignKey(Message, on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    like = models.BooleanField(default=False)
-    dislike = models.BooleanField(default=False)
+# class UserRating(models.Model):
+#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
+#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#     like = models.BooleanField(default=False)
+#     dislike = models.BooleanField(default=False)
