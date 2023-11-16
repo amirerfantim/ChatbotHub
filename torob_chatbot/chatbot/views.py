@@ -75,11 +75,28 @@ def start_conversation(request):
 
 
 def chat_details(request, conversation_id):
-
     conversation = Conversation.objects.get(id=conversation_id)
     messages = conversation.message_set.all()
 
     return render(request, 'chat-details.html', {'conversation': conversation, 'messages': messages})
+
+
+def chat_history(request):
+    # Get all conversations for the current user
+    user = request.user
+    conversations = Conversation.objects.filter(user=user)
+
+    # Paginate the conversations
+    page = request.GET.get('page', 1)
+    paginator = Paginator(conversations, 10)  # 10 conversations per page
+    try:
+        conversations = paginator.page(page)
+    except PageNotAnInteger:
+        conversations = paginator.page(1)
+    except EmptyPage:
+        conversations = paginator.page(paginator.num_pages)
+
+    return render(request, 'chat-list.html', {'conversations': conversations})
 
 
 @csrf_exempt

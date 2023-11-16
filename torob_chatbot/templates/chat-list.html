@@ -24,34 +24,36 @@
         </div>
         <!-- List of Previous Chats -->
         <ul class="chat-list">
-            <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
-                <a href="chat-details.html" class="chat-link flex items-center">
-                    <div class="chat-avatar" style="width:60px;height:60px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="User 1">
-                    </div>
-                    <div class="chat-details">
-                        <h3 class="chat-title">ChatBot name</h3>
-                        <p class="chat-preview">chat title</p>
-                        <p class="chat-date">date of last message: </p>
-                    </div>
-                </a>
-            </li>
-            <!-- Add more chat items here with the same added styles -->
+            {% for conversation in conversations %}
+                <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
+                    <a href="{% url 'chat_details' conversation.id %}" class="chat-link flex items-center">
+                        <div class="chat-avatar" style="width:60px;height:60px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="{{ conversation.chatbot.name }}">
+                        </div>
+                        <div class="chat-details">
+                            <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
+                            <p class="chat-preview">chat title</p>
+                            <p class="chat-date">date of last message: {{ conversation.start_date }}</p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
         </ul>
         <!-- Pagination -->
         <div class="pagination flex space-x-2">
             <ul>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <!-- Add more pages as needed -->
+                {% for num in conversations.paginator.page_range %}
+                    <li class="{% if conversations.number == num %}current{% endif %}">
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
     <footer>
         <div class="container mx-auto">
-            <a href="create-chat.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Create New Chat</a>
+            <a href="{% url 'start_conversation' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Create New Chat</a>
         </div>
     </footer>
 </body>
 </html>
-

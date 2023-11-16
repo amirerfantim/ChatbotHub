@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import register, home, login_view, chatbot_list, start_conversation, chat_details
+from .views import register, home, login_view, chatbot_list, start_conversation, chat_details, chat_history
 
 urlpatterns = [
     path('register/', register, name='register'),
@@ -8,4 +8,6 @@ urlpatterns = [
     path('chatbots/', chatbot_list, name='chatbot-list'),
     path('start-conversation/', start_conversation, name='start_conversation'),
     path('chat-details/<int:conversation_id>/', chat_details, name='chat_details'),
+    path('chat-history/', chat_history, name='chat_history'),
+
 ]
