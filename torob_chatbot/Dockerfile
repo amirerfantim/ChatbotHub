@@ -8,5 +8,6 @@ COPY ./ /app
 
 VOLUME /data=/var/lib/postgresql/data
 
+VOLUME /data=/app/chatbot_photos/
 
 
