@@ -46,8 +46,14 @@ class Conversation(models.Model):
     chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     start_date = models.DateTimeField(auto_now_add=True)
-
+    title = models.TextField(max_length=100)
     last_message_date = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.title = f"Chat with {self.chatbot.name}"
+
+        super().save(*args, **kwargs)
 
     def update_last_message_date(self):
         last_message = self.message_set.last()
