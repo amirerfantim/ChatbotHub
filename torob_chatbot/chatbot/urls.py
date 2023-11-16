@@ -2,7 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
-from .views import register, home, login_view, chatbot_list, start_conversation, chat_details, chat_history
+from .views import register, home, login_view, chatbot_list, start_conversation, chat_details, chat_history, \
+    send_message
 
 urlpatterns = [
     path('register/', register, name='register'),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('chatbots/', chatbot_list, name='chatbot-list'),
     path('start-conversation/', start_conversation, name='start_conversation'),
     path('chat-details/<int:conversation_id>/', chat_details, name='chat_details'),
+    path('send-message/<int:conversation_id>/', send_message, name='send_message'),
     path('chat-history/', chat_history, name='chat_history'),
 
 ]

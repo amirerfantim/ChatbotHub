@@ -1,3 +1,4 @@
+<!-- templates/chat-details.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +21,29 @@
     <div class="container mx-auto p-4 mt-4">
         <div class="chat-container bg-white rounded p-4 shadow-md">
             <div class="chat-messages">
-                <!-- Display chat messages here -->
-                <div class="message received flex items-center mb-2  border rounded p-2 mb-4 hover:bg-gray-100">
-                    <button class="btn-like">👍</button>
-                    <button class="btn-dislike">👎</button>
-                    <div class="message-content ml-2">Hello, how are you?</div>
-                </div>
-                <div class="message sent flex items-center justify-end  border rounded p-2 mb-4 hover:bg-gray-100">
-                    <div class="message-content">I'm good, thanks!</div>
-                </div>
-                <!-- Add more chat messages as needed -->
+                {% for message in conversation.message_set.all %}
+                    <div class="{% if message.user == request.user %}message sent{% else %}message received{% endif %} flex items-center mb-2  border rounded p-2 mb-4 hover:bg-gray-100">
+                        <!-- User Message -->
+                        <div class="message-content ml-2">{{ message.content }}</div>
+                    </div>
+                    {% if message.user == request.user %}
+                        <!-- Chatbot Message (below user message) -->
+                        <div class="message received flex items-center mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
+                            <button class="btn-like">👍</button>
+                            <button class="btn-dislike">👎</button>
+                            <div class="message-content ml-2">You're doing great!</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <!-- Message Input -->
-            <div class="message-input flex items-center">
-                <input type="text" placeholder="Type your message" class="flex-1 border rounded py-2 px-3 mr-2">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Send</button>
-            </div>
+            <form method="post" action="{% url 'send_message' conversation.id %}">
+                {% csrf_token %}
+                <div class="message-input flex items-center">
+                    <input type="text" name="content" placeholder="Type your message" class="flex-1 border rounded py-2 px-3 mr-2">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Send</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
