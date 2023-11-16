@@ -1,3 +1,4 @@
+<!-- chatbot-list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +21,15 @@
         <ul class="chatbot-list">
             {% for chatbot in chatbots %}
                 <li class="chatbot-item border rounded p-2 mb-4 hover:bg-gray-100">
-                    <h3 class="chatbot-title">{{ chatbot.name }}</h3>
-                    <p class="chatbot-description">{{ chatbot.description }}</p>
+                    <div class="flex items-center">
+                        <div class="chatbot-avatar" style="width:60px;height:60px;">
+                            <img src="{{ chatbot.bot_photo.url }}" alt="{{ chatbot.name }}">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="chatbot-title">{{ chatbot.name }}</h3>
+                            <p class="chatbot-description">{{ chatbot.description }}</p>
+                        </div>
+                    </div>
                     <!-- Button to Start Conversation -->
                     <form method="post" action="{% url 'start_conversation' %}">
                         {% csrf_token %}

@@ -60,7 +60,7 @@ def login_view(request):
 @csrf_exempt
 @login_required()
 def chatbot_list(request):
-    chatbots = Chatbot.objects.order_by("created_date")
+    chatbots = Chatbot.objects.all().order_by("created_date")
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
 
