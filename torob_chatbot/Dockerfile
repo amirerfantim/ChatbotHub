@@ -10,6 +10,6 @@ RUN mkdir /chatbot_photos
 
 VOLUME /data=/var/lib/postgresql/data
 
-VOLUME /data=/chatbot_photos
+VOLUME /media=/chatbot_photos
 
 
