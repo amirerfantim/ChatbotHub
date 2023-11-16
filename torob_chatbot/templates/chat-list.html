@@ -33,7 +33,7 @@
                         <div class="chat-details">
                             <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
                             <p class="chat-preview">chat title</p>
-                            <p class="chat-date">date of last message: {{ conversation.start_date|date:"F j, Y H:i" }}</p>
+                            <p class="chat-date">date of last message: {{ conversation.last_message_date|date:"F j, Y H:i" }}</p>
                         </div>
                     </a>
                 </li>
