@@ -35,6 +35,7 @@ class Chatbot(models.Model):
     description = models.TextField()
     is_active = models.BooleanField(default=True)
     bot_photo = models.ImageField(upload_to='chatbot_photos/', null=True, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
 
 
 class ChatbotContent(models.Model):
