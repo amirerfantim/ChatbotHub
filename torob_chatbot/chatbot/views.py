@@ -60,7 +60,8 @@ def chatbot_list(request):
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
-
+@csrf_exempt
+@login_required()
 def start_conversation(request):
     if request.method == 'POST':
         chatbot_id = request.POST.get('chatbot_id')
@@ -73,22 +74,22 @@ def start_conversation(request):
     chatbots = Chatbot.objects.all()
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
-
+@csrf_exempt
+@login_required()
 def chat_details(request, conversation_id):
     conversation = Conversation.objects.get(id=conversation_id)
     messages = conversation.message_set.all()
 
     return render(request, 'chat-details.html', {'conversation': conversation, 'messages': messages})
 
-
+@csrf_exempt
+@login_required()
 def chat_history(request):
-    # Get all conversations for the current user
     user = request.user
     conversations = Conversation.objects.filter(user=user)
 
-    # Paginate the conversations
     page = request.GET.get('page', 1)
-    paginator = Paginator(conversations, 10)  # 10 conversations per page
+    paginator = Paginator(conversations, 5)
     try:
         conversations = paginator.page(page)
     except PageNotAnInteger:
@@ -97,7 +98,6 @@ def chat_history(request):
         conversations = paginator.page(paginator.num_pages)
 
     return render(request, 'chat-list.html', {'conversations': conversations})
-
 
 @csrf_exempt
 def home(request):
