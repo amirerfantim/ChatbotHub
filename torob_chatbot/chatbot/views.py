@@ -60,7 +60,7 @@ def login_view(request):
 @csrf_exempt
 @login_required()
 def chatbot_list(request):
-    chatbots = Chatbot.objects.all()
+    chatbots = Chatbot.objects.order_by("created_date")
     return render(request, 'chatbot-list.html', {'chatbots': chatbots})
 
 
@@ -92,7 +92,7 @@ def chat_details(request, conversation_id):
 @login_required()
 def chat_history(request):
     user = request.user
-    conversations = Conversation.objects.filter(user=user)
+    conversations = Conversation.objects.filter(user=user).order_by('-last_message_date')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(conversations, 5)
