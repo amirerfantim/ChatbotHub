@@ -1,12 +1,15 @@
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 from .forms import RegistrationForm, LoginForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import CustomUser, Conversation, Chatbot, Message
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .services import generate_chatbot_response
 
 
 @csrf_exempt
@@ -112,7 +115,19 @@ def send_message(request, conversation_id):
         if content:
             conversation = Conversation.objects.get(pk=conversation_id)
             user = request.user
-            message = Message.objects.create(conversation=conversation, user=user, content=content)
+
+            is_bot = False
+
+            if user.is_authenticated:
+                bot_message_content = generate_chatbot_response(content)
+
+                Message.objects.create(conversation=conversation, content=content, is_bot=False)
+
+                Message.objects.create(conversation=conversation, content=bot_message_content, is_bot=True)
+
+            else:
+                Message.objects.create(conversation=conversation, content=content, is_bot=False)
+
             return redirect('chat_details', conversation_id=conversation_id)
 
         else:
