@@ -8,8 +8,6 @@ COPY ./ /app
 
 RUN mkdir vol
 
-VOLUME /data=/var/lib/postgresql/data
-
-VOLUME /media=/vol
+VOLUME /chatbot_photos
 
 
