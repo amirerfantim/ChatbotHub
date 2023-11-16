@@ -72,12 +72,9 @@ class Message(models.Model):
     dislikes = models.PositiveIntegerField(default=0)
     original_content = models.TextField(blank=True, null=True)
 
-    def save(self, update_timestamp=True, *args, **kwargs):
-        if not update_timestamp:
-            kwargs['update_fields'] = kwargs.get('update_fields', []) + ['content', 'is_bot', 'likes', 'dislikes', 'original_content']
+    def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        if update_timestamp:
-            self.conversation.update_last_message_date()
+        self.conversation.update_last_message_date()
 
 
 # class UserRating(models.Model):
