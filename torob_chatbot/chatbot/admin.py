@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.core.exceptions import PermissionDenied
+
 from chatbot.models import CustomUser, Chatbot, ChatbotContent, Message, Conversation
 
 
@@ -8,10 +10,30 @@ class ChatbotAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'user', 'is_active')
     list_editable = ('description', 'name', 'is_active', 'bot_photo')
     list_editable_links = None
+    read_only_fields = ('likes', 'dislikes', 'user')
+
+    def get_readonly_fields(self, request, obj=None):
+        if request.user.groups.filter(name='chatbot-admin').exists():
+            return self.read_only_fields
+        return super().get_readonly_fields(request, obj)
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        return qs.filter(user=request.user)
+        if request.user.is_superuser or request.user.groups.filter(name='torob-admin').exists():
+            return qs
+        elif request.user.groups.filter(name='chatbot-admin').exists():
+            return qs.filter(user=request.user)
+        else:
+            return qs.none()
+
+    def save_model(self, request, obj, form, change):
+        if request.user.groups.filter(name='chatbot-admin').exists():
+            if obj.user == request.user:
+                super().save_model(request, obj, form, change)
+            else:
+                raise PermissionDenied("You can only create a chatbot for yourself.")
+        else:
+            super().save_model(request, obj, form, change)
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
