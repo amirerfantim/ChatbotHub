@@ -34,7 +34,7 @@ class Chatbot(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     is_active = models.BooleanField(default=True)
-    bot_photo = models.ImageField(upload_to='chatbot_photos/', null=True, blank=True)
+    bot_photo = models.ImageField(upload_to='data/', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
