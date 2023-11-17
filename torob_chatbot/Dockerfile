@@ -8,6 +8,6 @@ COPY ./ /app
 
 RUN mkdir chatbot_photos
 
-VOLUME /chatbot_photos=/chatbot_photos
+VOLUME /chatbot_photos
 
 
