@@ -6,6 +6,6 @@ RUN pip install -r /app/requirements.txt
 
 COPY ./ /app
 
-#VOLUME /chatbot_photos
+VOLUME /data
 
 
