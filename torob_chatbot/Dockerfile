@@ -6,8 +6,8 @@ RUN pip install -r /app/requirements.txt
 
 COPY ./ /app
 
-RUN mkdir vol
+RUN mkdir chatbot_photos
 
-VOLUME /chatbot_photos
+VOLUME /chatbot_photos=/chatbot_photos
 
 
