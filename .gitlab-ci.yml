@@ -39,6 +39,6 @@ test-job:
     stage: test
     image: python:3.11-slim
     script:
-    - pip install -r ./boot_gaurd/requirements.txt
-    - python ./boot_gaurd/manage.py test
+    - pip install -r ./torob_chatbot/requirements.txt
+    - python ./torob_chatbot/manage.py test
 
