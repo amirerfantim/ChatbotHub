@@ -15,6 +15,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.db import IntegrityError
 
+
 @csrf_exempt
 def register(request):
     error_message = None
@@ -46,7 +47,6 @@ def register(request):
     return render(request, 'user/register.html', {'form': form, 'error_message': error_message})
 
 
-
 @csrf_exempt
 def login_view(request):
     form = LoginForm()
@@ -72,7 +72,7 @@ def login_view(request):
 @csrf_exempt
 @login_required()
 def chatbot_list(request):
-    chatbots = Chatbot.objects.all().order_by("created_date")
+    chatbots = Chatbot.objects.all().order_by("created_date").filter(is_active=True)
     return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
@@ -104,7 +104,7 @@ def chat_details(request, conversation_id):
 @login_required()
 def chat_history(request):
     user = request.user
-    conversations = Conversation.objects.filter(user=user).order_by('-last_message_date')
+    conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(conversations, 5)
