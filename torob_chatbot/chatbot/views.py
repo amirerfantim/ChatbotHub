@@ -3,11 +3,8 @@ from django.http import HttpResponseBadRequest
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 from .forms import RegistrationForm, LoginForm
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
-from django.contrib import messages
 from .models import CustomUser, Conversation, Chatbot, Message
-from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .services import generate_conversation_title, generate_chatbot_response, regenerate_chatbot_response
 from django.contrib import messages

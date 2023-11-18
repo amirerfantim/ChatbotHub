@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.core.exceptions import PermissionDenied
-
 from chatbot.models import CustomUser, Chatbot, ChatbotContent, Message, Conversation
 
 
