@@ -1,5 +1,6 @@
 stages:
   - "build"
+  - "test"
   - "deploy"
 
 variables:
@@ -30,3 +31,14 @@ deploy-job:
     script:
         - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
     stage: deploy
+
+test-job:
+    tags:
+      - bootcamp
+      - fi
+    stage: test
+    image: python:3.11-slim
+    script:
+    - pip install -r ./boot_gaurd/requirements.txt
+    - python ./boot_gaurd/manage.py test
+
