@@ -6,17 +6,7 @@ from .views import register, home, login_view, chatbot_list, start_conversation,
     send_message, like_dislike_message
 
 urlpatterns = [
-    path('register/', register, name='register'),
-    path('login/', login_view, name='login'),
-    path('', home, name='home'),
-    path('chatbots/', chatbot_list, name='chatbot-list'),
-    path('start-conversation/', start_conversation, name='start_conversation'),
-    path('chat-details/<int:conversation_id>/', chat_details, name='chat_details'),
-    path('send-message/<int:conversation_id>/', send_message, name='send_message'),
-    path('chat-history/', chat_history, name='chat_history'),
-    path('like-dislike-message/<int:message_id>/<str:action>/', like_dislike_message, name='like_dislike_message'),
+
 
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
