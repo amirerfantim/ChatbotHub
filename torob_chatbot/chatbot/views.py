@@ -50,23 +50,27 @@ def register(request):
 @csrf_exempt
 def login_view(request):
     form = LoginForm()
+    error_message = ''
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+        try:
+            if form.is_valid():
+                email = form.cleaned_data['email']
+                password = form.cleaned_data['password']
 
-            user = authenticate(request, username=email, password=password)
+                user = authenticate(request, username=email, password=password)
 
-            if user is not None:
-                login(request, user)
-                messages.success(request, 'Login successful.')
-                return redirect('home')
-            else:
-                messages.error(request, 'Invalid login credentials.')
+                if user is not None:
+                    login(request, user)
+                    messages.success(request, 'Login successful.')
+                    return redirect('home')
+                else:
+                    error_message = 'Invalid login credentials.'
+        except Exception as e:
+            error_message = f'An error occurred: {str(e)}'
 
-    return render(request, 'user/login.html', {'form': form})
+    return render(request, 'user/login.html', {'form': form, 'error_message': error_message})
 
 
 @csrf_exempt
