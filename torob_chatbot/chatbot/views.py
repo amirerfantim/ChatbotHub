@@ -52,7 +52,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'Login successful.')
-                return redirect('home')  # Replace 'home' with the actual URL name for your home page
+                return redirect('home')
             else:
                 messages.error(request, 'Invalid login credentials.')
 

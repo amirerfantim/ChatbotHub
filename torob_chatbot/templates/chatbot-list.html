@@ -1,23 +1,18 @@
-<!-- chatbot-list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot List</title>
-    <!-- Link to the Tailwind CSS stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    <!-- Header -->
     <header class="bg-gray-800 text-white p-4">
         <div class="container mx-auto">
             <h1 class="text-2xl font-semibold">Chatbot List</h1>
         </div>
     </header>
-    <!-- Chatbot List -->
     <div class="container mx-auto p-4 mt-4">
-        <!-- List of Chatbots -->
         <ul class="chatbot-list">
             {% for chatbot in chatbots %}
                 <li class="chatbot-item border rounded p-2 mb-4 hover:bg-gray-100">
@@ -30,7 +25,6 @@
                             <p class="chatbot-description">{{ chatbot.description }}</p>
                         </div>
                     </div>
-                    <!-- Button to Start Conversation -->
                     <form method="post" action="{% url 'start_conversation' %}">
                         {% csrf_token %}
                         <input type="hidden" name="chatbot_id" value="{{ chatbot.id }}">
