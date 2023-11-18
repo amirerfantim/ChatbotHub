@@ -1,11 +1,14 @@
-# chatbot/services.py
+import os
+
 from django.utils import timezone
 from openai import OpenAI
 import json
+from dotenv import load_dotenv
 
 from chatbot.models import Message
 
-client = OpenAI(api_key="***REMOVED***", base_url="https://api.openai.com/v1")
+load_dotenv()
+client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
 
 
 def generate_chatbot_response(conversation):
