@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
 from django.utils import timezone
 from django.views.decorators.http import require_POST
-
 from .forms import RegistrationForm, LoginForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
@@ -10,31 +9,42 @@ from django.contrib import messages
 from .models import CustomUser, Conversation, Chatbot, Message
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from .services import generate_conversation_title, generate_chatbot_response, regenerate_chatbot_response
-
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+from django.db import IntegrityError
 
 @csrf_exempt
 def register(request):
+    error_message = None
+
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            password_confirm = form.cleaned_data['password_confirm']
+        try:
+            if form.is_valid():
+                email = form.cleaned_data['email']
+                password = form.cleaned_data['password']
+                password_confirm = form.cleaned_data['password_confirm']
 
-            if password == password_confirm:
-                CustomUser.objects.create_user(username=email, email=email, password=password,
-                                               user_type="regular")
+                if password == password_confirm:
+                    CustomUser.objects.create_user(username=email, email=email, password=password,
+                                                   user_type="regular")
 
-                messages.success(request, 'Registration successful. You can now log in.')
-                return redirect('home')
-            else:
-                messages.error(request, 'Passwords do not match.')
+                    messages.success(request, 'Registration successful. You can now log in.')
+                    return redirect('home')
+                else:
+                    error_message = 'Passwords do not match.'
+        except IntegrityError:
+            error_message = 'Email is already registered. Please choose a different email.'
+        except Exception as e:
+            error_message = f'An error occurred: {str(e)}'
+
     else:
         form = RegistrationForm()
 
-    return render(request, 'user/register.html', {'form': form})
+    return render(request, 'user/register.html', {'form': form, 'error_message': error_message})
+
 
 
 @csrf_exempt
