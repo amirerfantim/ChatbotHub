@@ -25,14 +25,14 @@ class ChatbotAdmin(admin.ModelAdmin):
         else:
             return qs.none()
 
-    def save_model(self, request, obj, form, change):
-        if request.user.groups.filter(name='chatbot-admin').exists():
-            if obj.user == request.user:
-                super().save_model(request, obj, form, change)
-            else:
-                raise PermissionDenied("You can only create a chatbot for yourself.")
-        else:
-            super().save_model(request, obj, form, change)
+    # def save_model(self, request, obj, form, change):
+    #     if request.user.groups.filter(name='chatbot-admin').exists():
+    #         if obj.user == request.user:
+    #             super().save_model(request, obj, form, change)
+    #         else:
+    #             raise PermissionDenied("You can only create a chatbot for yourself.")
+    #     else:
+    #         super().save_model(request, obj, form, change)
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
