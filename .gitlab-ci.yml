@@ -2,6 +2,9 @@ stages:
   - "build"
   - "deploy"
 
+variables:
+  IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
+
 build-job:
     services:
       - docker:dind
@@ -12,8 +15,8 @@ build-job:
     image: docker:stable
     script:
         - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
-        - docker build -t registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA} ./torob_chatbot
-        - docker push registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}
+        - docker build -t $IMAGE ./torob_chatbot
+        - docker push $IMAGE
 
 
 deploy-job:
