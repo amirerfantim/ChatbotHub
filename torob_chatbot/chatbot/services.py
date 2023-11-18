@@ -1,11 +1,7 @@
 import os
-
-from django.utils import timezone
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
-
-from chatbot.models import Message
 
 load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
