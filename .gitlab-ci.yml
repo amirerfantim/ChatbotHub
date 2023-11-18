@@ -30,3 +30,4 @@ deploy-job:
     script:
         - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
     stage: deploy
+
