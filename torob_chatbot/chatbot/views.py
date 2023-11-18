@@ -63,7 +63,7 @@ def login_view(request):
 @login_required()
 def chatbot_list(request):
     chatbots = Chatbot.objects.all().order_by("created_date")
-    return render(request, 'chatbot-list.html', {'chatbots': chatbots})
+    return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
 @csrf_exempt
@@ -78,7 +78,7 @@ def start_conversation(request):
         return redirect('chat_details', conversation_id=conversation.id)
 
     chatbots = Chatbot.objects.all()
-    return render(request, 'chatbot-list.html', {'chatbots': chatbots})
+    return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
 @csrf_exempt
@@ -87,7 +87,7 @@ def chat_details(request, conversation_id):
     conversation = Conversation.objects.get(id=conversation_id)
     messages = conversation.message_set.all()
 
-    return render(request, 'chat-details.html', {'conversation': conversation, 'messages': messages})
+    return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages})
 
 
 @csrf_exempt
@@ -105,7 +105,7 @@ def chat_history(request):
     except EmptyPage:
         conversations = paginator.page(paginator.num_pages)
 
-    return render(request, 'chat-list.html', {'conversations': conversations})
+    return render(request, 'chatbot/chat-list.html', {'conversations': conversations})
 
 
 @csrf_exempt
