@@ -10,9 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 AUTH_USER_MODEL = 'chatbot.CustomUser'
-from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g@%!^m!u8)(&gtf10f#=jcc!!pox)761br_bs(ly&*%g8^t1qv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = ['amirerfan-torob-chatbot.darkube.app', '127.0.0.1', 'localhost']
 
@@ -76,30 +81,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'torob_chatbot.wsgi.application'
 
-# DB_DIR = os.environ.get("DB_DIR")
-# if DB_DIR:
-#     DB_DIR = Path(DB_DIR)
-# else:
-#     DB_DIR = BASE_DIR
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': DB_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'all_data',
-        'USER': 'postgres',
-        'PASSWORD': 'BPovTjIzzuiGucEbwVQdIDdDxEXtNO83',
-        'HOST': '65a576c6-59db-457e-96fc-3a0d4da50425.hsvc.ir',
-        'PORT': '30269',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
     }
 }
 
