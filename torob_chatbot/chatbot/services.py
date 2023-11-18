@@ -10,7 +10,7 @@ client = OpenAI(api_key="***REMOVED***", base_url="https://api.openai.com/v1")
 
 def generate_chatbot_response(conversation):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "system", "content": conversation.chatbot.custom_prompt},
     ]
 
     for message in conversation.message_set.all():
@@ -29,7 +29,7 @@ def generate_chatbot_response(conversation):
 
 def regenerate_chatbot_response(conversation, message):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "system", "content": conversation.chatbot.custom_prompt},
     ]
 
     previous_messages = conversation.message_set.filter(timestamp__lt=message.timestamp)

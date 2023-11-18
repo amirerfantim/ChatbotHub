@@ -33,6 +33,7 @@ class Chatbot(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField()
+    custom_prompt = models.TextField(default="You are a helpful assistant.")
     is_active = models.BooleanField(default=True)
     bot_photo = models.ImageField(upload_to='data/', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)

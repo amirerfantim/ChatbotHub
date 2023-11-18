@@ -5,10 +5,10 @@ from chatbot.models import CustomUser, Chatbot, ChatbotContent, Message, Convers
 
 
 class ChatbotAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'user', 'is_active', 'bot_photo', 'likes', 'dislikes', 'created_date')
+    list_display = ('name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo', 'likes', 'dislikes', 'created_date')
     list_display_links = None
     search_fields = ('name', 'description', 'user', 'is_active')
-    list_editable = ('description', 'name', 'is_active', 'bot_photo')
+    list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
     read_only_fields = ('likes', 'dislikes', 'user')
 
