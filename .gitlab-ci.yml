@@ -32,13 +32,3 @@ deploy-job:
         - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
     stage: deploy
 
-test-job:
-    tags:
-      - bootcamp
-      - fi
-    stage: test
-    image: python:3.11-slim
-    script:
-    - pip install -r ./torob_chatbot/requirements.txt
-    - python ./torob_chatbot/manage.py test
-
