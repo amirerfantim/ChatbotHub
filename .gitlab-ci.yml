@@ -36,13 +36,13 @@ test-job:
     tags:
       - bootcamp
       - fi
-    # services:
-    #   - postgres:latest
-    # variables:
-    #   POSTGRES_DB: $DB_NAME
-    #   POSTGRES_USER: $DB_USER
-    #   POSTGRES_PASSWORD: $DB_PASSWORD
-    #   POSTGRES_HOST_AUTH_METHOD: trust
+    services:
+      - postgres:latest
+    variables:
+      POSTGRES_DB: $DB_NAME
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_HOST_AUTH_METHOD: trust
     stage: test
     image: $IMAGE
     script:
