@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.11-slim
+FROM registry.hub.docker.com/library/python:3.11-slim
 
 COPY ./requirements.txt /app/requirements.txt
 
