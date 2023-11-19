@@ -131,11 +131,11 @@ def send_message(request, conversation_id):
 
             is_first_message = not conversation.message_set.exists()
 
-            user_message = Message.objects.create(conversation=conversation, content=content, is_bot=False)
+            user_message = Message.objects.create(conversation=conversation, content=content, role="user")
 
             bot_response = generate_chatbot_response(conversation)
 
-            Message.objects.create(conversation=conversation, content=bot_response, is_bot=True)
+            Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
 
             if is_first_message:
                 conversation.title = generate_conversation_title(user_message.content)
