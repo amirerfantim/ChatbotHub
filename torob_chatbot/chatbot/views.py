@@ -95,7 +95,7 @@ def start_conversation(request):
 @csrf_exempt
 @login_required()
 def chat_details(request, conversation_id):
-    conversation = Conversation.objects.get(id=conversation_id)
+    conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
     messages = conversation.message_set.all()
 
     return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages})
