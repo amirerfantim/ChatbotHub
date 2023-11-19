@@ -15,8 +15,8 @@ build-job:
     stage: build
     image: docker:stable
     script:
-        - rm  ~/.docker/config.json
-        - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
+        # - rm  ~/.docker/config.json
+        # - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
         - docker build -t $IMAGE ./torob_chatbot
         - docker push $IMAGE
 
