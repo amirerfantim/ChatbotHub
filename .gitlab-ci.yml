@@ -1,5 +1,6 @@
 stages:
   - "build"
+  - "test"
   - "deploy"
 
 variables:
@@ -31,3 +32,11 @@ deploy-job:
         - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
     stage: deploy
 
+test-job:
+    tags:
+      - bootcamp
+      - fi
+    stage: test
+    image: $IMAGE
+    script:
+      - python ./torob_chatbot/manage.py test
