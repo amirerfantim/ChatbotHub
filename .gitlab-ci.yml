@@ -1,6 +1,6 @@
 stages:
   - "build"
-  # - "test"
+  - "test"
   - "deploy"
 
 variables:
@@ -32,18 +32,18 @@ deploy-job:
         - darkube deploy --token ${DEPLOY_TOKEN} --app-id ${APP_ID} --image-tag ${CI_COMMIT_SHORT_SHA} 
     stage: deploy
 
-# test-job:
-#     tags:
-#       - bootcamp
-#       - fi
-#     # services:
-#     #   - postgres:latest
-#     # variables:
-#     #   POSTGRES_DB: $DB_NAME
-#     #   POSTGRES_USER: $DB_USER
-#     #   POSTGRES_PASSWORD: $DB_PASSWORD
-#     #   POSTGRES_HOST_AUTH_METHOD: trust
-#     stage: test
-#     image: $IMAGE
-#     script:
-#       - python ./torob_chatbot/manage.py test
+test-job:
+    tags:
+      - bootcamp
+      - fi
+    # services:
+    #   - postgres:latest
+    # variables:
+    #   POSTGRES_DB: $DB_NAME
+    #   POSTGRES_USER: $DB_USER
+    #   POSTGRES_PASSWORD: $DB_PASSWORD
+    #   POSTGRES_HOST_AUTH_METHOD: trust
+    stage: test
+    image: $IMAGE
+    script:
+      - python ./torob_chatbot/manage.py test
