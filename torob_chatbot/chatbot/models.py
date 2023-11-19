@@ -3,13 +3,6 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    USER_TYPE_CHOICES = [
-        ('regular', 'Regular user'),
-        ('chatbot_creator', 'Chatbot Creator'),
-        ('admin', 'Admin'),
-    ]
-
-    user_type = models.CharField(max_length=20, choices=USER_TYPE_CHOICES, default='regular')
 
     groups = models.ManyToManyField(
         'auth.Group',
@@ -78,9 +71,3 @@ class Message(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         self.conversation.update_last_message_date()
-
-# class UserRating(models.Model):
-#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
-#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-#     like = models.BooleanField(default=False)
-#     dislike = models.BooleanField(default=False)
