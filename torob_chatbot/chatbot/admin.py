@@ -9,7 +9,7 @@ class ChatbotAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'user', 'is_active')
     list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
-    read_only_fields = ('likes', 'dislikes', 'user')
+    read_only_fields = ('likes', 'dislikes')
 
     def get_readonly_fields(self, request, obj=None):
         if request.user.groups.filter(name='chatbot-admin').exists():
@@ -25,14 +25,14 @@ class ChatbotAdmin(admin.ModelAdmin):
         else:
             return qs.none()
 
-    # def save_model(self, request, obj, form, change):
-    #     if request.user.groups.filter(name='chatbot-admin').exists():
-    #         if obj.user == request.user:
-    #             super().save_model(request, obj, form, change)
-    #         else:
-    #             raise PermissionDenied("You can only create a chatbot for yourself.")
-    #     else:
-    #         super().save_model(request, obj, form, change)
+    def save_model(self, request, obj, form, change):
+        if request.user.groups.filter(name='chatbot-admin').exists():
+            if obj.user == request.user:
+                super().save_model(request, obj, form, change)
+            else:
+                raise PermissionDenied("You can only create a chatbot for yourself.")
+        else:
+            super().save_model(request, obj, form, change)
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
