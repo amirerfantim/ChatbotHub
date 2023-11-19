@@ -7,26 +7,7 @@ load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
 
 
-def generate_chatbot_response(conversation):
-    messages = [
-        {"role": "system", "content": conversation.chatbot.custom_prompt},
-    ]
-
-    for message in conversation.message_set.all():
-        role = message.role
-        messages.append({"role": role, "content": message.content})
-
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=messages
-    )
-
-    json_str = json.loads(response)
-    content_value = json_str['choices'][0]['message']['content']
-    return content_value
-
-
-def regenerate_chatbot_response(conversation, message):
+def generate_chatbot_response(conversation, message):
     messages = [
         {"role": "system", "content": conversation.chatbot.custom_prompt},
     ]
@@ -36,6 +17,9 @@ def regenerate_chatbot_response(conversation, message):
     for previous_message in previous_messages:
         role = message.role
         messages.append({"role": role, "content": previous_message.content})
+
+    if message.role == "user":
+        messages.append({"role": "user", "content": message.content})
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",

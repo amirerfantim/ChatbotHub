@@ -6,7 +6,7 @@ from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
 from .models import CustomUser, Conversation, Chatbot, Message
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response, regenerate_chatbot_response
+from .services import generate_conversation_title, generate_chatbot_response
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -133,7 +133,7 @@ def send_message(request, conversation_id):
 
             user_message = Message.objects.create(conversation=conversation, content=content, role="user")
 
-            bot_response = generate_chatbot_response(conversation)
+            bot_response = generate_chatbot_response(conversation, user_message)
 
             Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
 
@@ -162,7 +162,7 @@ def like_dislike_message(request, message_id, action):
             message.likes += 1
             conversation.chatbot.likes += 1
         elif action == 'dislike':
-            regenerated_content = regenerate_chatbot_response(conversation, message)
+            regenerated_content = generate_chatbot_response(conversation, message)
             message.original_content = message.content
             message.content = regenerated_content
             message.dislikes += 1
