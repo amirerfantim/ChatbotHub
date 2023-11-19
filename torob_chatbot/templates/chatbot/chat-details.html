@@ -18,8 +18,8 @@
         <div class="chat-container bg-white rounded p-4 shadow-md">
             <div class="chat-messages">
                 {% for message in conversation.message_set.all|dictsort:"timestamp" %}
-                    <div class="message {% if message.is_bot %}received{% else %}sent{% endif %} flex items-center mb-2  border rounded p-2 mb-4 hover:bg-gray-100">
-                        {% if not message.is_bot %}
+                    <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-center mb-2  border rounded p-2 mb-4 hover:bg-gray-100">
+                        {% if message.role == "user" %}
                             <div class="message-content ml-2 text-gray-600">{{ message.content }}</div>
                         {% else %}
                             <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">

@@ -13,7 +13,7 @@ def generate_chatbot_response(conversation):
     ]
 
     for message in conversation.message_set.all():
-        role = "user" if not message.is_bot else "assistant"
+        role = message.role
         messages.append({"role": role, "content": message.content})
 
     response = client.chat.completions.create(
@@ -34,7 +34,7 @@ def regenerate_chatbot_response(conversation, message):
     previous_messages = conversation.message_set.filter(timestamp__lt=message.timestamp)
 
     for previous_message in previous_messages:
-        role = "user" if not previous_message.is_bot else "assistant"
+        role = message.role
         messages.append({"role": role, "content": previous_message.content})
 
     response = client.chat.completions.create(
