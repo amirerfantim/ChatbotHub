@@ -17,5 +17,5 @@ urlpatterns = [
     path('chat-history/', chat_history, name='chat_history'),
     path('like-dislike-message/<int:message_id>/<str:action>/', like_dislike_message, name='like_dislike_message'),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
