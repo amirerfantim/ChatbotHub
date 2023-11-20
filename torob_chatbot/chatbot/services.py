@@ -2,6 +2,9 @@ import os
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
+from pgvector.django import VectorField
+
+from chatbot.models import Chatbot, ChatbotContent
 
 load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
@@ -55,3 +58,42 @@ def embedding(message_content):
     json_str = json.loads(response)
     content_value = json_str['data'][0]['embedding']
     return content_value
+
+
+
+def calculate_and_store_embedding(message_content, chatbot_content_instance):
+    response = client.embeddings.create(
+        input=message_content,
+        model="text-embedding-ada-002",
+        encoding_format='float'
+    )
+
+    json_str = json.loads(response)
+    embedding_value = json_str['data'][0]['embedding']
+
+
+    chatbot_content_instance.embedding = embedding_value
+    chatbot_content_instance.save()
+
+    return embedding_value
+
+
+
+
+def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
+    chatbot = Chatbot.objects.get(id=chatbot_id)
+
+    with open(jsonl_file_path, "r", encoding="utf-8") as file:
+        for line in file:
+            data = json.loads(line)
+
+            doc_content = data.get("doc", "")
+
+            chatbot_content_instance = ChatbotContent.objects.create(
+                chatbot=chatbot,
+                content=doc_content,
+            )
+
+            calculate_and_store_embedding(doc_content, chatbot_content_instance)
+
+            chatbot_content_instance.save()

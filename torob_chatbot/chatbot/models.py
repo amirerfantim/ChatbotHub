@@ -39,6 +39,7 @@ class Chatbot(models.Model):
 
 class ChatbotContent(models.Model):
     chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
+    content = models.TextField(null=True, blank=True)
     embedding = VectorField(null=True, blank=True, dimensions=1536)
 
 

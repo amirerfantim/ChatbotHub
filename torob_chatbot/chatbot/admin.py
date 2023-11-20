@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.core.exceptions import PermissionDenied
 from chatbot.models import CustomUser, Chatbot, ChatbotContent, Message, Conversation
+from chatbot.services import add_embedded_docs_to_chatbot
 
 
 class ChatbotAdmin(admin.ModelAdmin):
@@ -29,10 +30,14 @@ class ChatbotAdmin(admin.ModelAdmin):
         if request.user.groups.filter(name='chatbot-admin').exists():
             if obj.user == request.user:
                 super().save_model(request, obj, form, change)
+
+                add_embedded_docs_to_chatbot(obj.id, "data/data2.jsonl")
+
             else:
                 raise PermissionDenied("You can only create a chatbot for yourself.")
         else:
             super().save_model(request, obj, form, change)
+            add_embedded_docs_to_chatbot(obj.id, "data/data2.jsonl")
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
