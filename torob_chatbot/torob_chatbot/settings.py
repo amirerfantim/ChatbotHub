@@ -83,13 +83,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'torob_chatbot.wsgi.application'
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': os.environ['DB_NAME'],
+    #     'USER': os.environ['DB_USER'],
+    #     'PASSWORD': os.environ['DB_PASSWORD'],
+    #     'HOST': os.environ['DB_HOST'],
+    #     'PORT': os.environ['DB_PORT'],
+    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
+        'NAME': 'test',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'pgvectorcontainer.torob-bootcamp-1402-teimouri.svc',
+        'PORT': '5432',
     }
 }
 

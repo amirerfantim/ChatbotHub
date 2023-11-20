@@ -34,8 +34,7 @@ def register(request):
                 password_confirm = form.cleaned_data['password_confirm']
 
                 if password == password_confirm:
-                    CustomUser.objects.create_user(username=email, email=email, password=password,
-                                                   user_type="regular")
+                    CustomUser.objects.create_user(username=email, email=email, password=password)
 
                     messages.success(request, 'Registration successful. You can now log in.')
                     return redirect('home')
