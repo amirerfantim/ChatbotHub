@@ -67,7 +67,3 @@ class Message(models.Model):
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     original_content = models.TextField(blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.conversation.update_last_message_date()

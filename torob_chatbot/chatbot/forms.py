@@ -14,3 +14,8 @@ class LoginForm(forms.Form):
 
 class UserMessageForm(forms.Form):
     content = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Type your message'}))
+
+
+class SearchForm(forms.Form):
+    search_query = forms.CharField(max_length=100, required=False,
+                                   widget=forms.TextInput(attrs={'placeholder': 'Search...'}))
