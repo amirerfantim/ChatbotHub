@@ -28,7 +28,7 @@
                         {% if message.role == "user" %}
                             {% load custom_filters %}
                             <!-- Use the highlight filter for user messages -->
-                            <div class="message-content ml-2">{{ message.content|highlight:search_query }}</div>
+                            <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
                         {% else %}
                             <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
                                 {% csrf_token %}
@@ -39,7 +39,7 @@
                                 <button type="submit" class="btn-dislike">👎 {{ message.dislikes }}</button>
                             </form>
                             <!-- Use the highlight filter for assistant messages -->
-                            <div class="message-content ml-2">{{ message.content|highlight:search_query }}</div>
+                            <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
                         {% endif %}
                     </div>
                 {% endfor %}
