@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres.search import SearchVectorField, SearchVector
 from django.db import models
+from pgvector.django import VectorField
+
 
 
 class CustomUser(AbstractUser):
@@ -37,7 +39,8 @@ class Chatbot(models.Model):
 
 class ChatbotContent(models.Model):
     chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
-    content = models.TextField(max_length=800)
+    embedding = VectorField(null=True, blank=True, dimensions=1536)
+
 
 
 class Conversation(models.Model):
