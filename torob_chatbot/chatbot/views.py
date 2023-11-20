@@ -11,6 +11,13 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.db import IntegrityError
+from django.db.models import Value, TextField
+from django.db.models.functions import Concat
+from django.contrib.postgres.search import SearchQuery, SearchVector
+from .forms import SearchForm
+from .models import Conversation
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from django.db.models import F
 
 
 @csrf_exempt
@@ -98,7 +105,18 @@ def chat_details(request, conversation_id):
     conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
     messages = conversation.message_set.all()
 
-    return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages})
+    # Get the search query from the GET parameters
+    search_query = request.GET.get('search_query', '')
+
+    if search_query:
+        # Perform full-text search using SearchVector and SearchQuery
+        messages = messages.annotate(
+            search=SearchVector('content'),
+            rank=SearchRank(F('search'), SearchQuery(search_query))
+        ).filter(search=SearchQuery(search_query)).order_by('-rank')
+
+    return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages, 'search_query': search_query})
+
 
 
 @csrf_exempt
