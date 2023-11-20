@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.contrib.postgres.search import SearchVectorField, SearchVector
 from django.db import models
 
 
@@ -62,8 +63,17 @@ class Conversation(models.Model):
 class Message(models.Model):
     conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
     content = models.TextField()
+    search_vector = SearchVectorField(null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     role = models.TextField()
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     original_content = models.TextField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.conversation.update_last_message_date()
+        self.search_vector = SearchVector('content')
+        Message.objects.filter(pk=self.pk).update(search_vector=self.search_vector)
+
+
