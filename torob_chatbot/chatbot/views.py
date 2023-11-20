@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
@@ -105,6 +106,7 @@ def chat_details(request, conversation_id):
     conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
     messages = conversation.message_set.all()
 
+
     # Get the search query from the GET parameters
     search_query = request.GET.get('search_query', '')
 
@@ -115,6 +117,8 @@ def chat_details(request, conversation_id):
             rank=SearchRank(F('search'), SearchQuery(search_query))
         ).filter(search=SearchQuery(search_query)).order_by('-rank')
 
+    for message in messages:
+        message.content = mark_safe(message.content)
     return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages, 'search_query': search_query})
 
 
