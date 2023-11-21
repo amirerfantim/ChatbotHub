@@ -3,11 +3,13 @@ from django.http import HttpResponseBadRequest
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
+from pgvector.django import L2Distance
+
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
-from .models import CustomUser, Conversation, Chatbot, Message
+from .models import CustomUser, Conversation, Chatbot, Message, ChatbotContent
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response
+from .services import generate_conversation_title, generate_chatbot_response, embedding
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -150,9 +152,24 @@ def send_message(request, conversation_id):
 
             conversation = Conversation.objects.get(pk=conversation_id)
 
+            user_message = Message.objects.create(conversation=conversation, content=content, role="user")
+
+            user_message_embedding = embedding(user_message.content)
+
+            # Get chatbot contents and vectors
+            chatbot_contents = ChatbotContent.objects.filter(chatbot=conversation.chatbot)
+
+            # Order chatbot contents by L2 distance
+            ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
+
+            # Get the top 3 most relevant contents
+            relevant_contents = [content.content for content in ordered_chatbot_contents[:3]]
+
+            # Display in server console log
+            print(f"Top 3 most relevant contents: {relevant_contents}")
+
             is_first_message = not conversation.message_set.exists()
 
-            user_message = Message.objects.create(conversation=conversation, content=content, role="user")
 
             bot_response = generate_chatbot_response(conversation, user_message)
 
