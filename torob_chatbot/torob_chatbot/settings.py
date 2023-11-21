@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chatbot.apps.ChatbotConfig',
     'django.contrib.postgres',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -98,7 +99,15 @@ DATABASES = {
         'PASSWORD': 'postgres',
         'HOST': 'pgvectorcontainer.torob-bootcamp-1402-teimouri.svc',
         'PORT': '5432',
-    }
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'test',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'postgres',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
