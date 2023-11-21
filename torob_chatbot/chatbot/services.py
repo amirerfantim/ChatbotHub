@@ -59,7 +59,7 @@ def embedding(message_content):
         encoding_format='float'
     )
 
-    json_str = json.loads(response)
+    json_str = json.loads(str(response))
     content_value = json_str['data'][0]['embedding']
     return content_value
 
