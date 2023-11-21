@@ -40,8 +40,9 @@ def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
                 time.sleep(sleep)
                 continue
 
-            json_str = json.loads(response)
-            content_value = json_str['choices'][0]['message']['content']
+            # json_str = json.loads(response)
+            # content_value = json_str['choices'][0]['message']['content']
+            content_value = response.choices[0].message.content
             return content_value
 
         except Exception as e:
@@ -63,37 +64,22 @@ def generate_conversation_title(user_message_content):
         ]
     )
 
-    json_str = json.loads(response)
-    content_value = json_str['choices'][0]['message']['content']
+    # json_str = json.loads(response)
+    # content_value = json_str['choices'][0]['message']['content']
+    content_value = response.choices[0].message.content
     return content_value
 
 
 def embedding(message_content, max_retries=10, sleep=2):
-    for attempt in range(1, max_retries + 1):
-        try:
-            response = client.embeddings.create(
-                input=message_content,
-                model="text-embedding-ada-002",
-                encoding_format='float'
-            )
+        response = client.embeddings.create(
+            input=message_content,
+            model="text-embedding-ada-002",
+            encoding_format='float'
+        )
 
-            if not response:
-                print("API response is empty.")
-                time.sleep(sleep)
-                continue
+        content_value = response.data[0].embedding
+        return content_value
 
-            content_value = response['data'][0]['embedding']
-            return content_value
-
-
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            if attempt < max_retries:
-                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
-            else:
-                print(f"Max retries reached. Failed to get embedding.")
-                return "The API is not working, try again later"
-            time.sleep(sleep)
 
 
 def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
