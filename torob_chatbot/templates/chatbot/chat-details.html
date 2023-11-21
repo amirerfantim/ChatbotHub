@@ -24,24 +24,26 @@
         <div class="chat-container bg-white rounded p-4 shadow-md">
             <div class="chat-messages">
                 {% for message in messages %}
-                    <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-center mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
-                        {% if message.role == "user" %}
-                            {% load custom_filters %}
-                            <!-- Use the highlight filter for user messages -->
-                            <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
-                        {% else %}
-                            <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn-like">👍 {{ message.likes }}</button>
-                            </form>
-                            <form method="post" action="{% url 'like_dislike_message' message.id 'dislike' %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn-dislike">👎 {{ message.dislikes }}</button>
-                            </form>
-                            <!-- Use the highlight filter for assistant messages -->
-                            <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
-                        {% endif %}
-                    </div>
+                    {% if message.role != "context" %}
+                        <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-center mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
+                            {% if message.role == "user" %}
+                                {% load custom_filters %}
+                                <!-- Use the highlight filter for user messages -->
+                                <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
+                            {% elif message.role == "assistant" %}
+                                <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn-like">👍 {{ message.likes }}</button>
+                                </form>
+                                <form method="post" action="{% url 'like_dislike_message' message.id 'dislike' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn-dislike">👎 {{ message.dislikes }}</button>
+                                </form>
+                                <!-- Use the highlight filter for assistant messages -->
+                                <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <form method="post" action="{% url 'send_message' conversation.id %}">
