@@ -3,11 +3,13 @@ from django.http import HttpResponseBadRequest
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
+from pgvector.django import L2Distance
+
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
-from .models import CustomUser, Conversation, Chatbot, Message
+from .models import CustomUser, Conversation, Chatbot, Message, ChatbotContent
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response
+from .services import generate_conversation_title, generate_chatbot_response, embedding
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -105,12 +107,9 @@ def chat_details(request, conversation_id):
     conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
     messages = conversation.message_set.all()
 
-
-    # Get the search query from the GET parameters
     search_query = request.GET.get('search_query', '')
 
     if search_query:
-        # Perform full-text search using SearchVector and SearchQuery
         messages = messages.annotate(
             search=SearchVector('content'),
             rank=SearchRank(F('search'), SearchQuery(search_query))
@@ -118,8 +117,8 @@ def chat_details(request, conversation_id):
 
     for message in messages:
         message.content = mark_safe(message.content)
-    return render(request, 'chatbot/chat-details.html', {'conversation': conversation, 'messages': messages, 'search_query': search_query})
-
+    return render(request, 'chatbot/chat-details.html',
+                  {'conversation': conversation, 'messages': messages, 'search_query': search_query})
 
 
 @csrf_exempt
@@ -150,9 +149,19 @@ def send_message(request, conversation_id):
 
             conversation = Conversation.objects.get(pk=conversation_id)
 
-            is_first_message = not conversation.message_set.exists()
-
             user_message = Message.objects.create(conversation=conversation, content=content, role="user")
+
+            user_message_embedding = embedding(user_message.content)
+
+            chatbot_contents = ChatbotContent.objects.filter(chatbot=conversation.chatbot)
+
+            ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
+
+            relevant_contents = [content.content for content in ordered_chatbot_contents[:1]]
+            if len(relevant_contents) > 0:
+                Message.objects.create(conversation=conversation, content=relevant_contents[0], role="context")
+
+            is_first_message = not conversation.message_set.exists()
 
             bot_response = generate_chatbot_response(conversation, user_message)
 

@@ -2,7 +2,8 @@ import os
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
-from pgvector.django import VectorField
+from pgvector.django import VectorField, L2Distance, CosineDistance
+import time
 
 from chatbot.models import Chatbot, ChatbotContent
 
@@ -18,8 +19,11 @@ def generate_chatbot_response(conversation, message):
     previous_messages = conversation.message_set.filter(timestamp__lt=message.timestamp)
 
     for previous_message in previous_messages:
-        role = message.role
-        messages.append({"role": role, "content": previous_message.content})
+        role = previous_message.role
+        if role == "context" or role == "assistant":
+            messages.append({"role": "assistant", "content": previous_message.content})
+        else:
+            messages.append({"role": role, "content": previous_message.content})
 
     if message.role == "user":
         messages.append({"role": "user", "content": message.content})
@@ -60,30 +64,11 @@ def embedding(message_content):
     return content_value
 
 
-
-def calculate_and_store_embedding(message_content, chatbot_content_instance):
-    response = client.embeddings.create(
-        input=message_content,
-        model="text-embedding-ada-002",
-        encoding_format='float'
-    )
-
-    json_str = json.loads(response)
-    embedding_value = json_str['data'][0]['embedding']
-
-
-    chatbot_content_instance.embedding = embedding_value
-    chatbot_content_instance.save()
-
-    return embedding_value
-
-
-
-
 def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
     chatbot = Chatbot.objects.get(id=chatbot_id)
 
     with open(jsonl_file_path, "r", encoding="utf-8") as file:
+        i = 1
         for line in file:
             data = json.loads(line)
 
@@ -92,8 +77,55 @@ def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
             chatbot_content_instance = ChatbotContent.objects.create(
                 chatbot=chatbot,
                 content=doc_content,
+                embedding=embedding(doc_content)
             )
 
-            calculate_and_store_embedding(doc_content, chatbot_content_instance)
-
             chatbot_content_instance.save()
+            print(str(i) + ' -> ' + doc_content + '\n')
+            i += 1
+
+
+def test_dataset(chatbot_id, jsonl_file_path):
+    chatbot = Chatbot.objects.get(id=chatbot_id)
+
+    with open(jsonl_file_path, "r", encoding="utf-8") as file:
+        i = 1
+        count = 0
+        for line in file:
+            data = json.loads(line)
+
+            doc_content = data.get("doc", "")
+            question_content = data.get("question", "")
+
+            max_retries = 20
+            retry_delay = 3
+
+            for _ in range(max_retries):
+                try:
+                    user_message_embedding = embedding(question_content)
+                    break
+                except Exception as e:
+                    print(f"An exception occurred  -> Retrying.....: {e}\n")
+                    time.sleep(retry_delay)
+            else:
+                print("Max retries reached. Unable to get user_message_embedding.")
+
+            chatbot_contents = ChatbotContent.objects.filter(chatbot=chatbot)
+
+            ordered_chatbot_contents = chatbot_contents.order_by(CosineDistance('embedding', user_message_embedding))
+
+            most_relevant_content = ordered_chatbot_contents.first().content
+
+            print("******************\n")
+
+            if doc_content == most_relevant_content:
+                count += 1
+                print(str(i), " was success, success count so far:  ", str(count), "\n")
+            else:
+                print(str(i), " was fail, success count so far: ", str(count) + "\n")
+                print("retrieved doc: ", most_relevant_content, '\n')
+                print("original doc: ", doc_content, '\n')
+                print()
+            print("******************\n")
+            i += 1
+        print("similarity: ", count / i)
