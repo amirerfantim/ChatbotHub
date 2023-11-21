@@ -11,7 +11,7 @@ load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
 
 
-def generate_chatbot_response(conversation, message):
+def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
     messages = [
         {"role": "system", "content": conversation.chatbot.custom_prompt},
     ]
@@ -28,14 +28,30 @@ def generate_chatbot_response(conversation, message):
     if message.role == "user":
         messages.append({"role": "user", "content": message.content})
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=messages
-    )
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=messages
+            )
 
-    json_str = json.loads(response)
-    content_value = json_str['choices'][0]['message']['content']
-    return content_value
+            if not response:
+                print("API response is empty.")
+                time.sleep(sleep)
+                continue
+
+            json_str = json.loads(response)
+            content_value = json_str['choices'][0]['message']['content']
+            return content_value
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            if attempt < max_retries:
+                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
+            else:
+                print(f"Max retries reached. Failed to get embedding.")
+                return "The API is not working, try again later"
+            time.sleep(sleep)
 
 
 def generate_conversation_title(user_message_content):
@@ -52,16 +68,33 @@ def generate_conversation_title(user_message_content):
     return content_value
 
 
-def embedding(message_content):
-    response = client.embeddings.create(
-        input=message_content,
-        model="text-embedding-ada-002",
-        encoding_format='float'
-    )
-    print(response)
-    json_str = json.loads(response)
-    content_value = json_str['data'][0]['embedding']
-    return content_value
+def embedding(message_content, max_retries=10, sleep=2):
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.embeddings.create(
+                input=message_content,
+                model="text-embedding-ada-002",
+                encoding_format='float'
+            )
+
+            if not response:
+                print("API response is empty.")
+                time.sleep(sleep)
+                continue
+
+            json_str = json.loads(response)
+            content_value = json_str['data'][0]['embedding']
+            return content_value
+
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            if attempt < max_retries:
+                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
+            else:
+                print(f"Max retries reached. Failed to get embedding.")
+                return "The API is not working, try again later"
+            time.sleep(sleep)
 
 
 def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
