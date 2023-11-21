@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.core.exceptions import PermissionDenied
 from chatbot.models import CustomUser, Chatbot, ChatbotContent, Message, Conversation
-from chatbot.services import add_embedded_docs_to_chatbot
 
 
 class ChatbotAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo', 'likes', 'dislikes', 'created_date')
+    list_display = (
+    'name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo', 'likes', 'dislikes', 'created_date')
     list_display_links = None
-    search_fields = ('name', 'description', 'user', 'is_active')
+    search_fields = ('name', 'description', 'user__username', 'is_active')
     list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
     read_only_fields = ('likes', 'dislikes')
@@ -30,14 +30,16 @@ class ChatbotAdmin(admin.ModelAdmin):
         if request.user.groups.filter(name='chatbot-admin').exists():
             if obj.user == request.user:
                 super().save_model(request, obj, form, change)
-
-                add_embedded_docs_to_chatbot(obj.id, "app/data/data2.jsonl")
-
             else:
                 raise PermissionDenied("You can only create a chatbot for yourself.")
         else:
             super().save_model(request, obj, form, change)
-            add_embedded_docs_to_chatbot(obj.id, "app/data/data2.jsonl")
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if request.user.groups.filter(name='chatbot-admin').exists():
+            form.base_fields['user'].queryset = CustomUser.objects.filter(id=request.user.id)
+        return form
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
