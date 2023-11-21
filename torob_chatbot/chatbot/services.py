@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
-from pgvector.django import VectorField, L2Distance, CosineDistance
+from pgvector.django import CosineDistance
 import time
 
 from chatbot.models import Chatbot, ChatbotContent
@@ -58,7 +58,6 @@ def embedding(message_content):
         model="text-embedding-ada-002",
         encoding_format='float'
     )
-
     json_str = json.loads(response)
     content_value = json_str['data'][0]['embedding']
     return content_value
