@@ -31,13 +31,13 @@ class ChatbotAdmin(admin.ModelAdmin):
             if obj.user == request.user:
                 super().save_model(request, obj, form, change)
 
-                add_embedded_docs_to_chatbot(obj.id, "data/data2.jsonl")
+                add_embedded_docs_to_chatbot(obj.id, "app/data/data2.jsonl")
 
             else:
                 raise PermissionDenied("You can only create a chatbot for yourself.")
         else:
             super().save_model(request, obj, form, change)
-            add_embedded_docs_to_chatbot(obj.id, "data/data2.jsonl")
+            add_embedded_docs_to_chatbot(obj.id, "app/data/data2.jsonl")
 
 
 admin.site.register(Chatbot, ChatbotAdmin)
