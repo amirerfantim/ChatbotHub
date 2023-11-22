@@ -8,12 +8,12 @@ variables:
 
 build-job:
     services:
-      - docker:dind
+      - docker.arvancloud.ir/docker:dind
     tags:
       - bootcamp
       - fi
     stage: build
-    image: docker:stable
+    image: docker.arvancloud.ir/docker:stable
     script:
         - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
         - docker build -t $IMAGE ./torob_chatbot
