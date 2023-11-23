@@ -32,7 +32,7 @@ def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
         try:
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
-                messages=messages
+                messages=messages,
             )
 
             if not response:
@@ -55,17 +55,37 @@ def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
             time.sleep(sleep)
 
 
-def generate_conversation_title(user_message_content):
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "generate a title for a conversation"},
-            {"role": "user", "content": "extract a short title from this: " + user_message_content},
-        ]
-    )
+def generate_conversation_title(user_message_content, max_retries=5, sleep=2):
 
-    content_value = response.choices[0].message.content
-    return content_value
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "generate a title for a conversation"},
+                    {"role": "user", "content": "extract a short title from this: " + user_message_content},
+                ],
+                temperature=1
+            )
+
+            if not response:
+                print("API response is empty.")
+                time.sleep(sleep)
+                continue
+
+            content_value = response.choices[0].message.content
+            return content_value
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            if attempt < max_retries:
+                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
+            else:
+                print(f"Max retries reached. Failed to get embedding.")
+                return "The API is not working, try again later"
+            time.sleep(sleep)
+
 
 
 def embedding(message_content, max_retries=10, sleep=2):
@@ -130,7 +150,7 @@ def test_dataset(chatbot_id, jsonl_file_path):
             question_content = data.get("question", "")
 
             max_retries = 20
-            retry_delay = 3
+            retry_delay = 5
 
             for _ in range(max_retries):
                 try:
