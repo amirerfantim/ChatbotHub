@@ -149,6 +149,8 @@ def send_message(request, conversation_id):
 
             conversation = Conversation.objects.get(pk=conversation_id)
 
+            is_first_message = not conversation.message_set.exists()
+
             user_message = Message.objects.create(conversation=conversation, content=content, role="user")
 
             user_message_embedding = embedding(user_message.content)
@@ -161,7 +163,6 @@ def send_message(request, conversation_id):
             if len(relevant_contents) > 0:
                 Message.objects.create(conversation=conversation, content=relevant_contents[0], role="context")
 
-            is_first_message = not conversation.message_set.exists()
 
             bot_response = generate_chatbot_response(conversation, user_message)
 
