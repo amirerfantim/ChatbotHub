@@ -99,6 +99,8 @@ def start_conversation(request):
 @csrf_exempt
 @login_required()
 def chat_details(request, conversation_id):
+    user = request.user
+    user_conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
     conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
     messages = conversation.message_set.all()
 
@@ -114,7 +116,8 @@ def chat_details(request, conversation_id):
         message.original_content = mark_safe(message.original_content)
         message.content = mark_safe(message.content)
     return render(request, 'chatbot/chat-details.html',
-                  {'conversation': conversation, 'messages': messages, 'search_query': search_query})
+                  {'user_conversations': user_conversations, 'conversation': conversation, 'messages': messages,
+                   'search_query': search_query})
 
 
 @csrf_exempt
