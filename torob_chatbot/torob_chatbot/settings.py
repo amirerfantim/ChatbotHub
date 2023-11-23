@@ -92,22 +92,22 @@ DATABASES = {
     #     'HOST': os.environ['DB_HOST'],
     #     'PORT': os.environ['DB_PORT'],
     # },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'test',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'postgres',
-    #     'HOST': 'pgvectorcontainer.torob-bootcamp-1402-teimouri.svc',
-    #     'PORT': '5432',
-    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'test',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'pgvectorcontainer.torob-bootcamp-1402-teimouri.svc',
         'PORT': '5432',
-    }
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'test',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'postgres',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 

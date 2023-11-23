@@ -163,7 +163,6 @@ def send_message(request, conversation_id):
             if len(relevant_contents) > 0:
                 Message.objects.create(conversation=conversation, content=relevant_contents[0], role="context")
 
-
             bot_response = generate_chatbot_response(conversation, user_message)
 
             Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
@@ -207,6 +206,29 @@ def like_dislike_message(request, message_id, action):
 
     except Message.DoesNotExist:
         return HttpResponseBadRequest('Invalid message ID')
+
+
+@csrf_exempt
+@login_required()
+def switch_content(request, message_id):
+    try:
+        message = Message.objects.get(pk=message_id)
+        conversation = message.conversation
+
+        if message.role == 'assistant' and message.dislikes > 0:
+            if message.show_original:
+                message.show_original = False
+            else:
+                message.show_original = True
+
+            message.save()
+
+            return redirect('chat_details', conversation_id=conversation.id)
+
+    except Message.DoesNotExist:
+        return HttpResponseBadRequest('Invalid message ID')
+
+    return redirect('chat_details', conversation_id=conversation.id)
 
 
 @csrf_exempt
