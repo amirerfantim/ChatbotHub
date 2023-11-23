@@ -189,7 +189,7 @@ def like_dislike_message(request, message_id, action):
         message = Message.objects.get(pk=message_id)
         conversation = message.conversation
 
-        if action == 'like':
+        if action == 'like' and message.likes == 0:
             message.likes += 1
             conversation.chatbot.likes += 1
         elif action == 'dislike':
