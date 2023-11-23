@@ -73,6 +73,7 @@ class Message(models.Model):
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     original_content = models.TextField(blank=True, null=True)
+    show_original = models.BooleanField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
