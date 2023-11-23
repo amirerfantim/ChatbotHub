@@ -40,7 +40,7 @@
                                         {{ message.content|highlight:search_query|safe }}
                                     {% endif %}
                                 </div>
-                                <div class="ml-auto flex items-center"> <!-- Add this div for the right alignment -->
+                                <div class="ml-auto flex items-center">
                                     <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
                                         {% csrf_token %}
                                         <button type="submit" class="btn-like" {% if message.likes > 0 %}disabled{% endif %}>👍</button>
@@ -52,7 +52,7 @@
                                     {% if message.dislikes > 0 %}
                                         <form method="post" action="{% url 'switch_content' message.id %}">
                                             {% csrf_token %}
-                                            <button type="submit" class="btn-switch-content ml-2">Switch {% if message.show_original %}Back{% endif %}</button>
+                                            <button type="submit" class="btn-switch-content ml-2">{% if not message.show_original %}⬅️{% endif %}{% if message.show_original %}➡️{% endif %}</button>
                                         </form>
                                     {% endif %}
                                 </div>
