@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
-from pgvector.django import CosineDistance, L2Distance
+from pgvector.django import CosineDistance, L2Distance, MaxInnerProduct
 import time
 
 from chatbot.models import Chatbot, ChatbotContent
@@ -161,7 +161,7 @@ def test_dataset(chatbot_id, jsonl_file_path):
 
             chatbot_contents = ChatbotContent.objects.filter(chatbot=chatbot)
 
-            ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
+            ordered_chatbot_contents = chatbot_contents.order_by(MaxInnerProduct('embedding', user_message_embedding))
 
             most_relevant_content = ordered_chatbot_contents.first().content
 
