@@ -116,6 +116,7 @@ def chat_details(request, conversation_id):
         ).filter(search=SearchQuery(search_query)).order_by('-rank')
 
     for message in messages:
+        message.original_content = mark_safe(message.original_content)
         message.content = mark_safe(message.content)
     return render(request, 'chatbot/chat-details.html',
                   {'conversation': conversation, 'messages': messages, 'search_query': search_query})
@@ -160,6 +161,7 @@ def send_message(request, conversation_id):
             ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
 
             relevant_contents = [content.content for content in ordered_chatbot_contents[:1]]
+
             if len(relevant_contents) > 0:
                 Message.objects.create(conversation=conversation, content=relevant_contents[0], role="context")
 
