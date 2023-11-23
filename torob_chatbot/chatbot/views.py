@@ -4,20 +4,15 @@ from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
 from pgvector.django import L2Distance
-
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
-from .models import CustomUser, Conversation, Chatbot, Message, ChatbotContent
+from .models import CustomUser, Chatbot, Message, ChatbotContent
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .services import generate_conversation_title, generate_chatbot_response, embedding
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.db import IntegrityError
-from django.db.models import Value, TextField
-from django.db.models.functions import Concat
-from django.contrib.postgres.search import SearchQuery, SearchVector
-from .forms import SearchForm
 from .models import Conversation
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.db.models import F
