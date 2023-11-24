@@ -1,3 +1,4 @@
+{% load tz %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +31,7 @@
                         <div class="chat-details">
                             <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
                             <p class="chat-preview">{{ conversation.title }}</p>
-                            <p class="chat-date">date of last message: {{ conversation.last_message_date|date:"F j, Y H:i" }}</p>
+                            <p class="chat-date">date of last message: {{ conversation.last_message_date|timezone:"Asia/Tehran"|date:"F j, Y H:i" }}</p>
                         </div>
                     </a>
                 </li>
