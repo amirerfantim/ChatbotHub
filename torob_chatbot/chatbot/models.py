@@ -4,9 +4,7 @@ from django.db import models
 from pgvector.django import VectorField
 
 
-
 class CustomUser(AbstractUser):
-
     groups = models.ManyToManyField(
         'auth.Group',
         verbose_name='groups',
@@ -43,7 +41,6 @@ class ChatbotContent(models.Model):
     embedding = VectorField(null=True, blank=True, dimensions=1536)
 
 
-
 class Conversation(models.Model):
     chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -56,12 +53,6 @@ class Conversation(models.Model):
             self.title = f"Chat with {self.chatbot.name}"
 
         super().save(*args, **kwargs)
-
-    def update_last_message_date(self):
-        last_message = self.message_set.last()
-        if last_message:
-            self.last_message_date = last_message.timestamp
-            self.save()
 
 
 class Message(models.Model):
@@ -77,8 +68,6 @@ class Message(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        self.conversation.update_last_message_date()
+        self.conversation.last_message_date = self.timestamp
         self.search_vector = SearchVector('content')
         Message.objects.filter(pk=self.pk).update(search_vector=self.search_vector)
-
-
