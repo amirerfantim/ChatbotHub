@@ -112,6 +112,8 @@ def chat_details(request, conversation_id):
             rank=SearchRank(F('search'), SearchQuery(search_query))
         ).filter(search=SearchQuery(search_query)).order_by('-rank')
 
+    messages = messages.order_by("timestamp")
+
     for message in messages:
         message.original_content = mark_safe(message.original_content)
         message.content = mark_safe(message.content)
