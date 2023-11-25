@@ -6,13 +6,27 @@ from chatbot.services import embedding
 
 class ChatbotAdmin(admin.ModelAdmin):
     list_display = (
-        'pk', 'name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo', 'likes', 'dislikes',
-        'created_date')
+        'pk', 'name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo',
+        'created_date', 'get_total_likes', 'get_total_dislikes'
+    )
+
     list_display_links = None
     search_fields = ('name', 'description', 'user__username', 'is_active')
     list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
     read_only_fields = ('likes', 'dislikes')
+
+    def get_total_likes(self, obj):
+        total_likes, _ = obj.calculate_likes_dislikes()
+        return total_likes
+
+    def get_total_dislikes(self, obj):
+        _, total_dislikes = obj.calculate_likes_dislikes()
+        return total_dislikes
+
+    get_total_likes.short_description = 'Total Likes'
+
+    get_total_dislikes.short_description = 'Total Dislikes'
 
     def get_readonly_fields(self, request, obj=None):
         if request.user.groups.filter(name='chatbot-admin').exists():
@@ -81,7 +95,6 @@ class ChatbotContentAdmin(admin.ModelAdmin):
         if request.user.groups.filter(name='chatbot-admin').exists():
             form.base_fields['chatbot'].queryset = form.base_fields['chatbot'].queryset.filter(user=request.user)
         return form
-
 
 
 admin.site.register(ChatbotContent, ChatbotContentAdmin)
