@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from chatbot.views import register, home, login_view, chatbot_list, start_conversation, chat_details, chat_history, \
-    send_message, like_dislike_message, switch_content
+    send_message, like_dislike_message, switch_content, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,6 +17,7 @@ urlpatterns = [
     path('chat-history/', chat_history, name='chat_history'),
     path('like-dislike-message/<int:message_id>/<str:action>/', like_dislike_message, name='like_dislike_message'),
     path('switch_content/<int:message_id>/', switch_content, name='switch_content'),
+    path('logout/', logout_view, name='logout'),
 ]
 # if settings.DEBUG:
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
