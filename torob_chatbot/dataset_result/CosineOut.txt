@@ -1,0 +1,4001 @@
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+1  was success, success count so far:   1 
+
+******************
+
+******************
+
+2  was success, success count so far:   2 
+
+******************
+
+******************
+
+3  was success, success count so far:   3 
+
+******************
+
+******************
+
+4  was success, success count so far:   4 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+5  was success, success count so far:   5 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+6  was success, success count so far:   6 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+7  was success, success count so far:   7 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+8  was success, success count so far:   8 
+
+******************
+
+******************
+
+9  was success, success count so far:   9 
+
+******************
+
+******************
+
+10  was success, success count so far:   10 
+
+******************
+
+******************
+
+11  was success, success count so far:   11 
+
+******************
+
+******************
+
+12  was success, success count so far:   12 
+
+******************
+
+******************
+
+13  was success, success count so far:   13 
+
+******************
+
+******************
+
+14  was success, success count so far:   14 
+
+******************
+
+******************
+
+15  was fail, success count so far:  14
+
+retrieved doc:  Kevin Zegers -- Josh Framm Martin Ferrero -- Snerbert Dale Midkiff -- Dr. Patrick Sullivan Caitlin Wachs -- Andrea Framm Chilton Crane -- Mrs. Jackie Framm - Sullivan Brittany Paige Bouck -- Emma Putter Shayn Solberg -- Tom Stewart Miguel Sandoval -- Coach Montoya Chantal Strand -- Tammy Duncan Regehr -- Geoffrey Putter Briana Scurry -- Herself Alexander Ludwig -- Cameo Don McMillan as Webster  
+
+original doc:  Emily Perkins as Eunice Bates , Olivia 's nerdy , eccentric friend and Duke 's lab partner  
+
+
+******************
+
+******************
+
+16  was success, success count so far:   15 
+
+******************
+
+******************
+
+17  was fail, success count so far:  15
+
+retrieved doc:  Amanda Leighton as Poppy , the optimistic queen of the Trolls , and Branch 's girlfriend .  
+
+original doc:  Kevin Zegers -- Josh Framm Martin Ferrero -- Snerbert Dale Midkiff -- Dr. Patrick Sullivan Caitlin Wachs -- Andrea Framm Chilton Crane -- Mrs. Jackie Framm - Sullivan Brittany Paige Bouck -- Emma Putter Shayn Solberg -- Tom Stewart Miguel Sandoval -- Coach Montoya Chantal Strand -- Tammy Duncan Regehr -- Geoffrey Putter Briana Scurry -- Herself Alexander Ludwig -- Cameo Don McMillan as Webster  
+
+
+******************
+
+******************
+
+18  was success, success count so far:   16 
+
+******************
+
+******************
+
+19  was success, success count so far:   17 
+
+******************
+
+******************
+
+20  was success, success count so far:   18 
+
+******************
+
+******************
+
+21  was success, success count so far:   19 
+
+******************
+
+******************
+
+22  was fail, success count so far:  19
+
+retrieved doc:  The Super Bowl 50 Halftime Show took place on February 7 , 2016 , at Levi 's Stadium in Santa Clara , California as part of Super Bowl 50 . It was headlined by the British rock group Coldplay with special guest performers Beyoncé and Bruno Mars , who previously had headlined the Super Bowl XLVII and Super Bowl XLVIII halftime shows , respectively .  
+
+original doc:  The Super Bowl LII Halftime Show ( officially known as the Pepsi Super Bowl LII Halftime Show ) took place on February 4 , 2018 at U.S. Bank Stadium in Minneapolis , Minnesota , as part of Super Bowl LII . Justin Timberlake was the featured performer , as confirmed by the National Football League ( NFL ) on October 22 , 2017 . It was televised nationally by NBC .  
+
+
+******************
+
+******************
+
+23  was success, success count so far:   20 
+
+******************
+
+******************
+
+24  was success, success count so far:   21 
+
+******************
+
+******************
+
+25  was success, success count so far:   22 
+
+******************
+
+******************
+
+26  was success, success count so far:   23 
+
+******************
+
+******************
+
+27  was success, success count so far:   24 
+
+******************
+
+******************
+
+28  was success, success count so far:   25 
+
+******************
+
+******************
+
+29  was success, success count so far:   26 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+30  was success, success count so far:   27 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+31  was success, success count so far:   28 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+32  was success, success count so far:   29 
+
+******************
+
+******************
+
+33  was success, success count so far:   30 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+34  was success, success count so far:   31 
+
+******************
+
+******************
+
+35  was success, success count so far:   32 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+36  was success, success count so far:   33 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+37  was success, success count so far:   34 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+38  was success, success count so far:   35 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+39  was success, success count so far:   36 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+40  was success, success count so far:   37 
+
+******************
+
+******************
+
+41  was success, success count so far:   38 
+
+******************
+
+******************
+
+42  was success, success count so far:   39 
+
+******************
+
+******************
+
+43  was success, success count so far:   40 
+
+******************
+
+******************
+
+44  was fail, success count so far:  40
+
+retrieved doc:  The opening beach scene was shot at Malibu 's Leo Carrillo State Beach , making explicit reference to From Here to Eternity . The exterior Rydell scenes , including the basketball , baseball and track segments , were shot at Venice High School in Venice , California , while the Rydell interiors , including the high school dance , were filmed at Huntington Park High School . The sleepover was shot at a private house in East Hollywood . The Paramount Pictures studio lot was the location of the scenes that involve Frosty Palace and the musical numbers `` Greased Lightning '' and `` Beauty School Dropout '' . The drive - in movie scenes were shot at the Burbank Pickwick Drive - In ( it was closed and torn down in 1989 and a shopping center took its place ) . The race was filmed at the Los Angeles River , between the First and Seventh Street Bridges , where many other films have been shot . The final scene where the carnival took place used John Marshall High School . And due to budget cuts a short scene was filmed at Hazard Park in Los Angeles .  
+
+original doc:  Filming began in June 2017 in Covington , Kentucky , and concluded on July 10 , 2017 .  
+
+
+******************
+
+******************
+
+45  was success, success count so far:   41 
+
+******************
+
+******************
+
+46  was success, success count so far:   42 
+
+******************
+
+******************
+
+47  was success, success count so far:   43 
+
+******************
+
+******************
+
+48  was success, success count so far:   44 
+
+******************
+
+******************
+
+49  was success, success count so far:   45 
+
+******************
+
+******************
+
+50  was success, success count so far:   46 
+
+******************
+
+******************
+
+51  was success, success count so far:   47 
+
+******************
+
+******************
+
+52  was success, success count so far:   48 
+
+******************
+
+******************
+
+53  was success, success count so far:   49 
+
+******************
+
+******************
+
+54  was success, success count so far:   50 
+
+******************
+
+******************
+
+55  was success, success count so far:   51 
+
+******************
+
+******************
+
+56  was success, success count so far:   52 
+
+******************
+
+******************
+
+57  was success, success count so far:   53 
+
+******************
+
+******************
+
+58  was fail, success count so far:  53
+
+retrieved doc:  The history of the periodic table reflects over a century of growth in the understanding of chemical properties . The most important event in its history occurred in 1869 , when the table was published by Dmitri Mendeleev , who built upon earlier discoveries by scientists such as Antoine - Laurent de Lavoisier and John Newlands , but who is nevertheless generally given sole credit for its development .  
+
+original doc:  In the early 1800s , John Dalton used the concept of atoms to explain why elements always react in ratios of small whole numbers ( the law of multiple proportions ) . For instance , there are two types of tin oxide : one is 88.1 % tin and 11.9 % oxygen and the other is 78.7 % tin and 21.3 % oxygen ( tin ( II ) oxide and tin dioxide respectively ) . This means that 100g of tin will combine either with 13.5 g or 27g of oxygen . 13.5 and 27 form a ratio of 1 : 2 , a ratio of small whole numbers . This common pattern in chemistry suggested to Dalton that elements react in whole number multiples of discrete units -- in other words , atoms . In the case of tin oxides , one tin atom will combine with either one or two oxygen atoms .  
+
+
+******************
+
+******************
+
+59  was success, success count so far:   54 
+
+******************
+
+******************
+
+60  was success, success count so far:   55 
+
+******************
+
+******************
+
+61  was success, success count so far:   56 
+
+******************
+
+******************
+
+62  was success, success count so far:   57 
+
+******************
+
+******************
+
+63  was success, success count so far:   58 
+
+******************
+
+******************
+
+64  was success, success count so far:   59 
+
+******************
+
+******************
+
+65  was success, success count so far:   60 
+
+******************
+
+******************
+
+66  was success, success count so far:   61 
+
+******************
+
+******************
+
+67  was success, success count so far:   62 
+
+******************
+
+******************
+
+68  was success, success count so far:   63 
+
+******************
+
+******************
+
+69  was success, success count so far:   64 
+
+******************
+
+******************
+
+70  was success, success count so far:   65 
+
+******************
+
+******************
+
+71  was success, success count so far:   66 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+72  was success, success count so far:   67 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+73  was success, success count so far:   68 
+
+******************
+
+******************
+
+74  was success, success count so far:   69 
+
+******************
+
+******************
+
+75  was success, success count so far:   70 
+
+******************
+
+******************
+
+76  was success, success count so far:   71 
+
+******************
+
+******************
+
+77  was success, success count so far:   72 
+
+******************
+
+******************
+
+78  was success, success count so far:   73 
+
+******************
+
+******************
+
+79  was fail, success count so far:  73
+
+retrieved doc:  The series was renewed for a seventh and eighth season in August 2016 . For this season , Maury Sterling , Jake Weber and Linus Roache were promoted to series regulars ; Sterling has been recurring since the first season , while Weber and Roache both first appeared in the sixth season . The seventh season began production on September 11 , 2017 , filming in Richmond , Virginia . Filming wrapped in Budapest , Hungary on March 29 , 2018 .  
+
+original doc:  Season Episodes Originally aired First aired Last aired 10 October 16 , 2016 ( 2016 - 10 - 16 ) December 18 , 2016 ( 2016 - 12 - 18 ) 10 February 26 , 2017 ( 2017 - 02 - 26 ) April 30 , 2017 ( 2017 - 04 - 30 ) TBA March 11 , 2018 ( 2018 - 03 - 11 ) TBA  
+
+
+******************
+
+******************
+
+80  was success, success count so far:   74 
+
+******************
+
+******************
+
+81  was success, success count so far:   75 
+
+******************
+
+******************
+
+82  was success, success count so far:   76 
+
+******************
+
+******************
+
+83  was success, success count so far:   77 
+
+******************
+
+******************
+
+84  was success, success count so far:   78 
+
+******************
+
+******************
+
+85  was success, success count so far:   79 
+
+******************
+
+******************
+
+86  was success, success count so far:   80 
+
+******************
+
+******************
+
+87  was success, success count so far:   81 
+
+******************
+
+******************
+
+88  was success, success count so far:   82 
+
+******************
+
+******************
+
+89  was success, success count so far:   83 
+
+******************
+
+******************
+
+90  was success, success count so far:   84 
+
+******************
+
+******************
+
+91  was success, success count so far:   85 
+
+******************
+
+******************
+
+92  was success, success count so far:   86 
+
+******************
+
+******************
+
+93  was success, success count so far:   87 
+
+******************
+
+******************
+
+94  was success, success count so far:   88 
+
+******************
+
+******************
+
+95  was success, success count so far:   89 
+
+******************
+
+******************
+
+96  was fail, success count so far:  89
+
+retrieved doc:  Filming began in June 2017 in Covington , Kentucky , and concluded on July 10 , 2017 .  
+
+original doc:  Principal photography on the film began at Shepperton Studios in Surrey , United Kingdom , on May 18 , 2015 . Filming with the principal actors concluded on August 21 . Six days later , co-producer Jack Morrissey confirmed that the film had officially wrapped production .  
+
+
+******************
+
+******************
+
+97  was success, success count so far:   90 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+98  was success, success count so far:   91 
+
+******************
+
+******************
+
+99  was success, success count so far:   92 
+
+******************
+
+******************
+
+100  was success, success count so far:   93 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+101  was success, success count so far:   94 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+102  was success, success count so far:   95 
+
+******************
+
+******************
+
+103  was success, success count so far:   96 
+
+******************
+
+******************
+
+104  was success, success count so far:   97 
+
+******************
+
+******************
+
+105  was success, success count so far:   98 
+
+******************
+
+******************
+
+106  was success, success count so far:   99 
+
+******************
+
+******************
+
+107  was success, success count so far:   100 
+
+******************
+
+******************
+
+108  was success, success count so far:   101 
+
+******************
+
+******************
+
+109  was success, success count so far:   102 
+
+******************
+
+******************
+
+110  was success, success count so far:   103 
+
+******************
+
+******************
+
+111  was success, success count so far:   104 
+
+******************
+
+******************
+
+112  was success, success count so far:   105 
+
+******************
+
+******************
+
+113  was success, success count so far:   106 
+
+******************
+
+******************
+
+114  was success, success count so far:   107 
+
+******************
+
+******************
+
+115  was success, success count so far:   108 
+
+******************
+
+******************
+
+116  was success, success count so far:   109 
+
+******************
+
+******************
+
+117  was success, success count so far:   110 
+
+******************
+
+******************
+
+118  was success, success count so far:   111 
+
+******************
+
+******************
+
+119  was success, success count so far:   112 
+
+******************
+
+******************
+
+120  was success, success count so far:   113 
+
+******************
+
+******************
+
+121  was success, success count so far:   114 
+
+******************
+
+******************
+
+122  was success, success count so far:   115 
+
+******************
+
+******************
+
+123  was success, success count so far:   116 
+
+******************
+
+******************
+
+124  was success, success count so far:   117 
+
+******************
+
+******************
+
+125  was success, success count so far:   118 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+126  was fail, success count so far:  118
+
+retrieved doc:  Ford was involved in the Boy Scouts of America , and earned that program 's highest rank , Eagle Scout . He is the only Eagle Scout to have ascended to the U.S. Presidency .  
+
+original doc:  Eagle Scout is the highest rank one can receive in BSA . A Scout who attains this rank is called an Eagle Scout . Since its introduction in 1911 , the Eagle Scout rank has been earned by more than two million young men . Requirements include earning at least 21 merit badges and demonstrating Scout Spirit through the Boy Scout Oath and Law , service , and leadership all before or by age 18 . This includes an extensive service project that the Scout plans , organizes , leads , and manages . Eagle Scouts are presented with a medal and a badge that visibly recognizes the accomplishments of the Scout . Additional recognition can be earned through Eagle Palms , awarded for completing additional tenure , leadership , and merit badge requirements . Many famous Americans are Eagle Scouts : astronaut Neil Armstrong , film director Michael Moore , TV host Mike Rowe , Steven Spielberg , Mayor Michael Bloomberg , Secretary of Defense Robert Gates , and President Gerald Ford are just a small sample of Eagle Scouts .  
+
+
+******************
+
+******************
+
+127  was success, success count so far:   119 
+
+******************
+
+******************
+
+128  was success, success count so far:   120 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+129  was success, success count so far:   121 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+130  was success, success count so far:   122 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+131  was success, success count so far:   123 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+132  was success, success count so far:   124 
+
+******************
+
+******************
+
+133  was success, success count so far:   125 
+
+******************
+
+******************
+
+134  was fail, success count so far:  125
+
+retrieved doc:  There are several major additional characters introduced by the television series and numerous narrative details and the plotline differ radically from the source novel . For example , the planned Nazi pre-emptive nuclear strike on Japan , `` Operation Dandelion , '' is apparently being prevented only by Hitler 's personal refusal to authorise it , leading Heydrich and the faction demanding pre-emptive war to plot the Führer 's assassination . In addition , Hawthorne Abendsen does not appear in the first season of the television version and The Grasshopper Lies Heavy is a series of newsreel films depicting multiple alternative realities rather than a novel ( although this idea may actually be borrowed from Dick 's later novel Valis which features a mysterious film depicting yet another dystopian alternative history of the USA ) . As of the Season 1 finale , these films are being tracked down by SS agents like Blake for dispatch to Hitler for an as - yet - unknown purpose .  
+
+original doc:  The play is a farcical black comedy revolving around the Brewster family , descended from the Mayflower , but now composed of insane homicidal maniacs . The hero , Mortimer Brewster , is a drama critic who must deal with his crazy , homicidal family and local police in Brooklyn , New York , as he debates whether to go through with his recent promise to marry the woman he loves .  
+
+
+******************
+
+******************
+
+135  was success, success count so far:   126 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+136  was success, success count so far:   127 
+
+******************
+
+******************
+
+137  was success, success count so far:   128 
+
+******************
+
+******************
+
+138  was success, success count so far:   129 
+
+******************
+
+******************
+
+139  was success, success count so far:   130 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+140  was success, success count so far:   131 
+
+******************
+
+******************
+
+141  was success, success count so far:   132 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+142  was fail, success count so far:  132
+
+retrieved doc:  `` I Wanna Dance with Somebody ( Who Loves Me ) '' is the first single from Whitney Houston 's second studio album Whitney . It was produced by Narada Michael Walden , and written by George Merrill and Shannon Rubicam of the band Boy Meets Girl , who had previously written the number - one Whitney Houston hit `` How Will I Know . '' The original arrangement was written for her grandnephew Mau Rosillo when he was 9 years old , as he was a well - renoun dancer .  
+
+original doc:  The song was originally recorded as part of the Nolan Sisters ' first mainstream pop album , simply titled Nolan Sisters in 1979 . It was written by Ben Findon , Mike Myers and Bob Puzey , and featured lead vocals by group member Bernie Nolan .  
+
+
+******************
+
+******************
+
+143  was success, success count so far:   133 
+
+******************
+
+******************
+
+144  was success, success count so far:   134 
+
+******************
+
+******************
+
+145  was success, success count so far:   135 
+
+******************
+
+******************
+
+146  was success, success count so far:   136 
+
+******************
+
+******************
+
+147  was success, success count so far:   137 
+
+******************
+
+******************
+
+148  was success, success count so far:   138 
+
+******************
+
+******************
+
+149  was success, success count so far:   139 
+
+******************
+
+******************
+
+150  was success, success count so far:   140 
+
+******************
+
+******************
+
+151  was success, success count so far:   141 
+
+******************
+
+******************
+
+152  was success, success count so far:   142 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+153  was fail, success count so far:  142
+
+retrieved doc:  The 2018 Winter Olympics , officially known as the XXIII Olympic Winter Games ( French : Les XXIIIèmes Jeux olympiques d'hiver ; Hangul : 제 23 회 동계 올림픽 ; RR : Je - isipsamhoe Donggye Ollimpik ) and commonly known as PyeongChang 2018 ( ( phjʌŋ. tɕhaŋ ) ) , is a major international multi-sport event scheduled to take place from 9 to 25 February 2018 in Pyeongchang County , South Korea .  
+
+original doc:  Games Host city Dates Nations Participants Events 1988 Summer Olympics Seoul 17 September -- 2 October 160 8,391 263 2018 Winter Olympics Pyeongchang 9 -- 25 February 92 2,952 102  
+
+
+******************
+
+******************
+
+154  was success, success count so far:   143 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+155  was success, success count so far:   144 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+156  was success, success count so far:   145 
+
+******************
+
+******************
+
+157  was success, success count so far:   146 
+
+******************
+
+******************
+
+158  was success, success count so far:   147 
+
+******************
+
+******************
+
+159  was success, success count so far:   148 
+
+******************
+
+******************
+
+160  was success, success count so far:   149 
+
+******************
+
+******************
+
+161  was success, success count so far:   150 
+
+******************
+
+******************
+
+162  was success, success count so far:   151 
+
+******************
+
+******************
+
+163  was success, success count so far:   152 
+
+******************
+
+******************
+
+164  was success, success count so far:   153 
+
+******************
+
+******************
+
+165  was success, success count so far:   154 
+
+******************
+
+******************
+
+166  was success, success count so far:   155 
+
+******************
+
+******************
+
+167  was success, success count so far:   156 
+
+******************
+
+******************
+
+168  was success, success count so far:   157 
+
+******************
+
+******************
+
+169  was success, success count so far:   158 
+
+******************
+
+******************
+
+170  was success, success count so far:   159 
+
+******************
+
+******************
+
+171  was success, success count so far:   160 
+
+******************
+
+******************
+
+172  was success, success count so far:   161 
+
+******************
+
+******************
+
+173  was success, success count so far:   162 
+
+******************
+
+******************
+
+174  was success, success count so far:   163 
+
+******************
+
+******************
+
+175  was success, success count so far:   164 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+176  was success, success count so far:   165 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+177  was success, success count so far:   166 
+
+******************
+
+******************
+
+178  was success, success count so far:   167 
+
+******************
+
+******************
+
+179  was success, success count so far:   168 
+
+******************
+
+******************
+
+180  was success, success count so far:   169 
+
+******************
+
+******************
+
+181  was success, success count so far:   170 
+
+******************
+
+******************
+
+182  was success, success count so far:   171 
+
+******************
+
+******************
+
+183  was success, success count so far:   172 
+
+******************
+
+******************
+
+184  was success, success count so far:   173 
+
+******************
+
+******************
+
+185  was success, success count so far:   174 
+
+******************
+
+******************
+
+186  was success, success count so far:   175 
+
+******************
+
+******************
+
+187  was success, success count so far:   176 
+
+******************
+
+******************
+
+188  was success, success count so far:   177 
+
+******************
+
+******************
+
+189  was fail, success count so far:  177
+
+retrieved doc:  A B - type main - sequence star ( BV ) is a main - sequence ( hydrogen - burning ) star of spectral type B and luminosity class V. These stars have from 2 to 16 times the mass of the Sun and surface temperatures between 10,000 and 30,000 K. B - type stars are extremely luminous and blue . Their spectra have neutral helium , which are most prominent at the B2 subclass , and moderate hydrogen lines . Examples include Regulus and Algol A .  
+
+original doc:  The Sun is about halfway through its main - sequence stage , during which nuclear fusion reactions in its core fuse hydrogen into helium . Each second , more than four million tonnes of matter are converted into energy within the Sun 's core , producing neutrinos and solar radiation . At this rate , the Sun has so far converted around 100 times the mass of Earth into energy , about 0.03 % of the total mass of the Sun . The Sun will spend a total of approximately 10 billion years as a main - sequence star . The Sun is gradually becoming hotter during its time on the main sequence , because the helium atoms in the core occupy less volume than the hydrogen atoms that were fused . The core is therefore shrinking , allowing the outer layers of the Sun to move closer to the centre and experience a stronger gravitational force , according to the inverse - square law . This stronger force increases the pressure on the core , which is resisted by a gradual increase in the rate at which fusion occurs . This process speeds up as the core gradually becomes denser . It is estimated that the Sun has become 30 % brighter in the last 4.5 billion years . At present , it is increasing in brightness by about 1 % every 100 million years .  
+
+
+******************
+
+******************
+
+190  was success, success count so far:   178 
+
+******************
+
+******************
+
+191  was success, success count so far:   179 
+
+******************
+
+******************
+
+192  was success, success count so far:   180 
+
+******************
+
+******************
+
+193  was fail, success count so far:  180
+
+retrieved doc:  In the 1979 -- 80 season , after having tested it in the previous pre-season , the NBA adopted the three - point line despite the view of many that it was a gimmick . Chris Ford of the Boston Celtics is widely credited with making the first three - point shot in NBA history on October 12 , 1979 . Kevin Grevey of the Washington Bullets also made one on the same day .  
+
+original doc:  59 by Wilt Chamberlain , Philadelphia Warriors ( vs. New York Knicks ) on March 2 , 1962 ( 2nd )  
+
+
+******************
+
+******************
+
+194  was success, success count so far:   181 
+
+******************
+
+******************
+
+195  was success, success count so far:   182 
+
+******************
+
+******************
+
+196  was success, success count so far:   183 
+
+******************
+
+******************
+
+197  was success, success count so far:   184 
+
+******************
+
+******************
+
+198  was fail, success count so far:  184
+
+retrieved doc:  Daniel Francis `` Dan '' Haggerty ( November 19 , 1941 -- January 15 , 2016 ) was an American actor , best known for playing the title role in The Life and Times of Grizzly Adams .  
+
+original doc:  Cha - Ka -- Phillip Paley ( Season 3 ; recurring , seasons 1 - 2 )  
+
+
+******************
+
+******************
+
+199  was success, success count so far:   185 
+
+******************
+
+******************
+
+200  was success, success count so far:   186 
+
+******************
+
+******************
+
+201  was success, success count so far:   187 
+
+******************
+
+******************
+
+202  was success, success count so far:   188 
+
+******************
+
+******************
+
+203  was success, success count so far:   189 
+
+******************
+
+******************
+
+204  was success, success count so far:   190 
+
+******************
+
+******************
+
+205  was success, success count so far:   191 
+
+******************
+
+******************
+
+206  was success, success count so far:   192 
+
+******************
+
+******************
+
+207  was success, success count so far:   193 
+
+******************
+
+******************
+
+208  was success, success count so far:   194 
+
+******************
+
+******************
+
+209  was success, success count so far:   195 
+
+******************
+
+******************
+
+210  was success, success count so far:   196 
+
+******************
+
+******************
+
+211  was success, success count so far:   197 
+
+******************
+
+******************
+
+212  was success, success count so far:   198 
+
+******************
+
+******************
+
+213  was success, success count so far:   199 
+
+******************
+
+******************
+
+214  was success, success count so far:   200 
+
+******************
+
+******************
+
+215  was success, success count so far:   201 
+
+******************
+
+******************
+
+216  was success, success count so far:   202 
+
+******************
+
+******************
+
+217  was success, success count so far:   203 
+
+******************
+
+******************
+
+218  was success, success count so far:   204 
+
+******************
+
+******************
+
+219  was success, success count so far:   205 
+
+******************
+
+******************
+
+220  was success, success count so far:   206 
+
+******************
+
+******************
+
+221  was success, success count so far:   207 
+
+******************
+
+******************
+
+222  was success, success count so far:   208 
+
+******************
+
+******************
+
+223  was success, success count so far:   209 
+
+******************
+
+******************
+
+224  was success, success count so far:   210 
+
+******************
+
+******************
+
+225  was success, success count so far:   211 
+
+******************
+
+******************
+
+226  was success, success count so far:   212 
+
+******************
+
+******************
+
+227  was success, success count so far:   213 
+
+******************
+
+******************
+
+228  was success, success count so far:   214 
+
+******************
+
+******************
+
+229  was success, success count so far:   215 
+
+******************
+
+******************
+
+230  was success, success count so far:   216 
+
+******************
+
+******************
+
+231  was success, success count so far:   217 
+
+******************
+
+******************
+
+232  was success, success count so far:   218 
+
+******************
+
+******************
+
+233  was success, success count so far:   219 
+
+******************
+
+******************
+
+234  was success, success count so far:   220 
+
+******************
+
+******************
+
+235  was success, success count so far:   221 
+
+******************
+
+******************
+
+236  was success, success count so far:   222 
+
+******************
+
+******************
+
+237  was success, success count so far:   223 
+
+******************
+
+******************
+
+238  was success, success count so far:   224 
+
+******************
+
+******************
+
+239  was success, success count so far:   225 
+
+******************
+
+******************
+
+240  was success, success count so far:   226 
+
+******************
+
+******************
+
+241  was success, success count so far:   227 
+
+******************
+
+******************
+
+242  was success, success count so far:   228 
+
+******************
+
+******************
+
+243  was fail, success count so far:  228
+
+retrieved doc:  The Board of Governors of the Federal Reserve System , commonly known as the Federal Reserve Board , is the main governing body of the Federal Reserve System . It is charged with overseeing the Federal Reserve Banks and with helping implement monetary policy of the United States . Governors are appointed by the President of the United States and confirmed by the Senate for staggered 14 - year terms .  
+
+original doc:  The chair is chosen by the President of the United States from among the members of the Board of Governors ; and serves for four - year - terms after appointment . A chair may be appointed for several consecutive terms . William Martin was the longest serving chair , holding the position from 1951 to 1970 .  
+
+
+******************
+
+******************
+
+244  was success, success count so far:   229 
+
+******************
+
+******************
+
+245  was success, success count so far:   230 
+
+******************
+
+******************
+
+246  was success, success count so far:   231 
+
+******************
+
+******************
+
+247  was success, success count so far:   232 
+
+******************
+
+******************
+
+248  was success, success count so far:   233 
+
+******************
+
+******************
+
+249  was success, success count so far:   234 
+
+******************
+
+******************
+
+250  was success, success count so far:   235 
+
+******************
+
+******************
+
+251  was success, success count so far:   236 
+
+******************
+
+******************
+
+252  was success, success count so far:   237 
+
+******************
+
+******************
+
+253  was fail, success count so far:  237
+
+retrieved doc:  The opening beach scene was shot at Malibu 's Leo Carrillo State Beach , making explicit reference to From Here to Eternity . The exterior Rydell scenes , including the basketball , baseball and track segments , were shot at Venice High School in Venice , California , while the Rydell interiors , including the high school dance , were filmed at Huntington Park High School . The sleepover was shot at a private house in East Hollywood . The Paramount Pictures studio lot was the location of the scenes that involve Frosty Palace and the musical numbers `` Greased Lightning '' and `` Beauty School Dropout '' . The drive - in movie scenes were shot at the Burbank Pickwick Drive - In ( it was closed and torn down in 1989 and a shopping center took its place ) . The race was filmed at the Los Angeles River , between the First and Seventh Street Bridges , where many other films have been shot . The final scene where the carnival took place used John Marshall High School . And due to budget cuts a short scene was filmed at Hazard Park in Los Angeles .  
+
+original doc:  The locations are Upper Darby , Ridley Park , and Lansdowne small communities just outside Philadelphia , Pennsylvania . Although not mentioned by name in the film , Ridley Park is credited at the end , and a police officer can be seen wearing the initials `` RPPD '' on his collar .  
+
+
+******************
+
+******************
+
+254  was success, success count so far:   238 
+
+******************
+
+******************
+
+255  was success, success count so far:   239 
+
+******************
+
+******************
+
+256  was success, success count so far:   240 
+
+******************
+
+******************
+
+257  was success, success count so far:   241 
+
+******************
+
+******************
+
+258  was success, success count so far:   242 
+
+******************
+
+******************
+
+259  was success, success count so far:   243 
+
+******************
+
+******************
+
+260  was success, success count so far:   244 
+
+******************
+
+******************
+
+261  was success, success count so far:   245 
+
+******************
+
+******************
+
+262  was success, success count so far:   246 
+
+******************
+
+******************
+
+263  was success, success count so far:   247 
+
+******************
+
+******************
+
+264  was success, success count so far:   248 
+
+******************
+
+******************
+
+265  was success, success count so far:   249 
+
+******************
+
+******************
+
+266  was success, success count so far:   250 
+
+******************
+
+******************
+
+267  was success, success count so far:   251 
+
+******************
+
+******************
+
+268  was success, success count so far:   252 
+
+******************
+
+******************
+
+269  was success, success count so far:   253 
+
+******************
+
+******************
+
+270  was success, success count so far:   254 
+
+******************
+
+******************
+
+271  was success, success count so far:   255 
+
+******************
+
+******************
+
+272  was success, success count so far:   256 
+
+******************
+
+******************
+
+273  was success, success count so far:   257 
+
+******************
+
+******************
+
+274  was success, success count so far:   258 
+
+******************
+
+******************
+
+275  was success, success count so far:   259 
+
+******************
+
+******************
+
+276  was success, success count so far:   260 
+
+******************
+
+******************
+
+277  was success, success count so far:   261 
+
+******************
+
+******************
+
+278  was success, success count so far:   262 
+
+******************
+
+******************
+
+279  was success, success count so far:   263 
+
+******************
+
+******************
+
+280  was success, success count so far:   264 
+
+******************
+
+******************
+
+281  was success, success count so far:   265 
+
+******************
+
+******************
+
+282  was success, success count so far:   266 
+
+******************
+
+******************
+
+283  was success, success count so far:   267 
+
+******************
+
+******************
+
+284  was success, success count so far:   268 
+
+******************
+
+******************
+
+285  was success, success count so far:   269 
+
+******************
+
+******************
+
+286  was success, success count so far:   270 
+
+******************
+
+******************
+
+287  was success, success count so far:   271 
+
+******************
+
+******************
+
+288  was success, success count so far:   272 
+
+******************
+
+******************
+
+289  was success, success count so far:   273 
+
+******************
+
+******************
+
+290  was success, success count so far:   274 
+
+******************
+
+******************
+
+291  was success, success count so far:   275 
+
+******************
+
+******************
+
+292  was success, success count so far:   276 
+
+******************
+
+******************
+
+293  was success, success count so far:   277 
+
+******************
+
+******************
+
+294  was success, success count so far:   278 
+
+******************
+
+******************
+
+295  was success, success count so far:   279 
+
+******************
+
+******************
+
+296  was success, success count so far:   280 
+
+******************
+
+******************
+
+297  was success, success count so far:   281 
+
+******************
+
+******************
+
+298  was success, success count so far:   282 
+
+******************
+
+******************
+
+299  was success, success count so far:   283 
+
+******************
+
+******************
+
+300  was success, success count so far:   284 
+
+******************
+
+******************
+
+301  was success, success count so far:   285 
+
+******************
+
+******************
+
+302  was success, success count so far:   286 
+
+******************
+
+******************
+
+303  was success, success count so far:   287 
+
+******************
+
+******************
+
+304  was success, success count so far:   288 
+
+******************
+
+******************
+
+305  was success, success count so far:   289 
+
+******************
+
+******************
+
+306  was success, success count so far:   290 
+
+******************
+
+******************
+
+307  was success, success count so far:   291 
+
+******************
+
+******************
+
+308  was success, success count so far:   292 
+
+******************
+
+******************
+
+309  was success, success count so far:   293 
+
+******************
+
+******************
+
+310  was success, success count so far:   294 
+
+******************
+
+******************
+
+311  was success, success count so far:   295 
+
+******************
+
+******************
+
+312  was success, success count so far:   296 
+
+******************
+
+******************
+
+313  was success, success count so far:   297 
+
+******************
+
+******************
+
+314  was success, success count so far:   298 
+
+******************
+
+******************
+
+315  was success, success count so far:   299 
+
+******************
+
+******************
+
+316  was success, success count so far:   300 
+
+******************
+
+******************
+
+317  was success, success count so far:   301 
+
+******************
+
+******************
+
+318  was success, success count so far:   302 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+319  was success, success count so far:   303 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+320  was success, success count so far:   304 
+
+******************
+
+******************
+
+321  was success, success count so far:   305 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+Max retries reached. Unable to get user_message_embedding.
+******************
+
+322  was fail, success count so far:  305
+
+retrieved doc:  This list includes music artists with claims of 75 million or more record sales . The artists in the following tables are listed with both their claimed sales figure along with their total of certified units and are ranked in descending order , with the artist with the highest amount of claimed sales at the top . If two or more artists have the same claimed sales , they are then ranked by certified units . The claimed sales figure and the total of certified units ( for each country ) within the provided sources include sales of albums , singles , compilation - albums , music videos as well as downloads of singles and full - length albums . Sales figures , such as those from Soundscan , which are sometimes published by Billboard magazine , have not been included in the certified units column . As of 2017 , based on both sales claims and certified units , The Beatles are considered the highest - selling band . Elvis Presley is considered the highest - selling individual artist based on sales claims and Rihanna is the highest - selling individual artist based on certified units .  
+
+original doc:  Carnival Glory is a Conquest - class cruise ship operated by Carnival Cruise Line .  
+
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+323  was success, success count so far:   306 
+
+******************
+
+******************
+
+324  was success, success count so far:   307 
+
+******************
+
+******************
+
+325  was success, success count so far:   308 
+
+******************
+
+******************
+
+326  was success, success count so far:   309 
+
+******************
+
+******************
+
+327  was success, success count so far:   310 
+
+******************
+
+******************
+
+328  was success, success count so far:   311 
+
+******************
+
+******************
+
+329  was success, success count so far:   312 
+
+******************
+
+******************
+
+330  was success, success count so far:   313 
+
+******************
+
+******************
+
+331  was success, success count so far:   314 
+
+******************
+
+******************
+
+332  was success, success count so far:   315 
+
+******************
+
+******************
+
+333  was success, success count so far:   316 
+
+******************
+
+******************
+
+334  was success, success count so far:   317 
+
+******************
+
+******************
+
+335  was success, success count so far:   318 
+
+******************
+
+******************
+
+336  was success, success count so far:   319 
+
+******************
+
+******************
+
+337  was success, success count so far:   320 
+
+******************
+
+******************
+
+338  was success, success count so far:   321 
+
+******************
+
+******************
+
+339  was success, success count so far:   322 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+340  was success, success count so far:   323 
+
+******************
+
+******************
+
+341  was fail, success count so far:  323
+
+retrieved doc:  The eighth and final season of the fantasy drama television series Game of Thrones was announced by HBO in July 2016 . Unlike the first six seasons that each had ten episodes and the seventh that had seven episodes , the eighth season will have only six episodes . Like the previous season , it will largely consist of original content not found currently in George R.R. Martin 's A Song of Ice and Fire series , and will instead adapt material Martin has revealed to showrunners about the upcoming novels in the series , The Winds of Winter and A Dream of Spring .  
+
+original doc:  The series was renewed for a seventh and eighth season in August 2016 . For this season , Maury Sterling , Jake Weber and Linus Roache were promoted to series regulars ; Sterling has been recurring since the first season , while Weber and Roache both first appeared in the sixth season . The seventh season began production on September 11 , 2017 , filming in Richmond , Virginia . Filming wrapped in Budapest , Hungary on March 29 , 2018 .  
+
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+342  was success, success count so far:   324 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+343  was success, success count so far:   325 
+
+******************
+
+******************
+
+344  was success, success count so far:   326 
+
+******************
+
+******************
+
+345  was success, success count so far:   327 
+
+******************
+
+******************
+
+346  was success, success count so far:   328 
+
+******************
+
+******************
+
+347  was success, success count so far:   329 
+
+******************
+
+******************
+
+348  was success, success count so far:   330 
+
+******************
+
+******************
+
+349  was success, success count so far:   331 
+
+******************
+
+******************
+
+350  was success, success count so far:   332 
+
+******************
+
+******************
+
+351  was fail, success count so far:  332
+
+retrieved doc:  The Phantom of the Opera is a musical with music by Andrew Lloyd Webber and lyrics by Charles Hart and Richard Stilgoe . Lloyd Webber and Stilgoe also wrote the musical 's book together . Based on the French novel Le Fantôme de l'Opéra by Gaston Leroux , its central plot revolves around a beautiful soprano , Christine Daaé , who becomes the obsession of a mysterious , disfigured musical genius living in the subterranean labyrinth beneath the Opera Populaire .  
+
+original doc:  The Phantom of the Opera is an operetta with music by Andrew Lloyd Webber and lyrics by Charles Hart and Richard Stilgoe . Lloyd Webber and Stilgoe also wrote the operetta 's book together . Based on the French novel Le Fantôme de l'Opéra by Gaston Leroux , its central plot revolves around a beautiful soprano , Christine Daaé , who becomes the obsession of a mysterious , disfigured musical genius living in the subterranean labyrinth beneath the Opera Populaire .  
+
+
+******************
+
+******************
+
+352  was success, success count so far:   333 
+
+******************
+
+******************
+
+353  was success, success count so far:   334 
+
+******************
+
+******************
+
+354  was success, success count so far:   335 
+
+******************
+
+******************
+
+355  was success, success count so far:   336 
+
+******************
+
+******************
+
+356  was success, success count so far:   337 
+
+******************
+
+******************
+
+357  was success, success count so far:   338 
+
+******************
+
+******************
+
+358  was success, success count so far:   339 
+
+******************
+
+******************
+
+359  was success, success count so far:   340 
+
+******************
+
+******************
+
+360  was success, success count so far:   341 
+
+******************
+
+******************
+
+361  was success, success count so far:   342 
+
+******************
+
+******************
+
+362  was success, success count so far:   343 
+
+******************
+
+******************
+
+363  was success, success count so far:   344 
+
+******************
+
+******************
+
+364  was success, success count so far:   345 
+
+******************
+
+******************
+
+365  was success, success count so far:   346 
+
+******************
+
+******************
+
+366  was success, success count so far:   347 
+
+******************
+
+******************
+
+367  was success, success count so far:   348 
+
+******************
+
+******************
+
+368  was success, success count so far:   349 
+
+******************
+
+******************
+
+369  was success, success count so far:   350 
+
+******************
+
+******************
+
+370  was success, success count so far:   351 
+
+******************
+
+******************
+
+371  was success, success count so far:   352 
+
+******************
+
+******************
+
+372  was success, success count so far:   353 
+
+******************
+
+******************
+
+373  was success, success count so far:   354 
+
+******************
+
+******************
+
+374  was success, success count so far:   355 
+
+******************
+
+******************
+
+375  was success, success count so far:   356 
+
+******************
+
+******************
+
+376  was success, success count so far:   357 
+
+******************
+
+******************
+
+377  was success, success count so far:   358 
+
+******************
+
+******************
+
+378  was success, success count so far:   359 
+
+******************
+
+******************
+
+379  was success, success count so far:   360 
+
+******************
+
+******************
+
+380  was success, success count so far:   361 
+
+******************
+
+******************
+
+381  was success, success count so far:   362 
+
+******************
+
+******************
+
+382  was success, success count so far:   363 
+
+******************
+
+******************
+
+383  was success, success count so far:   364 
+
+******************
+
+******************
+
+384  was success, success count so far:   365 
+
+******************
+
+******************
+
+385  was success, success count so far:   366 
+
+******************
+
+******************
+
+386  was success, success count so far:   367 
+
+******************
+
+******************
+
+387  was fail, success count so far:  367
+
+retrieved doc:  The horizontal stripes on the flag represent the nine original departments of Uruguay , based on the U.S flag , where the stripes represent the original 13 colonies . The first flag designed in 1828 had 9 light blue stripes ; this number was reduced to 4 in 1830 due to visibility problems from distance . The Sun of May represents the May Revolution of 1810 ; according to the historian Diego Abad de Santillán , the Sun of May is a figurative sun that represents Inti , the sun god of the Inca religion . It also appears in the Flag of Argentina and the Coat of Arms of Bolivia .  
+
+original doc:  Yellow : The crops and the fertile soil . Blue : The ocean and the clear skies Red : The blood spilled by the heroes who died in the name of their countrymen 's Fatherland and Freedom .  
+
+
+******************
+
+******************
+
+388  was success, success count so far:   368 
+
+******************
+
+******************
+
+389  was success, success count so far:   369 
+
+******************
+
+******************
+
+390  was success, success count so far:   370 
+
+******************
+
+******************
+
+391  was success, success count so far:   371 
+
+******************
+
+******************
+
+392  was success, success count so far:   372 
+
+******************
+
+******************
+
+393  was success, success count so far:   373 
+
+******************
+
+******************
+
+394  was success, success count so far:   374 
+
+******************
+
+******************
+
+395  was success, success count so far:   375 
+
+******************
+
+******************
+
+396  was success, success count so far:   376 
+
+******************
+
+******************
+
+397  was success, success count so far:   377 
+
+******************
+
+******************
+
+398  was success, success count so far:   378 
+
+******************
+
+******************
+
+399  was success, success count so far:   379 
+
+******************
+
+******************
+
+400  was success, success count so far:   380 
+
+******************
+
+******************
+
+401  was success, success count so far:   381 
+
+******************
+
+******************
+
+402  was success, success count so far:   382 
+
+******************
+
+******************
+
+403  was fail, success count so far:  382
+
+retrieved doc:  `` I Dig Rock and Roll Music '' is a 1967 song by the American folk group Peter , Paul and Mary , written by Paul Stookey , James Mason and Dave Dixon .  
+
+original doc:  Matt Flinders ( born Sylvan Louis Bonett c. 1937 , Alexandria , Egypt ) is a former singer and TV presenter who rose to prominence in the late 1960s in Australia . He had top 5 hit singles with his cover versions of `` Picking Up Pebbles '' ( 1969 ) and `` Butterfly '' ( 1971 ) . He hosted his own variety shows , The Matt Flinders Show ( 1972 ) and Matt Flinders and Friends ( 1973 ) on ABC - TV .  
+
+
+******************
+
+******************
+
+404  was success, success count so far:   383 
+
+******************
+
+******************
+
+405  was success, success count so far:   384 
+
+******************
+
+******************
+
+406  was fail, success count so far:  384
+
+retrieved doc:  The Alchemyst -- released on 24 May 2007 ( UK ) , 22 May 2007 ( US ) The Magician -- released on 5 June 2008 ( UK ) , 24 June 2008 ( US ) The Sorceress -- released on 25 June 2009 ( UK ) , 26 May 2009 ( US ) The Necromancer -- released on 25 May 2010 ( US ) , 5 August 2010 ( UK ) The Warlock -- released on 24 May 2011 ( US ) , 2 June 2011 ( UK ) The Enchantress -- released on 22 May 2012  
+
+original doc:  The 14th game of this series. The BETA game was released in September 2017 . This episode will be developed by Blue Tea Games who return to the series since 2014 .  
+
+
+******************
+
+******************
+
+407  was success, success count so far:   385 
+
+******************
+
+******************
+
+408  was success, success count so far:   386 
+
+******************
+
+******************
+
+409  was success, success count so far:   387 
+
+******************
+
+******************
+
+410  was success, success count so far:   388 
+
+******************
+
+******************
+
+411  was success, success count so far:   389 
+
+******************
+
+******************
+
+412  was fail, success count so far:  389
+
+retrieved doc:  Principal photography on the film began at Shepperton Studios in Surrey , United Kingdom , on May 18 , 2015 . Filming with the principal actors concluded on August 21 . Six days later , co-producer Jack Morrissey confirmed that the film had officially wrapped production .  
+
+original doc:  A music video for the song was released on 14 September 2012 , filmed on location at the group 's final British performance on 14 July 2012 at the National Bowl in Milton Keynes . As of October 2017 , the music video has over 450 million views on YouTube .  
+
+
+******************
+
+******************
+
+413  was success, success count so far:   390 
+
+******************
+
+******************
+
+414  was success, success count so far:   391 
+
+******************
+
+******************
+
+415  was success, success count so far:   392 
+
+******************
+
+******************
+
+416  was success, success count so far:   393 
+
+******************
+
+******************
+
+417  was success, success count so far:   394 
+
+******************
+
+******************
+
+418  was success, success count so far:   395 
+
+******************
+
+******************
+
+419  was fail, success count so far:  395
+
+retrieved doc:  Eventually , Eli and Solara investigate an isolated house . They fall into a trap , but manage to allay the suspicions of the residents , George ( Michael Gambon ) and Martha ( Frances de la Tour ) , who invite them in for tea . When Eli realizes that the couple are cannibals , they attempt to leave just as Carnegie and his henchmen arrive . In the ensuing shootout , George , Martha and many of Carnegie 's men are killed . While Eli and Solara are captured , Carnegie threatens to kill Solara unless Eli surrenders the Bible . With the Bible now in his possession , Carnegie shoots Eli , leaving him for dead . Solara escapes and drives back to help Eli . Rather than chase her , Carnegie returns to the town , since his sole remaining vehicle is running low on fuel . Solara finds Eli , and they drive until they reach the Golden Gate Bridge , and then row to Alcatraz Island , where they find a group intent on preserving what they can of literature and music . Eli tells the guards that he has a copy of the King James Version of the Bible . Once inside , Eli , revealed to be blind , begins to dictate the Bible from memory to Lombardi ( Malcolm McDowell ) , the leader of the group .  
+
+original doc:  Erin flees her abusive alcoholic husband , Kevin , takes on a different identity and changes her name to Katie . She arrives in Southport , North Carolina . Finding work at a seafood restaurant , she becomes friends with her neighbor , Jo , and gets to know the town 's general store owner , Alex .  
+
+
+******************
+
+******************
+
+420  was success, success count so far:   396 
+
+******************
+
+******************
+
+421  was success, success count so far:   397 
+
+******************
+
+******************
+
+422  was success, success count so far:   398 
+
+******************
+
+******************
+
+423  was success, success count so far:   399 
+
+******************
+
+******************
+
+424  was success, success count so far:   400 
+
+******************
+
+******************
+
+425  was success, success count so far:   401 
+
+******************
+
+******************
+
+426  was success, success count so far:   402 
+
+******************
+
+******************
+
+427  was success, success count so far:   403 
+
+******************
+
+******************
+
+428  was success, success count so far:   404 
+
+******************
+
+******************
+
+429  was success, success count so far:   405 
+
+******************
+
+******************
+
+430  was success, success count so far:   406 
+
+******************
+
+******************
+
+431  was success, success count so far:   407 
+
+******************
+
+******************
+
+432  was success, success count so far:   408 
+
+******************
+
+******************
+
+433  was success, success count so far:   409 
+
+******************
+
+******************
+
+434  was success, success count so far:   410 
+
+******************
+
+******************
+
+435  was success, success count so far:   411 
+
+******************
+
+******************
+
+436  was success, success count so far:   412 
+
+******************
+
+******************
+
+437  was success, success count so far:   413 
+
+******************
+
+******************
+
+438  was success, success count so far:   414 
+
+******************
+
+******************
+
+439  was success, success count so far:   415 
+
+******************
+
+******************
+
+440  was success, success count so far:   416 
+
+******************
+
+******************
+
+441  was success, success count so far:   417 
+
+******************
+
+******************
+
+442  was success, success count so far:   418 
+
+******************
+
+******************
+
+443  was success, success count so far:   419 
+
+******************
+
+******************
+
+444  was success, success count so far:   420 
+
+******************
+
+******************
+
+445  was success, success count so far:   421 
+
+******************
+
+******************
+
+446  was success, success count so far:   422 
+
+******************
+
+******************
+
+447  was success, success count so far:   423 
+
+******************
+
+******************
+
+448  was success, success count so far:   424 
+
+******************
+
+******************
+
+449  was success, success count so far:   425 
+
+******************
+
+******************
+
+450  was success, success count so far:   426 
+
+******************
+
+******************
+
+451  was success, success count so far:   427 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+452  was success, success count so far:   428 
+
+******************
+
+******************
+
+453  was success, success count so far:   429 
+
+******************
+
+******************
+
+454  was fail, success count so far:  429
+
+retrieved doc:  A music video for the song was released on 14 September 2012 , filmed on location at the group 's final British performance on 14 July 2012 at the National Bowl in Milton Keynes . As of October 2017 , the music video has over 450 million views on YouTube .  
+
+original doc:  The official music video for the song was directed by P.R. Brown and produced by Steve Lamar . The video was filmed along the Californian coast at The Inn at Newport Ranch , a resort and cattle ranch to the north of San Francisco . It features Brown and his duet partner Lauren Alaina singing along the coast . It was released on May 14 , 2017 . An earlier lyric video was first released on May 4 , 2017 , and shows Brown and Alaina cruising down a road .  
+
+
+******************
+
+******************
+
+455  was success, success count so far:   430 
+
+******************
+
+******************
+
+456  was success, success count so far:   431 
+
+******************
+
+******************
+
+457  was success, success count so far:   432 
+
+******************
+
+******************
+
+458  was success, success count so far:   433 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+459  was success, success count so far:   434 
+
+******************
+
+******************
+
+460  was success, success count so far:   435 
+
+******************
+
+******************
+
+461  was success, success count so far:   436 
+
+******************
+
+******************
+
+462  was success, success count so far:   437 
+
+******************
+
+******************
+
+463  was success, success count so far:   438 
+
+******************
+
+******************
+
+464  was success, success count so far:   439 
+
+******************
+
+******************
+
+465  was success, success count so far:   440 
+
+******************
+
+******************
+
+466  was success, success count so far:   441 
+
+******************
+
+******************
+
+467  was success, success count so far:   442 
+
+******************
+
+******************
+
+468  was success, success count so far:   443 
+
+******************
+
+******************
+
+469  was success, success count so far:   444 
+
+******************
+
+******************
+
+470  was success, success count so far:   445 
+
+******************
+
+******************
+
+471  was success, success count so far:   446 
+
+******************
+
+******************
+
+472  was success, success count so far:   447 
+
+******************
+
+******************
+
+473  was success, success count so far:   448 
+
+******************
+
+******************
+
+474  was success, success count so far:   449 
+
+******************
+
+******************
+
+475  was success, success count so far:   450 
+
+******************
+
+******************
+
+476  was success, success count so far:   451 
+
+******************
+
+******************
+
+477  was success, success count so far:   452 
+
+******************
+
+******************
+
+478  was success, success count so far:   453 
+
+******************
+
+******************
+
+479  was success, success count so far:   454 
+
+******************
+
+******************
+
+480  was success, success count so far:   455 
+
+******************
+
+******************
+
+481  was success, success count so far:   456 
+
+******************
+
+******************
+
+482  was success, success count so far:   457 
+
+******************
+
+******************
+
+483  was success, success count so far:   458 
+
+******************
+
+******************
+
+484  was success, success count so far:   459 
+
+******************
+
+******************
+
+485  was success, success count so far:   460 
+
+******************
+
+******************
+
+486  was success, success count so far:   461 
+
+******************
+
+******************
+
+487  was fail, success count so far:  461
+
+retrieved doc:  The American entry into World War I came in April 1917 , after more than two and a half years of efforts by President Woodrow Wilson to keep the United States out of the war . Apart from an Anglophile element urging early support for the British , American public opinion reflected that of the president : the sentiment for neutrality was particularly strong among Irish Americans , German Americans and Scandinavian Americans , as well as among church leaders and among women in general . On the other hand , even before World War I had broken out , American opinion had been more negative toward Germany than towards any other country in Europe . Over time , especially after reports of atrocities in Belgium in 1914 and following the sinking of the passenger liner RMS Lusitania in 1915 , the American citizens increasingly came to see Germany as the aggressor in Europe .  
+
+original doc:  The American entry into World War I came in April 1917 , after more than two and a half years of efforts by President Woodrow Wilson to keep the United States out of the war . Apart from an Anglophile element urging early support for the British , American public opinion reflected that of the president : the sentiment for neutrality was particularly strong among Irish Americans , German Americans and Scandinavian Americans , as well as among church leaders and among women in general . On the other hand , even before World War I had broken out , American opinion had been more negative toward Germany than towards any other country in Europe . Over time , especially after reports of atrocities in Belgium in 1914 and following the sinking of the passenger liner RMS Lusitania in 1915 , the American people increasingly came to see Germany as the aggressor in Europe .  
+
+
+******************
+
+******************
+
+488  was success, success count so far:   462 
+
+******************
+
+******************
+
+489  was success, success count so far:   463 
+
+******************
+
+******************
+
+490  was success, success count so far:   464 
+
+******************
+
+******************
+
+491  was success, success count so far:   465 
+
+******************
+
+******************
+
+492  was success, success count so far:   466 
+
+******************
+
+******************
+
+493  was success, success count so far:   467 
+
+******************
+
+******************
+
+494  was success, success count so far:   468 
+
+******************
+
+******************
+
+495  was success, success count so far:   469 
+
+******************
+
+******************
+
+496  was success, success count so far:   470 
+
+******************
+
+******************
+
+497  was success, success count so far:   471 
+
+******************
+
+******************
+
+498  was success, success count so far:   472 
+
+******************
+
+******************
+
+499  was success, success count so far:   473 
+
+******************
+
+******************
+
+500  was success, success count so far:   474 
+
+******************
+
+******************
+
+501  was success, success count so far:   475 
+
+******************
+
+******************
+
+502  was success, success count so far:   476 
+
+******************
+
+******************
+
+503  was success, success count so far:   477 
+
+******************
+
+******************
+
+504  was success, success count so far:   478 
+
+******************
+
+******************
+
+505  was success, success count so far:   479 
+
+******************
+
+******************
+
+506  was success, success count so far:   480 
+
+******************
+
+******************
+
+507  was success, success count so far:   481 
+
+******************
+
+******************
+
+508  was success, success count so far:   482 
+
+******************
+
+******************
+
+509  was success, success count so far:   483 
+
+******************
+
+******************
+
+510  was success, success count so far:   484 
+
+******************
+
+******************
+
+511  was success, success count so far:   485 
+
+******************
+
+******************
+
+512  was success, success count so far:   486 
+
+******************
+
+******************
+
+513  was success, success count so far:   487 
+
+******************
+
+******************
+
+514  was success, success count so far:   488 
+
+******************
+
+******************
+
+515  was success, success count so far:   489 
+
+******************
+
+******************
+
+516  was success, success count so far:   490 
+
+******************
+
+******************
+
+517  was success, success count so far:   491 
+
+******************
+
+******************
+
+518  was success, success count so far:   492 
+
+******************
+
+******************
+
+519  was success, success count so far:   493 
+
+******************
+
+******************
+
+520  was success, success count so far:   494 
+
+******************
+
+******************
+
+521  was success, success count so far:   495 
+
+******************
+
+******************
+
+522  was success, success count so far:   496 
+
+******************
+
+******************
+
+523  was success, success count so far:   497 
+
+******************
+
+******************
+
+524  was success, success count so far:   498 
+
+******************
+
+******************
+
+525  was success, success count so far:   499 
+
+******************
+
+******************
+
+526  was success, success count so far:   500 
+
+******************
+
+******************
+
+527  was success, success count so far:   501 
+
+******************
+
+******************
+
+528  was success, success count so far:   502 
+
+******************
+
+******************
+
+529  was success, success count so far:   503 
+
+******************
+
+******************
+
+530  was success, success count so far:   504 
+
+******************
+
+******************
+
+531  was success, success count so far:   505 
+
+******************
+
+******************
+
+532  was success, success count so far:   506 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+533  was success, success count so far:   507 
+
+******************
+
+******************
+
+534  was success, success count so far:   508 
+
+******************
+
+******************
+
+535  was success, success count so far:   509 
+
+******************
+
+******************
+
+536  was success, success count so far:   510 
+
+******************
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+An exception occurred  -> Retrying.....: Expecting value: line 1 column 1 (char 0)
+
+******************
+
+537  was success, success count so far:   511 
+
+******************
+
+******************
+
+538  was success, success count so far:   512 
+
+******************
+
+******************
+
+539  was success, success count so far:   513 
+
+******************
+
+******************
+
+540  was success, success count so far:   514 
+
+******************
+
+******************
+
+541  was success, success count so far:   515 
+
+******************
+
+******************
+
+542  was success, success count so far:   516 
+
+******************
+
+******************
+
+543  was success, success count so far:   517 
+
+******************
+
+******************
+
+544  was success, success count so far:   518 
+
+******************
+
+******************
+
+545  was success, success count so far:   519 
+
+******************
+
+******************
+
+546  was success, success count so far:   520 
+
+******************
+
+******************
+
+547  was success, success count so far:   521 
+
+******************
+
+******************
+
+548  was success, success count so far:   522 
+
+******************
+
+******************
+
+549  was success, success count so far:   523 
+
+******************
+
+******************
+
+550  was success, success count so far:   524 
+
+******************
+
+******************
+
+551  was success, success count so far:   525 
+
+******************
+
+******************
+
+552  was success, success count so far:   526 
+
+******************
+
+******************
+
+553  was success, success count so far:   527 
+
+******************
+
+******************
+
+554  was success, success count so far:   528 
+
+******************
+
+******************
+
+555  was success, success count so far:   529 
+
+******************
+
+******************
+
+556  was success, success count so far:   530 
+
+******************
+
+******************
+
+557  was fail, success count so far:  530
+
+retrieved doc:  The Super Bowl 50 Halftime Show took place on February 7 , 2016 , at Levi 's Stadium in Santa Clara , California as part of Super Bowl 50 . It was headlined by the British rock group Coldplay with special guest performers Beyoncé and Bruno Mars , who previously had headlined the Super Bowl XLVII and Super Bowl XLVIII halftime shows , respectively .  
+
+original doc:  The Super Bowl LI Halftime show took place on February 5 , 2017 , at NRG Stadium in Houston , Texas as part of Super Bowl LI . The show was headlined by Lady Gaga , who performed a medley of her songs , including newer material from her most recent studio album Joanne .  
+
+
+******************
+
+******************
+
+558  was success, success count so far:   531 
+
+******************
+
+******************
+
+559  was success, success count so far:   532 
+
+******************
+
+******************
+
+560  was success, success count so far:   533 
+
+******************
+
+******************
+
+561  was success, success count so far:   534 
+
+******************
+
+******************
+
+562  was success, success count so far:   535 
+
+******************
+
+******************
+
+563  was success, success count so far:   536 
+
+******************
+
+******************
+
+564  was success, success count so far:   537 
+
+******************
+
+******************
+
+565  was success, success count so far:   538 
+
+******************
+
+******************
+
+566  was success, success count so far:   539 
+
+******************
+
+******************
+
+567  was success, success count so far:   540 
+
+******************
+
+******************
+
+568  was success, success count so far:   541 
+
+******************
+
+******************
+
+569  was success, success count so far:   542 
+
+******************
+
+******************
+
+570  was success, success count so far:   543 
+
+******************
+
+******************
+
+571  was success, success count so far:   544 
+
+******************
+
+******************
+
+572  was success, success count so far:   545 
+
+******************
+
+******************
+
+573  was success, success count so far:   546 
+
+******************
+
+******************
+
+574  was success, success count so far:   547 
+
+******************
+
+******************
+
+575  was success, success count so far:   548 
+
+******************
+
+******************
+
+576  was success, success count so far:   549 
+
+******************
+
+******************
+
+577  was success, success count so far:   550 
+
+******************
+
+******************
+
+578  was success, success count so far:   551 
+
+******************
+
+******************
+
+579  was success, success count so far:   552 
+
+******************
+
+******************
+
+580  was success, success count so far:   553 
+
+******************
+
+similarity:  0.9518072289156626
+No (valid) module for script 'script.py' found
+Try running with a higher verbosity level like: -v2 or -v3
