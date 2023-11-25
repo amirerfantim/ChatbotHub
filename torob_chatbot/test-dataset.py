@@ -42,4 +42,4 @@ def test_dataset(chatbot_id, jsonl_file_path):
         print("similarity: ", count / i)
 
 
-test_dataset(15, "data/data.jsonl")
+test_dataset(7, "data/data.jsonl")
