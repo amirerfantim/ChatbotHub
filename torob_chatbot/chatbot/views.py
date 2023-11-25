@@ -75,14 +75,14 @@ def login_view(request):
 
 
 @csrf_exempt
-@login_required()
+@login_required(login_url="/login/")
 def chatbot_list(request):
     chatbots = Chatbot.objects.all().order_by("created_date").filter(is_active=True)
     return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
 @csrf_exempt
-@login_required()
+@login_required(login_url="/login/")
 def start_conversation(request):
     if request.method == 'POST':
         chatbot_id = request.POST.get('chatbot_id')
@@ -97,7 +97,7 @@ def start_conversation(request):
 
 
 @csrf_exempt
-@login_required()
+@login_required(login_url="/login/")
 def chat_details(request, conversation_id):
     user = request.user
     user_conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
@@ -123,7 +123,7 @@ def chat_details(request, conversation_id):
 
 
 @csrf_exempt
-@login_required()
+@login_required(login_url="/login/")
 def chat_history(request):
     user = request.user
     conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
@@ -141,7 +141,7 @@ def chat_history(request):
 
 
 @csrf_exempt
-@login_required
+@login_required(login_url="/login/")
 def send_message(request, conversation_id):
     if request.method == 'POST':
         content = request.POST.get('content', '')
@@ -183,7 +183,7 @@ def send_message(request, conversation_id):
 
 
 @require_POST
-@login_required()
+@login_required(login_url="/login/")
 @csrf_exempt
 def like_dislike_message(request, message_id, action):
     try:
@@ -211,7 +211,7 @@ def like_dislike_message(request, message_id, action):
 
 
 @csrf_exempt
-@login_required()
+@login_required(login_url="/login/")
 def switch_content(request, message_id):
     try:
         message = Message.objects.get(pk=message_id)
