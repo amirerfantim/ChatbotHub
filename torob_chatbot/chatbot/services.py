@@ -11,7 +11,7 @@ load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
 
 
-def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
+def generate_chatbot_response(conversation, message, max_retries=10, sleep=2):
     messages = [
         {"role": "system", "content": conversation.chatbot.custom_prompt},
         {"role": "system",
@@ -35,6 +35,7 @@ def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
+                temperature=0.6
             )
 
             if not response:
@@ -47,12 +48,8 @@ def generate_chatbot_response(conversation, message, max_retries=5, sleep=2):
 
         except Exception as e:
             print(f"An error occurred: {e}")
-            if attempt < max_retries:
-                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
-            else:
-                print(f"Max retries reached. Failed to get embedding.")
-                return "The API is not working, try again later"
-            time.sleep(sleep)
+            handle_exception(attempt, max_retries, sleep)
+
 
 
 def generate_conversation_title(user_message_content, max_retries=5, sleep=2):
@@ -77,12 +74,7 @@ def generate_conversation_title(user_message_content, max_retries=5, sleep=2):
 
         except Exception as e:
             print(f"An error occurred: {e}")
-            if attempt < max_retries:
-                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
-            else:
-                print(f"Max retries reached. Failed to get embedding.")
-                return "The API is not working, try again later"
-            time.sleep(sleep)
+            handle_exception(attempt, max_retries, sleep)
 
 
 def embedding(message_content, max_retries=10, sleep=2):
@@ -105,11 +97,13 @@ def embedding(message_content, max_retries=10, sleep=2):
 
         except Exception as e:
             print(f"An error occurred: {e}")
-            if attempt < max_retries:
-                print(f"Retrying (attempt {attempt + 1}/{max_retries})...")
-            else:
-                print(f"Max retries reached. Failed to get embedding.")
-                return "The API is not working, try again later"
-            time.sleep(sleep)
+            handle_exception(attempt, max_retries, sleep)
 
 
+def handle_exception(attempt, max_retries, sleep):
+    if attempt < max_retries:
+        print(f"Retrying (attempt {attempt}/{max_retries})...")
+    else:
+        print(f"Max retries reached. Failed to get embedding.")
+        return "The API is not working, try again later"
+    time.sleep(sleep)

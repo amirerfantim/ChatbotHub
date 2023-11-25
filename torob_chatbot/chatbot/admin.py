@@ -94,6 +94,5 @@ class ChatbotContentAdmin(admin.ModelAdmin):
 admin.site.register(ChatbotContent, ChatbotContentAdmin)
 admin.site.register(Chatbot, ChatbotAdmin)
 admin.site.register(CustomUser)
-# admin.site.register(ChatbotContent)
 admin.site.register(Message)
 admin.site.register(Conversation)
