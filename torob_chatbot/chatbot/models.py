@@ -31,8 +31,17 @@ class Chatbot(models.Model):
     is_active = models.BooleanField(default=True)
     bot_photo = models.ImageField(upload_to='data/', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    likes = models.PositiveIntegerField(default=0)
-    dislikes = models.PositiveIntegerField(default=0)
+    
+    def calculate_likes_dislikes(self):
+        total_likes = 0
+        total_dislikes = 0
+
+        for conversation in self.conversation_set.all():
+            for message in conversation.message_set.all():
+                total_likes += message.likes
+                total_dislikes += message.dislikes
+
+        return total_likes, total_dislikes
 
 
 class ChatbotContent(models.Model):
