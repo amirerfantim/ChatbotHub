@@ -258,3 +258,4 @@ def home(request):
     context['is_staff'] = is_staff
     context['is_auth'] = is_auth
     return render(request, 'home/home.html', context)
+
