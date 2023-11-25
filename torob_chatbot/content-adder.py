@@ -16,7 +16,7 @@ def add_embedded_docs_to_chatbot(chatbot_id, jsonl_file_path):
             chatbot_content_instance = ChatbotContent.objects.create(
                 chatbot=chatbot,
                 content=doc_content,
-                embedding=embedding(doc_content)
+                embedding=embedding(doc_content, max_retries=25, sleep=5)
             )
 
             chatbot_content_instance.save()
