@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
 from django.utils import timezone
+from django.contrib.auth import logout as auth_logout
 from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
 from pgvector.django import L2Distance
@@ -72,6 +73,13 @@ def login_view(request):
             error_message = f'An error occurred: {str(e)}'
 
     return render(request, 'user/login.html', {'form': form, 'error_message': error_message})
+
+
+@csrf_exempt
+@login_required(login_url="/login/")
+def logout_view(request):
+    auth_logout(request)
+    return redirect('home')
 
 
 @csrf_exempt
@@ -236,15 +244,17 @@ def switch_content(request, message_id):
 @csrf_exempt
 def home(request):
     context = {}
+    is_auth = False
+    is_staff = False
 
     if request.user.is_authenticated:
+        is_auth = True
         user_name = request.user.username
         context['user_name'] = user_name
 
         if request.user.is_staff:
-            # If the user is a staff member, render a different template
-            return render(request, 'home/home-staff.html', context)
-        else:
-            return render(request, 'home/home-auth.html', context)
-    else:
-        return render(request, 'home/home-guest.html')
+            is_staff = True
+
+    context['is_staff'] = is_staff
+    context['is_auth'] = is_auth
+    return render(request, 'home/home.html', context)
