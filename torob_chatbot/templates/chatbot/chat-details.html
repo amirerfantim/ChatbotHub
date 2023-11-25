@@ -6,43 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with {{ conversation.user.email }}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-<style>
-    .btn-like, .btn-dislike, .btn-switch-content {
-        cursor: pointer;
-    }
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
 
-    /* Add new styles */
-    .search-container {
-        display: flex;
-        align-items: center;
-    }
+        .btn-like, .btn-dislike, .btn-switch-content {
+            cursor: pointer;
+        }
 
-    .search-container form {
-        margin-left: auto;
-        display: flex;
-    }
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
 
-    .search-container input {
-        margin-right: 8px;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        color: black; /* Set the text color to black */
-    }
+        .search-container form {
+            margin-left: auto;
+            display: flex;
+        }
 
-    .search-container button {
-        padding: 8px 16px;
-        background-color: #198BA3;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-</style>
+        .search-container input {
+            margin-right: 8px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .search-container button {
+            padding: 8px 16px;
+            background-color: #198BA3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .chat-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .chat-item {
+            transition: background-color 0.3s ease;
+            border-radius: 10px; /* Rounded corners for chat items */
+        }
+
+        .chat-item:hover {
+            background-color: #F0F0F0; /* Light gray hover color for chat items */
+            color: white; /* Text becomes white on hover */
+        }
+
+        .chat-link {
+            text-decoration: none;
+            color: black; /* Default text color */
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+            border-radius: 10px; /* Rounded corners for the entire box */
+            overflow: hidden; /* Ensure rounded corners are applied */
+        }
+
+        .chat-link:hover {
+            background-color: #3498db; /* Blue background color on hover */
+            transform: scale(1.1); /* Scale the entire box to 110% on hover */
+            color: white; /* Text becomes white on hover */
+        }
+
+        .chat-avatar img {
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease; /* Add transition for scaling effect on the avatar */
+        }
+
+        .chat-link:hover .chat-avatar img {
+            transform: scale(1.2); /* Scale the photo to 120% on hover */
+        }
+
+        .chat-details {
+            margin-left: 15px;
+        }
+
+        .chat-title, .chat-preview, .chat-date {
+            color: inherit; /* Inherit color from the parent (.chat-link) */
+        }
+
+        .message:hover {
+            background-color: #F0F0F0; /* Light gray hover color for messages */
+        }
+
+        header a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        .chat-container {
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-messages {
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .message {
+            transition: background-color 0.3s ease;
+        }
+
+
+        .message-content {
+            max-width: 70%;
+        }
+
+        .message-input {
+            margin-top: 10px;
+        }
+
+        .btn-like:hover, .btn-dislike:hover, .btn-switch-content:hover {
+        background-color: #4CAF50; /* Green hover color for like, dislike, and switch content buttons */
+        color: white;}
+        .chat-item:hover {
+            background-color: #F0F0F0; /* Light gray hover color for chat items */
+        }
+        .chat-link:hover .chat-avatar img {
+            border: 2px solid #198BA3; /* Border color for chat avatar on hover */
+        }
+        .message:hover {
+            background-color: #F0F0F0; /* Light gray hover color for messages */
+        }
+        .message-input button:hover {
+            background-color: #4CAF50; /* Green hover color for message input and send button */
+            color: white;
+            border: #4CAF50;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <div class="flex">
-        <!-- Left Panel -->
         <div class="w-1/4 p-4">
             <h2 class="text-xl font-semibold mb-4">Chat History</h2>
             <ul class="chat-list">
@@ -63,7 +168,6 @@
             </ul>
         </div>
 
-        <!-- Chat Container -->
         <div class="w-3/4 p-4">
             <header class="bg-gray-800 text-white p-4">
                 <div class="container mx-auto">
