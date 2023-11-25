@@ -7,7 +7,7 @@ from chatbot.services import embedding
 class ChatbotAdmin(admin.ModelAdmin):
     list_display = (
         'pk', 'name', 'description', 'custom_prompt', 'user', 'is_active', 'bot_photo',
-        'created_date', 'get_total_likes', 'get_total_dislikes'
+        'created_date', 'get_total_likes_dislikes'
     )
 
     list_display_links = None
@@ -16,17 +16,11 @@ class ChatbotAdmin(admin.ModelAdmin):
     list_editable_links = None
     read_only_fields = ('likes', 'dislikes')
 
-    def get_total_likes(self, obj):
-        total_likes, _ = obj.calculate_likes_dislikes()
-        return total_likes
+    def get_total_likes_dislikes(self, obj):
+        total_likes, total_dislikes = obj.calculate_likes_dislikes()
+        return f'👍: {total_likes}, 👎: {total_dislikes}'
 
-    def get_total_dislikes(self, obj):
-        _, total_dislikes = obj.calculate_likes_dislikes()
-        return total_dislikes
-
-    get_total_likes.short_description = 'Total Likes'
-
-    get_total_dislikes.short_description = 'Total Dislikes'
+    get_total_likes_dislikes.short_description = 'Likes/Dislikes'
 
     def get_readonly_fields(self, request, obj=None):
         if request.user.groups.filter(name='chatbot-admin').exists():
