@@ -235,4 +235,16 @@ def switch_content(request, message_id):
 
 @csrf_exempt
 def home(request):
-    return render(request, 'home.html')
+    context = {}
+
+    if request.user.is_authenticated:
+        user_name = request.user.username
+        context['user_name'] = user_name
+
+        if request.user.is_staff:
+            # If the user is a staff member, render a different template
+            return render(request, 'home/home-staff.html', context)
+        else:
+            return render(request, 'home/home-auth.html', context)
+    else:
+        return render(request, 'home/home-guest.html')
