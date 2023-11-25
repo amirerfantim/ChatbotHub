@@ -11,6 +11,14 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        .flex-1 {
+            flex: 1;
+        }
+
+        .h-screen {
+            height: 100vh;
+        }
+
         .btn-like, .btn-dislike, .btn-switch-content {
             cursor: pointer;
         }
@@ -111,13 +119,12 @@
 
         .chat-messages {
             overflow-y: auto;
-            max-height: 400px;
+            max-height: 80vh;
         }
 
         .message {
             transition: background-color 0.3s ease;
         }
-
 
         .message-content {
             max-width: 70%;
@@ -127,16 +134,18 @@
             margin-top: 10px;
         }
 
-
         .chat-item:hover {
             background-color: #F0F0F0;
         }
+
         .chat-link:hover .chat-avatar img {
-            border: 2px solid #198BA3; /
+            border: 2px solid #198BA3;
         }
+
         .message:hover {
             background-color: #F0F0F0;
         }
+
         .message-input button:hover {
             background-color: #4CAF50;
             color: white;
@@ -145,7 +154,7 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <div class="flex">
+    <div class="flex h-screen">
         <div class="w-1/4 p-4">
             <h2 class="text-xl font-semibold mb-4">Chat History</h2>
             <ul class="chat-list">
@@ -166,9 +175,9 @@
             </ul>
         </div>
 
-        <div class="w-3/4 p-4">
+        <div class="w-3/4 p-4 flex flex-col">
             <header class="bg-gray-800 text-white p-4">
-                <div class="container mx-auto">
+                <div class="container mx-auto flex-1">
                     <div class="search-container">
                         <a href="{% url 'chat_history' %}" class="block text-2xl font-semibold text-white mb-4">
                             Back to Chat History
@@ -180,25 +189,25 @@
                     </div>
                 </div>
             </header>
-            <div class="container mx-auto">
+            <div class="container mx-auto flex-1">
                 <form method="get" action="{% url 'chat_details' conversation_id=conversation.id %}">
                 </form>
-                <div class="chat-container bg-white rounded p-4 shadow-md">
+                <div class="chat-container bg-white rounded p-4 shadow-md ">
                     {% load custom_filters %}
                     <div class="chat-messages">
                         {% for message in messages %}
                             {% if message.role != "context" %}
-                                    <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
-                                        {% if message.role == "user" %}
-                                            <div class="message-content ml-2">{{ message.content|markdown|safe }}</div>
-                                        {% elif message.role == "assistant" %}
-                                            <div class="message-content flex-1 ml-2">
-                                                {% if message.show_original %}
-                                                    {{ message.original_content|markdown|safe }}
-                                                {% else %}
-                                                    {{ message.content|markdown|safe }}
-                                                {% endif %}
-                                            </div>
+                                <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
+                                    {% if message.role == "user" %}
+                                        <div class="message-content ml-2">{{ message.content|markdown|safe }}</div>
+                                    {% elif message.role == "assistant" %}
+                                        <div class="message-content flex-1 ml-2">
+                                            {% if message.show_original %}
+                                                {{ message.original_content|markdown|safe }}
+                                            {% else %}
+                                                {{ message.content|markdown|safe }}
+                                            {% endif %}
+                                        </div>
                                         <div class="ml-auto flex items-center">
                                             <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
                                                 {% csrf_token %}
