@@ -20,27 +20,6 @@
             color: #ffffff;
         }
 
-        .search-box {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-box input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 8px;
-            outline: none;
-        }
-
-        .search-box button {
-            background-color: #4a5568;
-            color: #ffffff;
-            border: 1px solid #4a5568;
-            border-radius: 4px;
-            cursor: pointer;
-            outline: none;
-        }
 
         .search-box button:hover {
             background-color: #2d3748;
@@ -146,6 +125,7 @@
         footer a:hover {
             background-color: #2d3748;
         }
+
     </style>
 <body class="bg-gray-100">
     <header class="bg-gray-800 text-white p-4">
@@ -156,10 +136,6 @@
     <div class="container mx-auto p-4 mt-4">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-semibold">Your Chats</h2>
-            <div class="search-box">
-                <input type="text" placeholder="Search chats" class="p-2 border rounded">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Search</button>
-            </div>
         </div>
         <ul class="chat-list">
             {% for conversation in conversations %}
@@ -190,6 +166,7 @@
     </div>
     <footer>
         <div class="container mx-auto">
+                <a href="{% url 'home' %}" class="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded-full">Back to Home</a>
             <a href="{% url 'start_conversation' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Create New Chat</a>
         </div>
     </footer>
