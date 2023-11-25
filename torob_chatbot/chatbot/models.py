@@ -51,7 +51,6 @@ class Conversation(models.Model):
     def save(self, *args, **kwargs):
         if not self.pk:
             self.title = f"Chat with {self.chatbot.name}"
-
         super().save(*args, **kwargs)
 
 

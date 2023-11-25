@@ -35,6 +35,13 @@ class ChatbotViewsTestCase(TestCase):
         response = self.client.get('/chatbots/')
         self.assertEqual(response.status_code, 302)
 
+    def test_home_view_unauthenticated_user(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'home/home.html')
+        self.assertIn('is_auth', response.context)
+        self.assertFalse(response.context['is_auth'])
+
 
 class ChatDetailsViewTestCase(TestCase):
     def setUp(self):
@@ -59,6 +66,18 @@ class ChatDetailsViewTestCase(TestCase):
 
         response = self.client.post('/start-conversation/', {'chatbot_id': self.chatbot.id})
         self.assertEqual(response.status_code, 302)
+
+    def test_send_empty_message(self):
+        self.client.login(username='test@example.com', password='testpassword')
+
+        initial_message_count = Message.objects.filter(conversation=self.conversation).count()
+
+        response = self.client.post(reverse('send_message', args=[self.conversation.id]), {'content': ''})
+        self.assertEqual(response.status_code, 302)
+
+        updated_message_count = Message.objects.filter(conversation=self.conversation).count()
+
+        self.assertEqual(updated_message_count, initial_message_count)
 
 
 class SendMessageViewTestCase(TestCase):
