@@ -8,3 +8,4 @@ openai==1.3.4
 python-dotenv~=1.0.0
 pgvector~=0.2.3
 django-extensions
+Markdown==3.5.1

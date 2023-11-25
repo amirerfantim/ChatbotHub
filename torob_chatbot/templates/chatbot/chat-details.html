@@ -188,17 +188,17 @@
                     <div class="chat-messages">
                         {% for message in messages %}
                             {% if message.role != "context" %}
-                                <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
-                                    {% if message.role == "user" %}
-                                        <div class="message-content ml-2">{{ message.content|highlight:search_query|safe }}</div>
-                                    {% elif message.role == "assistant" %}
-                                        <div class="message-content flex-1 ml-2">
-                                            {% if message.show_original %}
-                                                {{ message.original_content|highlight:search_query|safe }}
-                                            {% else %}
-                                                {{ message.content|highlight:search_query|safe }}
-                                            {% endif %}
-                                        </div>
+                                    <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
+                                        {% if message.role == "user" %}
+                                            <div class="message-content ml-2">{{ message.content|markdown|safe }}</div>
+                                        {% elif message.role == "assistant" %}
+                                            <div class="message-content flex-1 ml-2">
+                                                {% if message.show_original %}
+                                                    {{ message.original_content|markdown|safe }}
+                                                {% else %}
+                                                    {{ message.content|markdown|safe }}
+                                                {% endif %}
+                                            </div>
                                         <div class="ml-auto flex items-center">
                                             <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
                                                 {% csrf_token %}
