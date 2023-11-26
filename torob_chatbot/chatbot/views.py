@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db import IntegrityError, transaction
 from .models import Conversation
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-from django.db.models import F
+from django.db.models import F, Prefetch
 
 
 def register(request):
@@ -104,7 +104,9 @@ def chat_details(request, conversation_id):
     user = request.user
     user_conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
     conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
-    messages = conversation.message_set.all()
+    messages = conversation.message_set.select_related('conversation').prefetch_related(
+        Prefetch('conversation__message_set', queryset=Message.objects.only('content', 'search_vector')),
+    ).all()
 
     search_query = request.GET.get('search_query', '')
 
@@ -127,7 +129,11 @@ def chat_details(request, conversation_id):
 @login_required(login_url="/login/")
 def chat_history(request):
     user = request.user
-    conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
+    conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by(
+        '-last_message_date').prefetch_related(
+        Prefetch('message_set', queryset=Message.objects.only('content', 'search_vector')),
+        'chatbot',
+    )
 
     page = request.GET.get('page', 1)
     paginator = Paginator(conversations, 5)
