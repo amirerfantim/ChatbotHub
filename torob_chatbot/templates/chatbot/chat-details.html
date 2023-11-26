@@ -57,17 +57,17 @@
 
         .chat-item {
             transition: background-color 0.3s ease;
-            border-radius: 10px; /* Rounded corners for chat items */
+            border-radius: 10px;
         }
 
         .chat-item:hover {
-            background-color: #F0F0F0; /* Light gray hover color for chat items */
-            color: white; /* Text becomes white on hover */
+            background-color: #F0F0F0;
+            color: white;
         }
 
         .chat-link {
             text-decoration: none;
-            color: black; /* Default text color */
+            color: black;
             display: flex;
             align-items: center;
             transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
@@ -154,91 +154,105 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <div class="flex h-screen">
-        <div class="w-1/4 p-4">
-            <h2 class="text-xl font-semibold mb-4">Chat History</h2>
-            <ul class="chat-list">
-                {% for conversation in user_all_conversations %}
-                    <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
-                        <a href="{% url 'chat_details' conversation.id %}" class="chat-link flex items-center">
-                            <div class="chat-avatar" style="width:60px;height:60px;">
-                                <img src="{{ conversation.chatbot.bot_photo.url }}" alt="{{ conversation.chatbot.name }}">
-                            </div>
-                            <div class="chat-details">
-                                <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
-                                <p class="chat-preview">{{ conversation.title }}</p>
-                                <p class="chat-date">Last message: {{ conversation.last_message_date|timezone:"Asia/Tehran"|date:"F j, Y H:i" }}</p>
-                            </div>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="w-3/4 p-4 flex flex-col">
-            <header class="bg-gray-800 text-white p-4">
-                <div class="container mx-auto flex-1">
-                    <div class="search-container">
-                        <a href="{% url 'chat_history' %}" class="block text-2xl font-semibold text-white mb-4">
-                            Back to Chat History
-                        </a>
-                        <form method="get" action="{% url 'chat_details' conversation_id=conversation.id %}">
-                            <input type="text" name="search_query" placeholder="Search messages">
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </header>
-            <div class="container mx-auto flex-1">
-                <form method="get" action="{% url 'chat_details' conversation_id=conversation.id %}">
-                </form>
-                <div class="chat-container bg-white rounded p-4 shadow-md ">
-                    {% load custom_filters %}
-                    <div class="chat-messages">
-                        {% for message in messages %}
-                            {% if message.role != "context" %}
-                                <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
-                                    {% if message.role == "user" %}
-                                        <div class="message-content ml-2">{{ message.content|markdown|safe }}</div>
-                                    {% elif message.role == "assistant" %}
-                                        <div class="message-content flex-1 ml-2">
-                                            {% if message.show_original %}
-                                                {{ message.original_content|markdown|safe }}
-                                            {% else %}
-                                                {{ message.content|markdown|safe }}
-                                            {% endif %}
-                                        </div>
-                                        <div class="ml-auto flex items-center">
-                                            <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
-                                                {% csrf_token %}
-                                                <button type="submit" class="btn-like" {% if message.likes > 0 %}disabled{% endif %}>👍</button>
-                                            </form>
-                                            <form method="post" action="{% url 'like_dislike_message' message.id 'dislike' %}">
-                                                {% csrf_token %}
-                                                <button type="submit" class="btn-dislike" {% if message.likes > 0 %}disabled{% endif %}>👎</button>
-                                            </form>
-                                            {% if message.dislikes > 0 %}
-                                                <form method="post" action="{% url 'switch_content' message.id %}">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn-switch-content ml-2">{% if not message.show_original %}⬅️{% endif %}{% if message.show_original %}➡️{% endif %}</button>
-                                                </form>
-                                            {% endif %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <form method="post" action="{% url 'send_message' conversation.id %}">
-                        {% csrf_token %}
-                        <div class="message-input flex items-center">
-                            <input type="text" name="content" placeholder="Type your message" class="flex-1 border rounded py-2 px-3 mr-2">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Send</button>
+<div class="flex h-screen">
+    <div class="w-1/4 p-4">
+        <h2 class="text-xl font-semibold mb-4">Chat History</h2>
+        <ul class="chat-list">
+            {% for conversation in user_all_conversations %}
+                <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
+                    <a href="{% url 'chat_details' conversation.id %}" class="chat-link flex items-center">
+                        <div class="chat-avatar" style="width:60px;height:60px;">
+                            <img src="{{ conversation.chatbot.bot_photo.url }}" alt="{{ conversation.chatbot.name }}">
                         </div>
+                        <div class="chat-details">
+                            <h3 class="chat-title">{{ conversation.chatbot.name }}</h3>
+                            <p class="chat-preview">{{ conversation.title }}</p>
+                            <p class="chat-date">Last
+                                message: {{ conversation.last_message_date|timezone:"Asia/Tehran"|date:"F j, Y H:i" }}</p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="w-3/4 p-4 flex flex-col">
+        <header class="bg-gray-800 text-white p-4">
+            <div class="container mx-auto flex-1">
+                <div class="search-container">
+                    <a href="{% url 'chat_history' %}" class="block text-2xl font-semibold text-white mb-4">
+                        Back to Chat History
+                    </a>
+                    <form method="get" action="{% url 'chat_details' conversation_id=conversation.id %}">
+                        {% csrf_token %}
+                        <input type="text" name="search_query" placeholder="Search messages">
+                        <button type="submit">Search</button>
                     </form>
                 </div>
             </div>
+        </header>
+        <div class="container mx-auto flex-1">
+            <form method="get" action="{% url 'chat_details' conversation_id=conversation.id %}">
+                {% csrf_token %}
+            </form>
+            <div class="chat-container bg-white rounded p-4 shadow-md ">
+                {% load custom_filters %}
+                <div class="chat-messages">
+                    {% for message in messages %}
+                        {% if message.role != "context" %}
+                            <div class="message {% if message.role == "assistant" %}received{% else %}sent{% endif %} flex items-start mb-2 border rounded p-2 mb-4 hover:bg-gray-100">
+                                {% if message.role == "user" %}
+                                    <div class="message-content ml-2">{{ message.content|markdown|safe }}</div>
+                                {% elif message.role == "assistant" %}
+                                    <div class="message-content flex-1 ml-2">
+                                        {% if message.show_original %}
+                                            {{ message.original_content|markdown|safe }}
+                                        {% else %}
+                                            {{ message.content|markdown|safe }}
+                                        {% endif %}
+                                    </div>
+                                    <div class="ml-auto flex items-center">
+                                        <form method="post" action="{% url 'like_dislike_message' message.id 'like' %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn-like"
+                                                    {% if message.likes > 0 %}disabled{% endif %}>👍
+                                            </button>
+                                        </form>
+                                        <form method="post"
+                                              action="{% url 'like_dislike_message' message.id 'dislike' %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn-dislike"
+                                                    {% if message.likes > 0 %}disabled{% endif %}>👎
+                                            </button>
+                                        </form>
+                                        {% if message.dislikes > 0 %}
+                                            <form method="post" action="{% url 'switch_content' message.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn-switch-content ml-2">
+                                                    {% if not message.show_original %}⬅️{% endif %}
+                                                    {% if message.show_original %}➡️{% endif %}</button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <form method="post" action="{% url 'send_message' conversation.id %}">
+                    {% csrf_token %}
+                    <div class="message-input flex items-center">
+                        <input type="text" name="content" placeholder="Type your message"
+                               class="flex-1 border rounded py-2 px-3 mr-2">
+                        <button type="submit"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

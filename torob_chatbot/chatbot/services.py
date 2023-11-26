@@ -109,7 +109,7 @@ def handle_exception(attempt, max_retries, sleep):
     time.sleep(sleep)
 
 
-def get_relevant_content(conversation, user_message):
+def get_relevant_context(conversation, user_message):
     user_message_embedding = embedding(user_message.content)
     chatbot_contents = ChatbotContent.objects.filter(chatbot=conversation.chatbot)
     ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
