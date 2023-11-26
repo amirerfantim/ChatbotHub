@@ -4,12 +4,11 @@ from django.utils import timezone
 from django.contrib.auth import logout as auth_logout
 from django.utils.safestring import mark_safe
 from django.views.decorators.http import require_POST
-from pgvector.django import L2Distance
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
-from .models import CustomUser, Chatbot, Message, ChatbotContent
+from .models import CustomUser, Chatbot, Message
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response, embedding
+from .services import generate_conversation_title, generate_chatbot_response, get_relevant_content
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -126,7 +125,7 @@ def chat_details(request, conversation_id):
         message.original_content = mark_safe(message.original_content)
         message.content = mark_safe(message.content)
     return render(request, 'chatbot/chat-details.html',
-                  {'user_conversations': user_conversations, 'conversation': conversation, 'messages': messages,
+                  {'user_all_conversations': user_conversations, 'conversation': conversation, 'messages': messages,
                    'search_query': search_query})
 
 
@@ -157,28 +156,16 @@ def send_message(request, conversation_id):
         if content:
 
             conversation = Conversation.objects.get(pk=conversation_id)
-
             is_first_message = not conversation.message_set.exists()
-
             user_message = Message.objects.create(conversation=conversation, content=content, role="user")
-
-            user_message_embedding = embedding(user_message.content)
-
-            chatbot_contents = ChatbotContent.objects.filter(chatbot=conversation.chatbot)
-
-            ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
-
-            relevant_contents = [content.content for content in ordered_chatbot_contents[:1]]
-
-            if len(relevant_contents) > 0:
-                Message.objects.create(conversation=conversation, content=relevant_contents[0], role="context")
-
-            bot_response = generate_chatbot_response(conversation, user_message)
-
-            Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
 
             if is_first_message:
                 conversation.title = generate_conversation_title(user_message.content)
+
+            get_relevant_content(conversation, user_message)
+
+            bot_response = generate_chatbot_response(conversation, user_message)
+            Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
 
             conversation.last_message_date = timezone.now()
             conversation.save()
