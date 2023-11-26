@@ -12,7 +12,7 @@ from .services import generate_conversation_title, generate_chatbot_response, ge
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.db import IntegrityError
+from django.db import IntegrityError, transaction
 from .models import Conversation
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.db.models import F
@@ -24,18 +24,19 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         try:
-            if form.is_valid():
-                email = form.cleaned_data['email']
-                password = form.cleaned_data['password']
-                password_confirm = form.cleaned_data['password_confirm']
+            with transaction.atomic():
+                if form.is_valid():
+                    email = form.cleaned_data['email']
+                    password = form.cleaned_data['password']
+                    password_confirm = form.cleaned_data['password_confirm']
 
-                if password == password_confirm:
-                    CustomUser.objects.create_user(username=email, email=email, password=password)
+                    if password == password_confirm:
+                        CustomUser.objects.create_user(username=email, email=email, password=password)
 
-                    messages.success(request, 'Registration successful. You can now log in.')
-                    return redirect('login')
-                else:
-                    error_message = 'Passwords do not match.'
+                        messages.success(request, 'Registration successful. You can now log in.')
+                        return redirect('login')
+                    else:
+                        error_message = 'Passwords do not match.'
         except IntegrityError:
             error_message = 'Email is already registered. Please choose a different email.'
         except Exception as e:
@@ -216,6 +217,7 @@ def switch_content(request, message_id):
     return redirect('chat_details', conversation_id=conversation.id)
 
 
+# @csrf_exempt
 def home(request):
     context = {}
     is_auth = False
