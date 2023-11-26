@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pgvector.django import CosineDistance, L2Distance, MaxInnerProduct
 import time
 
-from chatbot.models import Chatbot, ChatbotContent
+from chatbot.models import Chatbot, ChatbotContent, Message
 
 load_dotenv()
 client = OpenAI(api_key=os.environ['OPENAI_KEY'], base_url=os.environ['OPENAI_BASEURL'])
@@ -107,3 +107,12 @@ def handle_exception(attempt, max_retries, sleep):
         print(f"Max retries reached. Failed to get embedding.")
         return "The API is not working, try again later"
     time.sleep(sleep)
+
+
+def get_relevant_content(conversation, user_message):
+    user_message_embedding = embedding(user_message.content)
+    chatbot_contents = ChatbotContent.objects.filter(chatbot=conversation.chatbot)
+    ordered_chatbot_contents = chatbot_contents.order_by(L2Distance('embedding', user_message_embedding))
+    relevant_content = ordered_chatbot_contents.first()
+    if relevant_content is not None:
+        Message.objects.create(conversation=conversation, content=relevant_content.content, role="context")

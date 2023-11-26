@@ -158,7 +158,7 @@
         <div class="w-1/4 p-4">
             <h2 class="text-xl font-semibold mb-4">Chat History</h2>
             <ul class="chat-list">
-                {% for conversation in user_conversations %}
+                {% for conversation in user_all_conversations %}
                     <li class="chat-item border rounded p-2 mb-4 hover:bg-gray-100">
                         <a href="{% url 'chat_details' conversation.id %}" class="chat-link flex items-center">
                             <div class="chat-avatar" style="width:60px;height:60px;">

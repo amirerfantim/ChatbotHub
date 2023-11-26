@@ -19,5 +19,5 @@ urlpatterns = [
     path('switch_content/<int:message_id>/', switch_content, name='switch_content'),
     path('logout/', logout_view, name='logout'),
 ]
-# if settings.DEBUG:
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
