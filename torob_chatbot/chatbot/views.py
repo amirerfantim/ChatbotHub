@@ -8,7 +8,7 @@ from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
 from .models import CustomUser, Chatbot, Message
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response, get_relevant_content
+from .services import generate_conversation_title, generate_chatbot_response, get_relevant_context
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -18,7 +18,6 @@ from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.db.models import F
 
 
-@csrf_exempt
 def register(request):
     error_message = None
 
@@ -34,7 +33,7 @@ def register(request):
                     CustomUser.objects.create_user(username=email, email=email, password=password)
 
                     messages.success(request, 'Registration successful. You can now log in.')
-                    return redirect('home')
+                    return redirect('login')
                 else:
                     error_message = 'Passwords do not match.'
         except IntegrityError:
@@ -48,7 +47,6 @@ def register(request):
     return render(request, 'user/register.html', {'form': form, 'error_message': error_message})
 
 
-@csrf_exempt
 def login_view(request):
     form = LoginForm()
     error_message = ''
@@ -74,21 +72,18 @@ def login_view(request):
     return render(request, 'user/login.html', {'form': form, 'error_message': error_message})
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def logout_view(request):
     auth_logout(request)
     return redirect('home')
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def chatbot_list(request):
     chatbots = Chatbot.objects.all().order_by("created_date").filter(is_active=True)
     return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def start_conversation(request):
     if request.method == 'POST':
@@ -103,7 +98,6 @@ def start_conversation(request):
     return render(request, 'chatbot/chatbot-list.html', {'chatbots': chatbots})
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def chat_details(request, conversation_id):
     user = request.user
@@ -129,7 +123,6 @@ def chat_details(request, conversation_id):
                    'search_query': search_query})
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def chat_history(request):
     user = request.user
@@ -147,7 +140,6 @@ def chat_history(request):
     return render(request, 'chatbot/chat-list.html', {'conversations': conversations})
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def send_message(request, conversation_id):
     if request.method == 'POST':
@@ -162,7 +154,7 @@ def send_message(request, conversation_id):
             if is_first_message:
                 conversation.title = generate_conversation_title(user_message.content)
 
-            get_relevant_content(conversation, user_message)
+            get_relevant_context(conversation, user_message)
 
             bot_response = generate_chatbot_response(conversation, user_message)
             Message.objects.create(conversation=conversation, content=bot_response, role="assistant")
@@ -179,7 +171,6 @@ def send_message(request, conversation_id):
 
 @require_POST
 @login_required(login_url="/login/")
-@csrf_exempt
 def like_dislike_message(request, message_id, action):
     try:
         message = Message.objects.get(pk=message_id)
@@ -203,7 +194,6 @@ def like_dislike_message(request, message_id, action):
         return HttpResponseBadRequest('Invalid message ID')
 
 
-@csrf_exempt
 @login_required(login_url="/login/")
 def switch_content(request, message_id):
     try:
@@ -226,7 +216,6 @@ def switch_content(request, message_id):
     return redirect('chat_details', conversation_id=conversation.id)
 
 
-@csrf_exempt
 def home(request):
     context = {}
     is_auth = False
