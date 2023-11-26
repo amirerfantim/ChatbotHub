@@ -37,7 +37,7 @@ test-job:
       - bootcamp
       - fi
     services:
-      - postgres:latest
+      - ankane/pgvector:latest
     variables:
       POSTGRES_DB: $DB_NAME
       POSTGRES_USER: $DB_USER
