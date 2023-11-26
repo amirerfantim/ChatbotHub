@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres.search import SearchVectorField, SearchVector
 from django.db import models
+from django.db.models import Sum
 from pgvector.django import VectorField
 
 
@@ -31,15 +32,15 @@ class Chatbot(models.Model):
     is_active = models.BooleanField(default=True)
     bot_photo = models.ImageField(upload_to='data/', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    
-    def calculate_likes_dislikes(self):
-        total_likes = 0
-        total_dislikes = 0
 
-        for conversation in self.conversation_set.all():
-            for message in conversation.message_set.all():
-                total_likes += message.likes
-                total_dislikes += message.dislikes
+    def calculate_likes_dislikes(self):
+        likes_dislikes_aggregated = self.conversation_set.all().aggregate(
+            total_likes=Sum('message__likes'),
+            total_dislikes=Sum('message__dislikes')
+        )
+
+        total_likes = likes_dislikes_aggregated['total_likes'] or 0
+        total_dislikes = likes_dislikes_aggregated['total_dislikes'] or 0
 
         return total_likes, total_dislikes
 
