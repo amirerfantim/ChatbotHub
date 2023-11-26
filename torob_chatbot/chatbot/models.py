@@ -29,9 +29,9 @@ class Chatbot(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     custom_prompt = models.TextField(default="You are a helpful assistant.")
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, db_index=True)
     bot_photo = models.ImageField(upload_to='data/', null=True, blank=True)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True, db_index=True)
 
     def calculate_likes_dislikes(self):
         likes_dislikes_aggregated = self.conversation_set.all().aggregate(
@@ -52,11 +52,11 @@ class ChatbotContent(models.Model):
 
 
 class Conversation(models.Model):
-    chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    chatbot = models.ForeignKey(Chatbot, on_delete=models.CASCADE, db_index=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, db_index=True)
     start_date = models.DateTimeField(auto_now_add=True)
     title = models.TextField(max_length=100)
-    last_message_date = models.DateTimeField(auto_now_add=True)
+    last_message_date = models.DateTimeField(auto_now_add=True, db_index=True)
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -65,7 +65,7 @@ class Conversation(models.Model):
 
 
 class Message(models.Model):
-    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE)
+    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE, db_index=True)
     content = models.TextField()
     search_vector = SearchVectorField(null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
