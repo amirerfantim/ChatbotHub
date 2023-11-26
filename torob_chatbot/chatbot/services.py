@@ -15,7 +15,8 @@ def generate_chatbot_response(conversation, message, max_retries=10, sleep=2):
     messages = [
         {"role": "system", "content": conversation.chatbot.custom_prompt},
         {"role": "system",
-         "content": "Answer the question as truthfully as possible, and if you're unsure of the answer, say \"Sorry, I don't know\""},
+         "content": "Answer the question as truthfully as possible, and if you're unsure of the answer, say \"Sorry, "
+                    "I don't know\""},
     ]
 
     previous_messages = conversation.message_set.filter(timestamp__lt=message.timestamp)

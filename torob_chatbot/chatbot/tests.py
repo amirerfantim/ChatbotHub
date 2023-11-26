@@ -110,7 +110,9 @@ class StartConversationViewTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(username='testuser', password='testpassword')
 
-        image_content = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x01\x00\x00\x00\x01\x00\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDAT\x08\xd7c`\x00\x00\x00\x02\x00\x01\x15\x00\x00\x00\x00IEND\xaeB`\x82'
+        image_content = (b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x01\x00\x00\x00\x01\x00\x08\x06\x00\x00\x00\x1f'
+                         b'\x15\xc4\x89\x00\x00\x00\nIDAT\x08\xd7c`\x00\x00\x00\x02\x00\x01\x15\x00\x00\x00\x00IEND'
+                         b'\xaeB`\x82')
         self.image = SimpleUploadedFile("test_image.png", image_content, content_type="image/png")
 
         self.chatbot = Chatbot.objects.create(
@@ -157,7 +159,9 @@ class StartConversationViewTests(TestCase):
 class ChatHistoryViewTest(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(username='testuser', password='testpass')
-        image_content = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x01\x00\x00\x00\x01\x00\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDAT\x08\xd7c`\x00\x00\x00\x02\x00\x01\x15\x00\x00\x00\x00IEND\xaeB`\x82'
+        image_content = (b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x01\x00\x00\x00\x01\x00\x08\x06\x00\x00\x00\x1f'
+                         b'\x15\xc4\x89\x00\x00\x00\nIDAT\x08\xd7c`\x00\x00\x00\x02\x00\x01\x15\x00\x00\x00\x00IEND'
+                         b'\xaeB`\x82')
         self.image = SimpleUploadedFile("test_image.png", image_content, content_type="image/png")
 
         self.active_chatbot = Chatbot.objects.create(user=self.user, name='Active Chatbot', is_active=True,
@@ -174,7 +178,7 @@ class ChatHistoryViewTest(TestCase):
         self.assertRedirects(response, '/login/?next=/chat-history/', status_code=302, target_status_code=200)
 
     def test_no_conversations_to_display(self):
-        user_without_conversations = get_user_model().objects.create_user(username='noconvuser', password='testpass')
+        get_user_model().objects.create_user(username='noconvuser', password='testpass')
 
         self.client.login(username='noconvuser', password='testpass')
 
