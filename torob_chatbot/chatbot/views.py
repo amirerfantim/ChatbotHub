@@ -24,19 +24,18 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         try:
-            with transaction.atomic():
-                if form.is_valid():
-                    email = form.cleaned_data['email']
-                    password = form.cleaned_data['password']
-                    password_confirm = form.cleaned_data['password_confirm']
+            if form.is_valid():
+                email = form.cleaned_data['email']
+                password = form.cleaned_data['password']
+                password_confirm = form.cleaned_data['password_confirm']
 
-                    if password == password_confirm:
-                        CustomUser.objects.create_user(username=email, email=email, password=password)
+                if password == password_confirm:
+                    CustomUser.objects.create_user(username=email, email=email, password=password)
 
-                        messages.success(request, 'Registration successful. You can now log in.')
-                        return redirect('login')
-                    else:
-                        error_message = 'Passwords do not match.'
+                    messages.success(request, 'Registration successful. You can now log in.')
+                    return redirect('login')
+                else:
+                    error_message = 'Passwords do not match.'
         except IntegrityError:
             error_message = 'Email is already registered. Please choose a different email.'
         except Exception as e:
@@ -240,4 +239,3 @@ def home(request):
     context['is_staff'] = is_staff
     context['is_auth'] = is_auth
     return render(request, 'home/home.html', context)
-
