@@ -1,4 +1,7 @@
 import os
+
+from django.contrib.postgres.search import SearchVector, SearchRank, SearchQuery
+from django.db.models import Prefetch, F
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
@@ -117,3 +120,20 @@ def get_relevant_context(conversation, user_message):
     relevant_content = ordered_chatbot_contents.first()
     if relevant_content is not None:
         Message.objects.create(conversation=conversation, content=relevant_content.content, role="context")
+
+
+def get_messages_with_search(request, conversation):
+    messages = conversation.message_set.select_related('conversation').prefetch_related(
+        Prefetch('conversation__message_set', queryset=Message.objects.only('content', 'search_vector')),
+    ).all()
+
+    search_query = request.GET.get('search_query', '')
+
+    if search_query:
+        messages = messages.annotate(
+            search=SearchVector('content'),
+            rank=SearchRank(F('search'), SearchQuery(search_query))
+        ).filter(search=SearchQuery(search_query)).order_by('-rank')
+
+    messages = messages.order_by("timestamp")
+    return messages

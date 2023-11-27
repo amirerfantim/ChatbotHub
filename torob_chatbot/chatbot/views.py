@@ -8,14 +8,13 @@ from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import authenticate, login
 from .models import CustomUser, Chatbot, Message
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .services import generate_conversation_title, generate_chatbot_response, get_relevant_context
+from .services import generate_conversation_title, generate_chatbot_response, get_relevant_context, \
+    get_messages_with_search
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
 from .models import Conversation
-from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-from django.db.models import F, Prefetch
+from django.db.models import Prefetch
 
 
 def register(request):
@@ -103,26 +102,14 @@ def chat_details(request, conversation_id):
     user = request.user
     user_conversations = Conversation.objects.filter(user=user).order_by('-last_message_date')
     conversation = Conversation.objects.filter(user=request.user).get(id=conversation_id)
-    messages = conversation.message_set.select_related('conversation').prefetch_related(
-        Prefetch('conversation__message_set', queryset=Message.objects.only('content', 'search_vector')),
-    ).all()
-
-    search_query = request.GET.get('search_query', '')
-
-    if search_query:
-        messages = messages.annotate(
-            search=SearchVector('content'),
-            rank=SearchRank(F('search'), SearchQuery(search_query))
-        ).filter(search=SearchQuery(search_query)).order_by('-rank')
-
-    messages = messages.order_by("timestamp")
+    messages = get_messages_with_search(request, conversation)
 
     for message in messages:
         message.original_content = mark_safe(message.original_content)
         message.content = mark_safe(message.content)
+
     return render(request, 'chatbot/chat-details.html',
-                  {'user_all_conversations': user_conversations, 'conversation': conversation, 'messages': messages,
-                   'search_query': search_query})
+                  {'user_all_conversations': user_conversations, 'conversation': conversation, 'messages': messages})
 
 
 @login_required(login_url="/login/")
