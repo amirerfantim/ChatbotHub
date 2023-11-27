@@ -102,8 +102,8 @@ def start_conversation(request):
 @login_required(login_url="/login/")
 def chat_details(request, conversation_id):
     user = request.user
-    user_conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by('-last_message_date')
-    conversation = Conversation.objects.filter(user=request.user, chatbot__is_active=True).get(id=conversation_id)
+    user_conversations = Conversation.objects.filter(user=user).order_by('-last_message_date')
+    conversation = Conversation.objects.filter(user=request.user).get(id=conversation_id)
     messages = conversation.message_set.select_related('conversation').prefetch_related(
         Prefetch('conversation__message_set', queryset=Message.objects.only('content', 'search_vector')),
     ).all()
@@ -129,7 +129,7 @@ def chat_details(request, conversation_id):
 @login_required(login_url="/login/")
 def chat_history(request):
     user = request.user
-    conversations = Conversation.objects.filter(user=user, chatbot__is_active=True).order_by(
+    conversations = Conversation.objects.filter(user=user).order_by(
         '-last_message_date').prefetch_related(
         Prefetch('message_set', queryset=Message.objects.only('content', 'search_vector')),
         'chatbot',
