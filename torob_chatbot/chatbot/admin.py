@@ -14,7 +14,6 @@ class ChatbotAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'user__username', 'is_active')
     list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
-    read_only_fields = ('likes', 'dislikes')
 
     def get_total_likes_dislikes(self, obj):
         total_likes, total_dislikes = obj.calculate_likes_dislikes()
