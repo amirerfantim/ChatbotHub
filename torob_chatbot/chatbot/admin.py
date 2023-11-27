@@ -64,7 +64,7 @@ class ChatbotContentAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.is_superuser or request.user.groups.filter(
-                name='torob-admin').exists() or request.user.groups.filter(name='chatbot-admin').exists():
+                name='torob-admin').exists():
             return qs
         elif request.user.groups.filter(name='chatbot-admin').exists():
             return qs.filter(chatbot__user=request.user)
