@@ -21,11 +21,6 @@ class ChatbotAdmin(admin.ModelAdmin):
 
     get_total_likes_dislikes.short_description = 'Likes/Dislikes'
 
-    def get_readonly_fields(self, request, obj=None):
-        if request.user.groups.filter(name='chatbot-admin').exists():
-            return self.read_only_fields
-        return super().get_readonly_fields(request, obj)
-
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.is_superuser or request.user.groups.filter(name='torob-admin').exists():
