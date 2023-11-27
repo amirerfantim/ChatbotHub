@@ -73,7 +73,7 @@ class ChatDetailsViewTestCase(TestCase):
 
         initial_message_count = Message.objects.filter(conversation=self.conversation).count()
 
-        response = self.client.post(reverse('send_message', args=[self.conversation.id]), {'content': ''})
+        response = self.client.post(f'/send-message/{self.conversation.id}/', {'content': ''})
         self.assertEqual(response.status_code, 302)
 
         updated_message_count = Message.objects.filter(conversation=self.conversation).count()
@@ -98,7 +98,7 @@ class SendMessageViewTestCase(TestCase):
 
         initial_message_count = Message.objects.filter(conversation=self.conversation).count()
 
-        response = self.client.post(reverse('send_message', args=[self.conversation.id]), {'content': 'Test message'})
+        response = self.client.post(f'/send-message/{self.conversation.id}/', {'content': 'Test message'})
         self.assertEqual(response.status_code, 302)
 
         updated_message_count = Message.objects.filter(conversation=self.conversation).count()
@@ -137,23 +137,23 @@ class StartConversationViewTests(TestCase):
         self.assertEqual(conversation.chatbot, self.chatbot)
         self.assertEqual(conversation.user, self.user)
 
-        self.assertRedirects(response, reverse('chat_details', args=[conversation.id]))
+        self.assertRedirects(response, f'/chat-details/{conversation.id}/')
 
     def test_start_conversation_get(self):
         self.client.login(username='testuser', password='testpassword')
 
-        response = self.client.get(reverse('start_conversation'))
+        response = self.client.get('/start-conversation/')
 
         self.assertEqual(response.status_code, 200)
 
         self.assertQuerysetEqual(response.context['chatbots'], Chatbot.objects.all(), transform=lambda x: x)
 
     def test_start_conversation_unauthenticated(self):
-        response = self.client.post(reverse('start_conversation'), {'chatbot_id': self.chatbot.id})
+        response = self.client.post('/start-conversation/', {'chatbot_id': self.chatbot.id})
 
         self.assertEqual(response.status_code, 302)
 
-        self.assertRedirects(response, reverse('login') + '?next=' + reverse('start_conversation'))
+        self.assertRedirects(response, '/login/?next=/start-conversation%2F')
 
 
 class ChatHistoryViewTest(TestCase):
@@ -173,7 +173,7 @@ class ChatHistoryViewTest(TestCase):
         Conversation.objects.create(chatbot=self.active_chatbot, user=self.user, title='Conversation 2')
 
     def test_user_redirected_to_login_if_not_logged_in(self):
-        response = self.client.get(reverse('chat_history'))
+        response = self.client.get('/chat-history/')
 
         self.assertRedirects(response, '/login/?next=/chat-history/', status_code=302, target_status_code=200)
 
@@ -182,7 +182,7 @@ class ChatHistoryViewTest(TestCase):
 
         self.client.login(username='noconvuser', password='testpass')
 
-        response = self.client.get(reverse('chat_history'))
+        response = self.client.get('/chat-history/')
 
         self.assertEqual(response.status_code, 200)
 
@@ -199,8 +199,7 @@ class LikeDislikeMessageViewTest(TestCase):
         self.message = Message.objects.create(conversation=self.conversation)
 
     def test_like_message(self):
-        url = reverse('like_dislike_message', args=[self.message.id, 'like'])
-        response = self.client.post(url)
+        response = self.client.post(f'/like-dislike-message/{self.message.id}/like/')
         self.assertEqual(response.status_code, 302)
 
         updated_message = Message.objects.get(pk=self.message.id)
@@ -208,8 +207,7 @@ class LikeDislikeMessageViewTest(TestCase):
         self.assertEqual(updated_message.likes, 1)
 
     def test_dislike_message(self):
-        url = reverse('like_dislike_message', args=[self.message.id, 'dislike'])
-        response = self.client.post(url)
+        response = self.client.post(f'/like-dislike-message/{self.message.id}/dislike/')
         self.assertEqual(response.status_code, 302)
 
         updated_message = Message.objects.get(pk=self.message.id)
@@ -218,8 +216,7 @@ class LikeDislikeMessageViewTest(TestCase):
         self.assertNotEqual(updated_message.content, self.message.content)
 
     def test_invalid_message_id(self):
-        url = reverse('like_dislike_message', args=[999, 'like'])
-        response = self.client.post(url)
+        response = self.client.post('/like-dislike-message/999/like/')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.content, b'Invalid message ID')
 
@@ -235,8 +232,7 @@ class SwitchContentViewTest(TestCase):
         self.user_message = Message.objects.create(conversation=self.conversation, role='user')
 
     def test_switch_content_show_original(self):
-        url = reverse('switch_content', args=[self.assistant_message.id])
-        response = self.client.get(url)
+        response = self.client.get(f'/switch_content/{self.assistant_message.id}/')
         self.assertEqual(response.status_code, 302)
 
         updated_message = Message.objects.get(pk=self.assistant_message.id)
@@ -247,8 +243,7 @@ class SwitchContentViewTest(TestCase):
         self.assistant_message.show_original = True
         self.assistant_message.save()
 
-        url = reverse('switch_content', args=[self.assistant_message.id])
-        response = self.client.get(url)
+        response = self.client.get(f'/switch_content/{self.assistant_message.id}/')
         self.assertEqual(response.status_code, 302)
 
         updated_message = Message.objects.get(pk=self.assistant_message.id)
@@ -256,8 +251,7 @@ class SwitchContentViewTest(TestCase):
         self.assertFalse(updated_message.show_original)
 
     def test_switch_content_user_message(self):
-        url = reverse('switch_content', args=[self.user_message.id])
-        response = self.client.get(url)
+        response = self.client.get(f'/switch_content/{self.user_message.id}/')
         self.assertEqual(response.status_code, 302)
 
         updated_user_message = Message.objects.get(pk=self.user_message.id)
@@ -265,7 +259,6 @@ class SwitchContentViewTest(TestCase):
         self.assertIsNone(updated_user_message.show_original)
 
     def test_switch_content_invalid_message_id(self):
-        url = reverse('switch_content', args=[999])
-        response = self.client.get(url)
+        response = self.client.get('/switch_content/999/')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.content, b'Invalid message ID')
