@@ -10,8 +10,7 @@ build-job:
     services:
       - docker:dind
     tags:
-      - bootcamp
-      - fi
+      - darkube
     stage: build
     image: docker:stable
     script:
