@@ -15,6 +15,7 @@ class ChatbotAdmin(admin.ModelAdmin):
     list_editable = ('description', 'name', 'is_active', 'custom_prompt', 'bot_photo')
     list_editable_links = None
 
+
     def get_total_likes_dislikes(self, obj):
         total_likes, total_dislikes = obj.calculate_likes_dislikes()
         return f'👍: {total_likes}, 👎: {total_dislikes}'
