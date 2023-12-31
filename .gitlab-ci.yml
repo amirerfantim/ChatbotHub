@@ -21,8 +21,7 @@ build-job:
 
 deploy-job:
     tags:
-      - bootcamp
-      - ir
+      - cloud-computing
     image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
     only:
        refs:
