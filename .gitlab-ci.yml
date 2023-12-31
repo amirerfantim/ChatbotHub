@@ -33,8 +33,7 @@ deploy-job:
 
 test-job:
     tags:
-      - bootcamp
-      - fi
+      - cloud-computing
     services:
       - ankane/pgvector:latest
     variables:
