@@ -6,6 +6,8 @@ stages:
 variables:
   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_TLS_CERTDIR: ""
 
 # variables:
 #   IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
