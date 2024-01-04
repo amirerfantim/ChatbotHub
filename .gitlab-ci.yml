@@ -6,7 +6,7 @@ stages:
 variables:
   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
-  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_HOST: "tcp://docker:2376"
   DOCKER_TLS_CERTDIR: ""
 
 # variables:
