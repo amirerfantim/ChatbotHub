@@ -57,4 +57,4 @@ test-job:
     stage: test
     image: $IMAGE
     script:
-      - python ./torob_chatbot/manage.py test
+      - python3 ./torob_chatbot/manage.py test
