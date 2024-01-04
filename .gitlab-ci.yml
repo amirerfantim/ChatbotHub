@@ -10,7 +10,7 @@ build-job:
     services:
       - docker:dind
     tags:
-      - cc
+      - cloud-computing
     stage: build
     image: docker:stable
     script:
@@ -21,7 +21,7 @@ build-job:
 
 deploy-job:
     tags:
-      - cc
+      - cloud-computing
     image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
     only:
        refs:
@@ -32,7 +32,7 @@ deploy-job:
 
 test-job:
     tags:
-      - cc
+      - cloud-computing
     services:
       - ankane/pgvector:latest
     variables:
