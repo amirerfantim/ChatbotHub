@@ -6,7 +6,10 @@ stages:
 variables:
   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
-  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_HOST: tcp://localhost:2375/
+    # Use the overlayfs driver for improved performance:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
 
   # DOCKER_HOST: "tcp://docker:2376"
   # DOCKER_TLS_CERTDIR: ""
