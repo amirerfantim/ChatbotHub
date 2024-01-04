@@ -8,6 +8,7 @@ variables:
   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
+  DOCKER_HOST: "tcp://docker:2375"
 
 
   # DOCKER_HOST: "tcp://docker:2376"
@@ -17,6 +18,8 @@ variables:
 #   IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
 
 build-job:
+    before_script:
+      - docker info
     services:
       - docker:dind
     tags:
