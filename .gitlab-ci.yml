@@ -9,13 +9,14 @@ variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
   DOCKER_HOST: "tcp://docker:2375"
+  IMAGE: "$DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}"
 
 
   # DOCKER_HOST: "tcp://docker:2376"
   # DOCKER_TLS_CERTDIR: ""
 
 # variables:
-#   IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
+#   
 
 build-job:
     before_script:
@@ -57,4 +58,4 @@ test-job:
     stage: test
     image: $IMAGE
     script:
-      - python3 ./torob_chatbot/manage.py test
+      - python ./torob_chatbot/manage.py test
