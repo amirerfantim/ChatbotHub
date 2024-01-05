@@ -3,24 +3,23 @@ stages:
   - "test"
   - "deploy"
 
-variables:
-  DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
-  DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_HOST: "tcp://docker:2375"
-  IMAGE: "$DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}"
-
-
-  # DOCKER_HOST: "tcp://docker:2376"
-  # DOCKER_TLS_CERTDIR: ""
-
 # variables:
-#   
+#   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
+#   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
+#   DOCKER_DRIVER: overlay2
+#   DOCKER_TLS_CERTDIR: ""
+#   DOCKER_HOST: "tcp://docker:2375"
+#   IMAGE: "$DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}"
+
+
+#   # DOCKER_HOST: "tcp://docker:2376"
+#   # DOCKER_TLS_CERTDIR: ""
+
+
+variables:
+  IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
 
 build-job:
-    before_script:
-      - docker info
     services:
       - docker:dind
     tags:
@@ -28,10 +27,10 @@ build-job:
     stage: build
     image: docker:stable
     script:
-        # - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
-        - echo 56325632aA | docker login -u amirerfant --password-stdin
-        - docker build -t $DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA} ./torob_chatbot
-        - docker push $DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}
+        - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
+        - docker build -t $IMAGE ./torob_chatbot
+        - docker push $IMAGE
+
 
 
 deploy-job:
