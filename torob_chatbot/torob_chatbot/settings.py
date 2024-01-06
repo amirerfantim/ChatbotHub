@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-g@%!^m!u8)(&gtf10f#=jcc!!pox)761br_bs(ly&*%g8^t1qv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = ['amirerfan-torob-chatbot.darkube.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['chatbot.darkube.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -59,7 +59,7 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://amirerfan-torob-chatbot.darkube.app'
+    'https://chatbot.darkube.app'
 ]
 
 ROOT_URLCONF = 'torob_chatbot.urls'
