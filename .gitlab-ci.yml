@@ -3,15 +3,29 @@ stages:
   - "test"
   - "deploy"
 
+# variables:
+#   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
+#   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
+#   DOCKER_DRIVER: overlay2
+#   DOCKER_TLS_CERTDIR: ""
+#   DOCKER_HOST: "tcp://docker:2375"
+#   IMAGE: "$DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}"
+
+
+#   # DOCKER_HOST: "tcp://docker:2376"
+#   # DOCKER_TLS_CERTDIR: ""
+
+
 variables:
-  IMAGE: "registry.hamdocker.ir/torob-bootcamp-1402/amirerfan-torob-chatbot:${CI_COMMIT_SHORT_SHA}"
+  IMAGE: "registry.hamdocker.ir/amirerfan/chatbot:${CI_COMMIT_SHORT_SHA}"
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
 
 build-job:
     services:
       - docker:dind
     tags:
-      - bootcamp
-      - fi
+      - "2"
     stage: build
     image: docker:stable
     script:
@@ -20,10 +34,10 @@ build-job:
         - docker push $IMAGE
 
 
+
 deploy-job:
     tags:
-      - bootcamp
-      - ir
+      - "2"
     image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
     only:
        refs:
@@ -34,8 +48,7 @@ deploy-job:
 
 test-job:
     tags:
-      - bootcamp
-      - fi
+      - "2"
     services:
       - ankane/pgvector:latest
     variables:
