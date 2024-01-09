@@ -3,18 +3,6 @@ stages:
   - "test"
   - "deploy"
 
-# variables:
-#   DOCKERHUB_USERNAME: "amirerfant" # Replace with your Docker Hub username
-#   DOCKERHUB_IMAGE: "amirerfant/torob-chatbot" 
-#   DOCKER_DRIVER: overlay2
-#   DOCKER_TLS_CERTDIR: ""
-#   DOCKER_HOST: "tcp://docker:2375"
-#   IMAGE: "$DOCKERHUB_IMAGE:${CI_COMMIT_SHORT_SHA}"
-
-
-#   # DOCKER_HOST: "tcp://docker:2376"
-#   # DOCKER_TLS_CERTDIR: ""
-
 
 variables:
   IMAGE: "registry.hamdocker.ir/amirerfan/chatbot:${CI_COMMIT_SHORT_SHA}"
