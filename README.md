@@ -110,4 +110,4 @@ python test-dataset.py
 
 ## 🙌 Authors and Acknowledgments
 - **Main Author**: Amirerfan Teimoori 👨‍💻
-- **Acknowledgments**: ChatbotHub Bootcamp 1402 team for guidance and mentorship. 🙏
+- **Acknowledgments**: Torob Bootcamp 1402 team for guidance and mentorship. 🙏
