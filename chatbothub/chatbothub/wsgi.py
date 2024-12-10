@@ -1,5 +1,5 @@
 """
-WSGI config for torob_chatbot project.
+WSGI config for chatbothub project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'torob_chatbot.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chatbothub.settings')
 
 application = get_wsgi_application()

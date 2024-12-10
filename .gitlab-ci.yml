@@ -18,7 +18,7 @@ build-job:
     image: docker:stable
     script:
         - mkdir -p ~/.docker && cat "$DOCKER_AUTH" > ~/.docker/config.json
-        - docker build -t $IMAGE ./torob_chatbot
+        - docker build -t $IMAGE ./chatbothub
         - docker push $IMAGE
 
 
@@ -47,4 +47,4 @@ test-job:
     stage: test
     image: $IMAGE
     script:
-      - python ./torob_chatbot/manage.py test
+      - python ./chatbothub/manage.py test
