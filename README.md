@@ -65,8 +65,8 @@ Without a key the app starts and its pages load, but the features that call Open
 (conversations and embeddings) do not work. Set `OPENAI_BASEURL` to use an OpenAI-compatible service
 other than OpenAI.
 
-To get a first chatbot, sign in to `/admin/`, add a chatbot (with a photo, see
-[Known issues](#known-issues)) and add content to it. Then open `/chatbots/`.
+To get a first chatbot, sign in to `/admin/`, add a chatbot (with a photo) and add
+content to it. Then open `/chatbots/`.
 
 Stop the app and delete its database with `docker compose down -v`.
 
@@ -162,8 +162,6 @@ Blogpost.pdf         write-up of the project
 
 ## Known issues
 
-- A chatbot needs a photo. The chatbot list page fails for a chatbot that has
-  none, so set `bot_photo` when you add one in the admin.
 - `SECRET_KEY` and `ALLOWED_HOSTS` are fixed values in `settings.py`. Change them
   before any real deployment.
 - The Dockerfile has no start command. The compose file supplies one.
