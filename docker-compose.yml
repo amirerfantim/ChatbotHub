@@ -1,0 +1,38 @@
+# Local trial run: the web app and a PostgreSQL server with the pgvector extension.
+# The passwords below are examples. Do not use this file for a real deployment.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: chatbothub
+      POSTGRES_PASSWORD: chatbothub
+      POSTGRES_DB: chatbothub
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatbothub -d chatbothub"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - chatbothub-pgdata:/var/lib/postgresql/data
+
+  web:
+    build: ./chatbothub
+    working_dir: /app
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DEBUG: "True"
+      DB_NAME: chatbothub
+      DB_USER: chatbothub
+      DB_PASSWORD: chatbothub
+      DB_HOST: db
+      DB_PORT: "5432"
+      OPENAI_KEY: ${OPENAI_KEY:-}
+      OPENAI_BASEURL: ${OPENAI_BASEURL:-https://api.openai.com/v1}
+    ports:
+      - "${CHATBOTHUB_PORT:-8000}:8000"
+
+volumes:
+  chatbothub-pgdata:
